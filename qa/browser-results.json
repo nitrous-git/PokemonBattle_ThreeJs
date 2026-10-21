@@ -1,0 +1,17 @@
+{
+  "checks": [
+    "Clean save → starter → 16-species setup",
+    "Win via effective Electric move; rapid click guarded; Space skip; resize mid-turn",
+    "Reload preserves XP, level, wallet, four moves and reward journal",
+    "Two victories → atomic purchase → refresh retains ownership; no duplicate reward",
+    "Unaffordable purchases disabled; owned species cannot be repurchased",
+    "Canyon/Astral; Hard AI; Low VFX; Reduced Motion; scale and playback settings",
+    "390px responsive controls without horizontal overflow",
+    "No external network requests and no browser errors in normal runtime",
+    "Missing back atlas safely uses original back-facing stand-in"
+  ],
+  "errors": [],
+  "external": [],
+  "environment": "Chromium 141 headless / SwiftShader, Linux",
+  "passed": true
+}

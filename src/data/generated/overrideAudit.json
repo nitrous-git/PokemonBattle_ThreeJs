@@ -1,0 +1,16 @@
+[
+  {
+    "id": "growth",
+    "key": "type",
+    "sourceValue": "normal",
+    "effectiveValue": "grass",
+    "reason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  {
+    "id": "confuse-ray",
+    "key": "accuracy",
+    "sourceValue": 100,
+    "effectiveValue": null,
+    "reason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  }
+]

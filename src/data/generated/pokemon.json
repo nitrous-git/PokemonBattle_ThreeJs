@@ -1,0 +1,524 @@
+{
+  "pikachu": {
+    "id": "pikachu",
+    "dexNumber": 25,
+    "displayName": "Pikachu",
+    "baseStats": {
+      "hp": 35,
+      "attack": 55,
+      "defense": 40,
+      "spAttack": 50,
+      "spDefense": 50,
+      "speed": 90
+    },
+    "types": [
+      "electric"
+    ],
+    "priceCoins": 300,
+    "rarity": "starter/common",
+    "visualScale": 1,
+    "customMoves": {
+      "tackle": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality."
+    },
+    "legalMoves": [
+      "thunder-shock",
+      "spark",
+      "thunderbolt",
+      "thunder-wave",
+      "quick-attack",
+      "tackle",
+      "tail-whip",
+      "growl",
+      "charge"
+    ]
+  },
+  "bulbasaur": {
+    "id": "bulbasaur",
+    "dexNumber": 1,
+    "displayName": "Bulbasaur",
+    "baseStats": {
+      "hp": 45,
+      "attack": 49,
+      "defense": 49,
+      "spAttack": 65,
+      "spDefense": 65,
+      "speed": 45
+    },
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "priceCoins": 300,
+    "rarity": "starter/common",
+    "visualScale": 1,
+    "customMoves": {
+      "poison-sting": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality.",
+      "poison-gas": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality."
+    },
+    "legalMoves": [
+      "vine-whip",
+      "razor-leaf",
+      "seed-bomb",
+      "poison-sting",
+      "poison-gas",
+      "sleep-powder",
+      "growth",
+      "tackle",
+      "growl"
+    ]
+  },
+  "charmander": {
+    "id": "charmander",
+    "dexNumber": 4,
+    "displayName": "Charmander",
+    "baseStats": {
+      "hp": 39,
+      "attack": 52,
+      "defense": 43,
+      "spAttack": 60,
+      "spDefense": 50,
+      "speed": 65
+    },
+    "types": [
+      "fire"
+    ],
+    "priceCoins": 300,
+    "rarity": "starter/common",
+    "visualScale": 1,
+    "customMoves": {
+      "flame-wheel": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality.",
+      "tail-whip": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality."
+    },
+    "legalMoves": [
+      "ember",
+      "flame-wheel",
+      "fire-fang",
+      "flamethrower",
+      "scratch",
+      "swift",
+      "growl",
+      "tail-whip"
+    ]
+  },
+  "squirtle": {
+    "id": "squirtle",
+    "dexNumber": 7,
+    "displayName": "Squirtle",
+    "baseStats": {
+      "hp": 44,
+      "attack": 48,
+      "defense": 65,
+      "spAttack": 50,
+      "spDefense": 64,
+      "speed": 43
+    },
+    "types": [
+      "water"
+    ],
+    "priceCoins": 300,
+    "rarity": "starter/common",
+    "visualScale": 1,
+    "customMoves": {},
+    "legalMoves": [
+      "water-gun",
+      "bubble-beam",
+      "aqua-tail",
+      "hydro-pump",
+      "withdraw",
+      "tackle",
+      "rapid-spin",
+      "tail-whip"
+    ]
+  },
+  "eevee": {
+    "id": "eevee",
+    "dexNumber": 133,
+    "displayName": "Eevee",
+    "baseStats": {
+      "hp": 55,
+      "attack": 55,
+      "defense": 50,
+      "spAttack": 45,
+      "spDefense": 65,
+      "speed": 55
+    },
+    "types": [
+      "normal"
+    ],
+    "priceCoins": 320,
+    "rarity": "common",
+    "visualScale": 1,
+    "customMoves": {},
+    "legalMoves": [
+      "tackle",
+      "quick-attack",
+      "body-slam",
+      "swift",
+      "bite",
+      "growl",
+      "tail-whip",
+      "sand-attack"
+    ]
+  },
+  "sandshrew": {
+    "id": "sandshrew",
+    "dexNumber": 27,
+    "displayName": "Sandshrew",
+    "baseStats": {
+      "hp": 50,
+      "attack": 75,
+      "defense": 85,
+      "spAttack": 20,
+      "spDefense": 30,
+      "speed": 40
+    },
+    "types": [
+      "ground"
+    ],
+    "priceCoins": 350,
+    "rarity": "common",
+    "visualScale": 1,
+    "customMoves": {
+      "rock-throw": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality.",
+      "harden": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality."
+    },
+    "legalMoves": [
+      "mud-slap",
+      "bulldoze",
+      "earth-power",
+      "sand-attack",
+      "scratch",
+      "swift",
+      "rock-throw",
+      "harden"
+    ]
+  },
+  "growlithe": {
+    "id": "growlithe",
+    "dexNumber": 58,
+    "displayName": "Growlithe",
+    "baseStats": {
+      "hp": 55,
+      "attack": 70,
+      "defense": 45,
+      "spAttack": 70,
+      "spDefense": 50,
+      "speed": 60
+    },
+    "types": [
+      "fire"
+    ],
+    "priceCoins": 450,
+    "rarity": "rare",
+    "visualScale": 1,
+    "customMoves": {
+      "quick-attack": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality.",
+      "growl": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality."
+    },
+    "legalMoves": [
+      "ember",
+      "flame-wheel",
+      "fire-fang",
+      "flamethrower",
+      "bite",
+      "crunch",
+      "quick-attack",
+      "growl",
+      "will-o-wisp"
+    ]
+  },
+  "magnemite": {
+    "id": "magnemite",
+    "dexNumber": 81,
+    "displayName": "Magnemite",
+    "baseStats": {
+      "hp": 25,
+      "attack": 35,
+      "defense": 70,
+      "spAttack": 95,
+      "spDefense": 55,
+      "speed": 45
+    },
+    "types": [
+      "electric",
+      "steel"
+    ],
+    "priceCoins": 550,
+    "rarity": "rare",
+    "visualScale": 1,
+    "customMoves": {
+      "metal-claw": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality."
+    },
+    "legalMoves": [
+      "thunder-shock",
+      "spark",
+      "thunderbolt",
+      "thunder-wave",
+      "metal-claw",
+      "flash-cannon",
+      "charge",
+      "swift"
+    ]
+  },
+  "gastly": {
+    "id": "gastly",
+    "dexNumber": 92,
+    "displayName": "Gastly",
+    "baseStats": {
+      "hp": 30,
+      "attack": 35,
+      "defense": 30,
+      "spAttack": 100,
+      "spDefense": 35,
+      "speed": 80
+    },
+    "types": [
+      "ghost",
+      "poison"
+    ],
+    "priceCoins": 620,
+    "rarity": "rare",
+    "visualScale": 1,
+    "customMoves": {
+      "acid": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality.",
+      "swift": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality."
+    },
+    "legalMoves": [
+      "lick",
+      "shadow-ball",
+      "confuse-ray",
+      "hypnosis",
+      "smog",
+      "poison-gas",
+      "acid",
+      "psychic",
+      "swift"
+    ]
+  },
+  "abra": {
+    "id": "abra",
+    "dexNumber": 63,
+    "displayName": "Abra",
+    "baseStats": {
+      "hp": 25,
+      "attack": 20,
+      "defense": 15,
+      "spAttack": 105,
+      "spDefense": 55,
+      "speed": 90
+    },
+    "types": [
+      "psychic"
+    ],
+    "priceCoins": 650,
+    "rarity": "rare",
+    "visualScale": 1,
+    "customMoves": {
+      "psybeam": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality.",
+      "hypnosis": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality.",
+      "charge": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality."
+    },
+    "legalMoves": [
+      "confusion",
+      "psybeam",
+      "psychic",
+      "calm-mind",
+      "hypnosis",
+      "swift",
+      "shadow-ball",
+      "charge"
+    ]
+  },
+  "geodude": {
+    "id": "geodude",
+    "dexNumber": 74,
+    "displayName": "Geodude",
+    "baseStats": {
+      "hp": 40,
+      "attack": 80,
+      "defense": 100,
+      "spAttack": 30,
+      "spDefense": 30,
+      "speed": 20
+    },
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "priceCoins": 350,
+    "rarity": "common",
+    "visualScale": 1,
+    "customMoves": {},
+    "legalMoves": [
+      "rock-throw",
+      "rock-slide",
+      "rock-polish",
+      "bulldoze",
+      "mud-slap",
+      "tackle",
+      "harden",
+      "brick-break"
+    ]
+  },
+  "psyduck": {
+    "id": "psyduck",
+    "dexNumber": 54,
+    "displayName": "Psyduck",
+    "baseStats": {
+      "hp": 50,
+      "attack": 52,
+      "defense": 48,
+      "spAttack": 65,
+      "spDefense": 50,
+      "speed": 55
+    },
+    "types": [
+      "water"
+    ],
+    "priceCoins": 380,
+    "rarity": "common",
+    "visualScale": 1,
+    "customMoves": {},
+    "legalMoves": [
+      "water-gun",
+      "bubble-beam",
+      "hydro-pump",
+      "confusion",
+      "psybeam",
+      "scratch",
+      "swift",
+      "tail-whip"
+    ]
+  },
+  "machop": {
+    "id": "machop",
+    "dexNumber": 66,
+    "displayName": "Machop",
+    "baseStats": {
+      "hp": 70,
+      "attack": 80,
+      "defense": 50,
+      "spAttack": 35,
+      "spDefense": 35,
+      "speed": 35
+    },
+    "types": [
+      "fighting"
+    ],
+    "priceCoins": 500,
+    "rarity": "rare",
+    "visualScale": 1,
+    "customMoves": {
+      "rock-throw": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality.",
+      "growl": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality."
+    },
+    "legalMoves": [
+      "karate-chop",
+      "brick-break",
+      "bulk-up",
+      "tackle",
+      "body-slam",
+      "rock-throw",
+      "bulldoze",
+      "growl"
+    ]
+  },
+  "dratini": {
+    "id": "dratini",
+    "dexNumber": 147,
+    "displayName": "Dratini",
+    "baseStats": {
+      "hp": 41,
+      "attack": 64,
+      "defense": 45,
+      "spAttack": 50,
+      "spDefense": 50,
+      "speed": 50
+    },
+    "types": [
+      "dragon"
+    ],
+    "priceCoins": 1100,
+    "rarity": "premium",
+    "visualScale": 1,
+    "customMoves": {
+      "dragon-claw": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality.",
+      "growl": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality."
+    },
+    "legalMoves": [
+      "twister",
+      "dragon-breath",
+      "dragon-claw",
+      "thunder-wave",
+      "thunderbolt",
+      "aqua-tail",
+      "swift",
+      "growl"
+    ]
+  },
+  "charizard": {
+    "id": "charizard",
+    "dexNumber": 6,
+    "displayName": "Charizard",
+    "baseStats": {
+      "hp": 78,
+      "attack": 84,
+      "defense": 78,
+      "spAttack": 109,
+      "spDefense": 85,
+      "speed": 100
+    },
+    "types": [
+      "fire",
+      "flying"
+    ],
+    "priceCoins": 1500,
+    "rarity": "premium",
+    "visualScale": 1.3,
+    "customMoves": {
+      "flame-wheel": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality.",
+      "gust": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality."
+    },
+    "legalMoves": [
+      "ember",
+      "flamethrower",
+      "fire-fang",
+      "flame-wheel",
+      "gust",
+      "wing-attack",
+      "dragon-claw",
+      "scratch",
+      "will-o-wisp"
+    ]
+  },
+  "blastoise": {
+    "id": "blastoise",
+    "dexNumber": 9,
+    "displayName": "Blastoise",
+    "baseStats": {
+      "hp": 79,
+      "attack": 83,
+      "defense": 100,
+      "spAttack": 85,
+      "spDefense": 105,
+      "speed": 78
+    },
+    "types": [
+      "water"
+    ],
+    "priceCoins": 1450,
+    "rarity": "premium",
+    "visualScale": 1.3,
+    "customMoves": {},
+    "legalMoves": [
+      "water-gun",
+      "bubble-beam",
+      "hydro-pump",
+      "aqua-tail",
+      "withdraw",
+      "rapid-spin",
+      "ice-beam",
+      "body-slam"
+    ]
+  }
+}

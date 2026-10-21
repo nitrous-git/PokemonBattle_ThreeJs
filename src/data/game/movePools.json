@@ -1,0 +1,167 @@
+{
+  "pikachu": [
+    "thunder-shock",
+    "spark",
+    "thunderbolt",
+    "thunder-wave",
+    "quick-attack",
+    "tackle",
+    "tail-whip",
+    "growl",
+    "charge"
+  ],
+  "bulbasaur": [
+    "vine-whip",
+    "razor-leaf",
+    "seed-bomb",
+    "poison-sting",
+    "poison-gas",
+    "sleep-powder",
+    "growth",
+    "tackle",
+    "growl"
+  ],
+  "charmander": [
+    "ember",
+    "flame-wheel",
+    "fire-fang",
+    "flamethrower",
+    "scratch",
+    "swift",
+    "growl",
+    "tail-whip"
+  ],
+  "squirtle": [
+    "water-gun",
+    "bubble-beam",
+    "aqua-tail",
+    "hydro-pump",
+    "withdraw",
+    "tackle",
+    "rapid-spin",
+    "tail-whip"
+  ],
+  "eevee": [
+    "tackle",
+    "quick-attack",
+    "body-slam",
+    "swift",
+    "bite",
+    "growl",
+    "tail-whip",
+    "sand-attack"
+  ],
+  "sandshrew": [
+    "mud-slap",
+    "bulldoze",
+    "earth-power",
+    "sand-attack",
+    "scratch",
+    "swift",
+    "rock-throw",
+    "harden"
+  ],
+  "growlithe": [
+    "ember",
+    "flame-wheel",
+    "fire-fang",
+    "flamethrower",
+    "bite",
+    "crunch",
+    "quick-attack",
+    "growl",
+    "will-o-wisp"
+  ],
+  "magnemite": [
+    "thunder-shock",
+    "spark",
+    "thunderbolt",
+    "thunder-wave",
+    "metal-claw",
+    "flash-cannon",
+    "charge",
+    "swift"
+  ],
+  "gastly": [
+    "lick",
+    "shadow-ball",
+    "confuse-ray",
+    "hypnosis",
+    "smog",
+    "poison-gas",
+    "acid",
+    "psychic",
+    "swift"
+  ],
+  "abra": [
+    "confusion",
+    "psybeam",
+    "psychic",
+    "calm-mind",
+    "hypnosis",
+    "swift",
+    "shadow-ball",
+    "charge"
+  ],
+  "geodude": [
+    "rock-throw",
+    "rock-slide",
+    "rock-polish",
+    "bulldoze",
+    "mud-slap",
+    "tackle",
+    "harden",
+    "brick-break"
+  ],
+  "psyduck": [
+    "water-gun",
+    "bubble-beam",
+    "hydro-pump",
+    "confusion",
+    "psybeam",
+    "scratch",
+    "swift",
+    "tail-whip"
+  ],
+  "machop": [
+    "karate-chop",
+    "brick-break",
+    "bulk-up",
+    "tackle",
+    "body-slam",
+    "rock-throw",
+    "bulldoze",
+    "growl"
+  ],
+  "dratini": [
+    "twister",
+    "dragon-breath",
+    "dragon-claw",
+    "thunder-wave",
+    "thunderbolt",
+    "aqua-tail",
+    "swift",
+    "growl"
+  ],
+  "charizard": [
+    "ember",
+    "flamethrower",
+    "fire-fang",
+    "flame-wheel",
+    "gust",
+    "wing-attack",
+    "dragon-claw",
+    "scratch",
+    "will-o-wisp"
+  ],
+  "blastoise": [
+    "water-gun",
+    "bubble-beam",
+    "hydro-pump",
+    "aqua-tail",
+    "withdraw",
+    "rapid-spin",
+    "ice-beam",
+    "body-slam"
+  ]
+}

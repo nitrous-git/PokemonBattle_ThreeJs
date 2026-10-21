@@ -1,0 +1,57 @@
+.type-normal {
+  --type: #9caa8f;
+}
+.type-fire {
+  --type: #d98a59;
+}
+.type-water {
+  --type: #79a9c3;
+}
+.type-electric {
+  --type: #ceb35d;
+}
+.type-grass {
+  --type: #7baf72;
+}
+.type-ice {
+  --type: #81b8b9;
+}
+.type-fighting {
+  --type: #bd7d63;
+}
+.type-poison {
+  --type: #aa89bc;
+}
+.type-ground {
+  --type: #baa16a;
+}
+.type-flying {
+  --type: #9baccc;
+}
+.type-psychic {
+  --type: #cb8ea8;
+}
+.type-bug {
+  --type: #a2ac63;
+}
+.type-rock {
+  --type: #aaa074;
+}
+.type-ghost {
+  --type: #9992b9;
+}
+.type-dragon {
+  --type: #928cbb;
+}
+.type-dark {
+  --type: #8b7c91;
+}
+.type-steel {
+  --type: #96a9aa;
+}
+.type-fairy {
+  --type: #c995b0;
+}
+.type-typeless {
+  --type: #9ca997;
+}

@@ -1,0 +1,1372 @@
+{
+  "tackle": {
+    "name": "Tackle",
+    "type": "normal",
+    "category": "physical",
+    "power": 40,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 35,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      }
+    ],
+    "description": "\u2014",
+    "vfxPreset": "normal",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "scratch": {
+    "name": "Scratch",
+    "type": "normal",
+    "category": "physical",
+    "power": 40,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 35,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      }
+    ],
+    "description": "\u2014",
+    "vfxPreset": "normal",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "quick-attack": {
+    "name": "Quick Attack",
+    "type": "normal",
+    "category": "physical",
+    "power": 40,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 30,
+    "priority": 1,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      }
+    ],
+    "description": "priority +1",
+    "vfxPreset": "normal",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "body-slam": {
+    "name": "Body Slam",
+    "type": "normal",
+    "category": "physical",
+    "power": 85,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 15,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      },
+      {
+        "kind": "APPLY_MAJOR_STATUS",
+        "status": "paralysis",
+        "chance": 0.3
+      }
+    ],
+    "description": "30% paralysis",
+    "vfxPreset": "normal",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "swift": {
+    "name": "Swift",
+    "type": "normal",
+    "category": "special",
+    "power": 60,
+    "accuracy": null,
+    "alwaysHit": true,
+    "maxPP": 20,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      }
+    ],
+    "description": "always-hit",
+    "vfxPreset": "normal",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "rapid-spin": {
+    "name": "Rapid Spin",
+    "type": "normal",
+    "category": "physical",
+    "power": 50,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 40,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      }
+    ],
+    "description": "basic damage only (no hazard clearing v1)",
+    "vfxPreset": "normal",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "growl": {
+    "name": "Growl",
+    "type": "normal",
+    "category": "status",
+    "power": null,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 40,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "STAT_STAGE",
+        "stat": "attack",
+        "stages": -1,
+        "chance": 1,
+        "target": "opponent"
+      }
+    ],
+    "description": "foe ATK \u22121 stage",
+    "vfxPreset": "status",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "tail-whip": {
+    "name": "Tail Whip",
+    "type": "normal",
+    "category": "status",
+    "power": null,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 30,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "STAT_STAGE",
+        "stat": "defense",
+        "stages": -1,
+        "chance": 1,
+        "target": "opponent"
+      }
+    ],
+    "description": "foe DEF \u22121 stage",
+    "vfxPreset": "status",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "harden": {
+    "name": "Harden",
+    "type": "normal",
+    "category": "status",
+    "power": null,
+    "accuracy": null,
+    "alwaysHit": true,
+    "maxPP": 30,
+    "priority": 0,
+    "target": "self",
+    "effects": [
+      {
+        "kind": "STAT_STAGE",
+        "stat": "defense",
+        "stages": 1,
+        "chance": 1,
+        "target": "self"
+      }
+    ],
+    "description": "self DEF +1 stage",
+    "vfxPreset": "status",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "ember": {
+    "name": "Ember",
+    "type": "fire",
+    "category": "special",
+    "power": 40,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 25,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      },
+      {
+        "kind": "APPLY_MAJOR_STATUS",
+        "status": "burn",
+        "chance": 0.1
+      }
+    ],
+    "description": "10% burn",
+    "vfxPreset": "fire",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "flame-wheel": {
+    "name": "Flame Wheel",
+    "type": "fire",
+    "category": "physical",
+    "power": 60,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 25,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      },
+      {
+        "kind": "APPLY_MAJOR_STATUS",
+        "status": "burn",
+        "chance": 0.1
+      }
+    ],
+    "description": "10% burn",
+    "vfxPreset": "fire",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "fire-fang": {
+    "name": "Fire Fang",
+    "type": "fire",
+    "category": "physical",
+    "power": 65,
+    "accuracy": 95,
+    "alwaysHit": false,
+    "maxPP": 15,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      },
+      {
+        "kind": "APPLY_MAJOR_STATUS",
+        "status": "burn",
+        "chance": 0.1
+      }
+    ],
+    "description": "10% burn",
+    "vfxPreset": "fire",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "flamethrower": {
+    "name": "Flamethrower",
+    "type": "fire",
+    "category": "special",
+    "power": 90,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 15,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      },
+      {
+        "kind": "APPLY_MAJOR_STATUS",
+        "status": "burn",
+        "chance": 0.1
+      }
+    ],
+    "description": "10% burn",
+    "vfxPreset": "fire",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "will-o-wisp": {
+    "name": "Will O Wisp",
+    "type": "fire",
+    "category": "status",
+    "power": null,
+    "accuracy": 85,
+    "alwaysHit": false,
+    "maxPP": 15,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "APPLY_MAJOR_STATUS",
+        "status": "burn",
+        "chance": 1
+      }
+    ],
+    "description": "burn foe",
+    "vfxPreset": "status",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "water-gun": {
+    "name": "Water Gun",
+    "type": "water",
+    "category": "special",
+    "power": 40,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 25,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      }
+    ],
+    "description": "\u2014",
+    "vfxPreset": "water",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "bubble-beam": {
+    "name": "Bubble Beam",
+    "type": "water",
+    "category": "special",
+    "power": 65,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 20,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      },
+      {
+        "kind": "STAT_STAGE",
+        "stat": "speed",
+        "stages": -1,
+        "chance": 0.1,
+        "target": "opponent"
+      }
+    ],
+    "description": "10% foe Speed \u22121",
+    "vfxPreset": "water",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "aqua-tail": {
+    "name": "Aqua Tail",
+    "type": "water",
+    "category": "physical",
+    "power": 90,
+    "accuracy": 90,
+    "alwaysHit": false,
+    "maxPP": 10,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      }
+    ],
+    "description": "\u2014",
+    "vfxPreset": "water",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "hydro-pump": {
+    "name": "Hydro Pump",
+    "type": "water",
+    "category": "special",
+    "power": 110,
+    "accuracy": 80,
+    "alwaysHit": false,
+    "maxPP": 5,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      }
+    ],
+    "description": "\u2014",
+    "vfxPreset": "water",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "withdraw": {
+    "name": "Withdraw",
+    "type": "water",
+    "category": "status",
+    "power": null,
+    "accuracy": null,
+    "alwaysHit": true,
+    "maxPP": 40,
+    "priority": 0,
+    "target": "self",
+    "effects": [
+      {
+        "kind": "STAT_STAGE",
+        "stat": "defense",
+        "stages": 1,
+        "chance": 1,
+        "target": "self"
+      }
+    ],
+    "description": "self DEF +1",
+    "vfxPreset": "status",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "vine-whip": {
+    "name": "Vine Whip",
+    "type": "grass",
+    "category": "physical",
+    "power": 45,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 25,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      }
+    ],
+    "description": "\u2014",
+    "vfxPreset": "grass",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "razor-leaf": {
+    "name": "Razor Leaf",
+    "type": "grass",
+    "category": "physical",
+    "power": 55,
+    "accuracy": 95,
+    "alwaysHit": false,
+    "maxPP": 25,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      }
+    ],
+    "description": "crit 1/8 rather than 1/16",
+    "vfxPreset": "grass",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics.",
+    "critChance": 0.125
+  },
+  "seed-bomb": {
+    "name": "Seed Bomb",
+    "type": "grass",
+    "category": "physical",
+    "power": 80,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 15,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      }
+    ],
+    "description": "\u2014",
+    "vfxPreset": "grass",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "growth": {
+    "name": "Growth",
+    "type": "grass",
+    "category": "status",
+    "power": null,
+    "accuracy": null,
+    "alwaysHit": true,
+    "maxPP": 20,
+    "priority": 0,
+    "target": "self",
+    "effects": [
+      {
+        "kind": "STAT_STAGE",
+        "stat": "spAttack",
+        "stages": 1,
+        "chance": 1,
+        "target": "self"
+      }
+    ],
+    "description": "self SpA +1",
+    "vfxPreset": "status",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "sleep-powder": {
+    "name": "Sleep Powder",
+    "type": "grass",
+    "category": "status",
+    "power": null,
+    "accuracy": 75,
+    "alwaysHit": false,
+    "maxPP": 15,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "APPLY_MAJOR_STATUS",
+        "status": "sleep",
+        "chance": 1
+      }
+    ],
+    "description": "sleep foe",
+    "vfxPreset": "status",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "thunder-shock": {
+    "name": "Thunder Shock",
+    "type": "electric",
+    "category": "special",
+    "power": 40,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 30,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      },
+      {
+        "kind": "APPLY_MAJOR_STATUS",
+        "status": "paralysis",
+        "chance": 0.1
+      }
+    ],
+    "description": "10% paralysis",
+    "vfxPreset": "electric",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "spark": {
+    "name": "Spark",
+    "type": "electric",
+    "category": "physical",
+    "power": 65,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 20,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      },
+      {
+        "kind": "APPLY_MAJOR_STATUS",
+        "status": "paralysis",
+        "chance": 0.3
+      }
+    ],
+    "description": "30% paralysis",
+    "vfxPreset": "electric",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "thunderbolt": {
+    "name": "Thunderbolt",
+    "type": "electric",
+    "category": "special",
+    "power": 90,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 15,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      },
+      {
+        "kind": "APPLY_MAJOR_STATUS",
+        "status": "paralysis",
+        "chance": 0.1
+      }
+    ],
+    "description": "10% paralysis",
+    "vfxPreset": "electric",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "thunder-wave": {
+    "name": "Thunder Wave",
+    "type": "electric",
+    "category": "status",
+    "power": null,
+    "accuracy": 90,
+    "alwaysHit": false,
+    "maxPP": 20,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "APPLY_MAJOR_STATUS",
+        "status": "paralysis",
+        "chance": 1
+      }
+    ],
+    "description": "paralysis foe; respects Electric\u2192Ground immunity",
+    "vfxPreset": "status",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics.",
+    "immunityRule": "type-chart"
+  },
+  "charge": {
+    "name": "Charge",
+    "type": "electric",
+    "category": "status",
+    "power": null,
+    "accuracy": null,
+    "alwaysHit": true,
+    "maxPP": 20,
+    "priority": 0,
+    "target": "self",
+    "effects": [
+      {
+        "kind": "STAT_STAGE",
+        "stat": "spAttack",
+        "stages": 1,
+        "chance": 1,
+        "target": "self"
+      }
+    ],
+    "description": "custom simplified self SpA +1",
+    "vfxPreset": "status",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "mud-slap": {
+    "name": "Mud Slap",
+    "type": "ground",
+    "category": "special",
+    "power": 20,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 10,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      },
+      {
+        "kind": "STAT_STAGE",
+        "stat": "accuracy",
+        "stages": -1,
+        "chance": 1,
+        "target": "opponent"
+      }
+    ],
+    "description": "foe Accuracy \u22121",
+    "vfxPreset": "ground",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "bulldoze": {
+    "name": "Bulldoze",
+    "type": "ground",
+    "category": "physical",
+    "power": 60,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 20,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      },
+      {
+        "kind": "STAT_STAGE",
+        "stat": "speed",
+        "stages": -1,
+        "chance": 1,
+        "target": "opponent"
+      }
+    ],
+    "description": "foe Speed \u22121",
+    "vfxPreset": "ground",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "earth-power": {
+    "name": "Earth Power",
+    "type": "ground",
+    "category": "special",
+    "power": 90,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 10,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      },
+      {
+        "kind": "STAT_STAGE",
+        "stat": "spDefense",
+        "stages": -1,
+        "chance": 0.1,
+        "target": "opponent"
+      }
+    ],
+    "description": "10% foe SpD \u22121",
+    "vfxPreset": "ground",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "sand-attack": {
+    "name": "Sand Attack",
+    "type": "ground",
+    "category": "status",
+    "power": null,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 15,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "STAT_STAGE",
+        "stat": "accuracy",
+        "stages": -1,
+        "chance": 1,
+        "target": "opponent"
+      }
+    ],
+    "description": "foe Accuracy \u22121",
+    "vfxPreset": "status",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "rock-throw": {
+    "name": "Rock Throw",
+    "type": "rock",
+    "category": "physical",
+    "power": 50,
+    "accuracy": 90,
+    "alwaysHit": false,
+    "maxPP": 15,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      }
+    ],
+    "description": "\u2014",
+    "vfxPreset": "rock",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "rock-slide": {
+    "name": "Rock Slide",
+    "type": "rock",
+    "category": "physical",
+    "power": 75,
+    "accuracy": 90,
+    "alwaysHit": false,
+    "maxPP": 10,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      }
+    ],
+    "description": "20% foe skipped-action/flinch? Exclude flinch in v1; basic damage only",
+    "vfxPreset": "rock",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "rock-polish": {
+    "name": "Rock Polish",
+    "type": "rock",
+    "category": "status",
+    "power": null,
+    "accuracy": null,
+    "alwaysHit": true,
+    "maxPP": 20,
+    "priority": 0,
+    "target": "self",
+    "effects": [
+      {
+        "kind": "STAT_STAGE",
+        "stat": "speed",
+        "stages": 2,
+        "chance": 1,
+        "target": "self"
+      }
+    ],
+    "description": "self Speed +2",
+    "vfxPreset": "status",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "lick": {
+    "name": "Lick",
+    "type": "ghost",
+    "category": "physical",
+    "power": 30,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 30,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      },
+      {
+        "kind": "APPLY_MAJOR_STATUS",
+        "status": "paralysis",
+        "chance": 0.3
+      }
+    ],
+    "description": "30% paralysis",
+    "vfxPreset": "ghost",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "shadow-ball": {
+    "name": "Shadow Ball",
+    "type": "ghost",
+    "category": "special",
+    "power": 80,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 15,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      },
+      {
+        "kind": "STAT_STAGE",
+        "stat": "spDefense",
+        "stages": -1,
+        "chance": 0.2,
+        "target": "opponent"
+      }
+    ],
+    "description": "20% foe SpD \u22121",
+    "vfxPreset": "ghost",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "confuse-ray": {
+    "name": "Confuse Ray",
+    "type": "ghost",
+    "category": "status",
+    "power": null,
+    "accuracy": null,
+    "alwaysHit": true,
+    "maxPP": 10,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "APPLY_CONFUSION",
+        "chance": 1
+      }
+    ],
+    "description": "confusion foe",
+    "vfxPreset": "status",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "confusion": {
+    "name": "Confusion",
+    "type": "psychic",
+    "category": "special",
+    "power": 50,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 25,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      },
+      {
+        "kind": "APPLY_CONFUSION",
+        "chance": 0.1
+      }
+    ],
+    "description": "10% confusion",
+    "vfxPreset": "psychic",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "psybeam": {
+    "name": "Psybeam",
+    "type": "psychic",
+    "category": "special",
+    "power": 65,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 20,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      },
+      {
+        "kind": "APPLY_CONFUSION",
+        "chance": 0.1
+      }
+    ],
+    "description": "10% confusion",
+    "vfxPreset": "psychic",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "psychic": {
+    "name": "Psychic",
+    "type": "psychic",
+    "category": "special",
+    "power": 90,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 10,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      },
+      {
+        "kind": "STAT_STAGE",
+        "stat": "spDefense",
+        "stages": -1,
+        "chance": 0.1,
+        "target": "opponent"
+      }
+    ],
+    "description": "10% foe SpD \u22121",
+    "vfxPreset": "psychic",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "calm-mind": {
+    "name": "Calm Mind",
+    "type": "psychic",
+    "category": "status",
+    "power": null,
+    "accuracy": null,
+    "alwaysHit": true,
+    "maxPP": 20,
+    "priority": 0,
+    "target": "self",
+    "effects": [
+      {
+        "kind": "STAT_STAGE",
+        "stat": "spAttack",
+        "stages": 1,
+        "chance": 1,
+        "target": "self"
+      },
+      {
+        "kind": "STAT_STAGE",
+        "stat": "spDefense",
+        "stages": 1,
+        "chance": 1,
+        "target": "self"
+      }
+    ],
+    "description": "self SpA +1 and SpD +1",
+    "vfxPreset": "status",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "hypnosis": {
+    "name": "Hypnosis",
+    "type": "psychic",
+    "category": "status",
+    "power": null,
+    "accuracy": 60,
+    "alwaysHit": false,
+    "maxPP": 20,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "APPLY_MAJOR_STATUS",
+        "status": "sleep",
+        "chance": 1
+      }
+    ],
+    "description": "sleep foe",
+    "vfxPreset": "status",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "karate-chop": {
+    "name": "Karate Chop",
+    "type": "fighting",
+    "category": "physical",
+    "power": 50,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 25,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      }
+    ],
+    "description": "crit 1/8",
+    "vfxPreset": "fighting",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics.",
+    "critChance": 0.125
+  },
+  "brick-break": {
+    "name": "Brick Break",
+    "type": "fighting",
+    "category": "physical",
+    "power": 75,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 15,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      }
+    ],
+    "description": "basic damage only (no screens v1)",
+    "vfxPreset": "fighting",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "bulk-up": {
+    "name": "Bulk Up",
+    "type": "fighting",
+    "category": "status",
+    "power": null,
+    "accuracy": null,
+    "alwaysHit": true,
+    "maxPP": 20,
+    "priority": 0,
+    "target": "self",
+    "effects": [
+      {
+        "kind": "STAT_STAGE",
+        "stat": "attack",
+        "stages": 1,
+        "chance": 1,
+        "target": "self"
+      },
+      {
+        "kind": "STAT_STAGE",
+        "stat": "defense",
+        "stages": 1,
+        "chance": 1,
+        "target": "self"
+      }
+    ],
+    "description": "self ATK +1, DEF +1",
+    "vfxPreset": "status",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "twister": {
+    "name": "Twister",
+    "type": "dragon",
+    "category": "special",
+    "power": 40,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 20,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      }
+    ],
+    "description": "basic damage only",
+    "vfxPreset": "dragon",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "dragon-breath": {
+    "name": "Dragon Breath",
+    "type": "dragon",
+    "category": "special",
+    "power": 60,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 20,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      },
+      {
+        "kind": "APPLY_MAJOR_STATUS",
+        "status": "paralysis",
+        "chance": 0.3
+      }
+    ],
+    "description": "30% paralysis",
+    "vfxPreset": "dragon",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "dragon-claw": {
+    "name": "Dragon Claw",
+    "type": "dragon",
+    "category": "physical",
+    "power": 80,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 15,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      }
+    ],
+    "description": "\u2014",
+    "vfxPreset": "dragon",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "metal-claw": {
+    "name": "Metal Claw",
+    "type": "steel",
+    "category": "physical",
+    "power": 50,
+    "accuracy": 95,
+    "alwaysHit": false,
+    "maxPP": 35,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      },
+      {
+        "kind": "STAT_STAGE",
+        "stat": "attack",
+        "stages": 1,
+        "chance": 0.1,
+        "target": "self"
+      }
+    ],
+    "description": "10% self ATK +1",
+    "vfxPreset": "steel",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "flash-cannon": {
+    "name": "Flash Cannon",
+    "type": "steel",
+    "category": "special",
+    "power": 80,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 10,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      },
+      {
+        "kind": "STAT_STAGE",
+        "stat": "spDefense",
+        "stages": -1,
+        "chance": 0.1,
+        "target": "opponent"
+      }
+    ],
+    "description": "10% foe SpD \u22121",
+    "vfxPreset": "steel",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "poison-sting": {
+    "name": "Poison Sting",
+    "type": "poison",
+    "category": "physical",
+    "power": 15,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 35,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      },
+      {
+        "kind": "APPLY_MAJOR_STATUS",
+        "status": "poison",
+        "chance": 0.3
+      }
+    ],
+    "description": "30% poison",
+    "vfxPreset": "poison",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "smog": {
+    "name": "Smog",
+    "type": "poison",
+    "category": "special",
+    "power": 30,
+    "accuracy": 70,
+    "alwaysHit": false,
+    "maxPP": 20,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      },
+      {
+        "kind": "APPLY_MAJOR_STATUS",
+        "status": "poison",
+        "chance": 0.4
+      }
+    ],
+    "description": "40% poison",
+    "vfxPreset": "poison",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "poison-gas": {
+    "name": "Poison Gas",
+    "type": "poison",
+    "category": "status",
+    "power": null,
+    "accuracy": 90,
+    "alwaysHit": false,
+    "maxPP": 40,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "APPLY_MAJOR_STATUS",
+        "status": "poison",
+        "chance": 1
+      }
+    ],
+    "description": "poison foe",
+    "vfxPreset": "status",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "acid": {
+    "name": "Acid",
+    "type": "poison",
+    "category": "special",
+    "power": 40,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 30,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      },
+      {
+        "kind": "STAT_STAGE",
+        "stat": "spDefense",
+        "stages": -1,
+        "chance": 0.1,
+        "target": "opponent"
+      }
+    ],
+    "description": "10% foe SpD \u22121",
+    "vfxPreset": "poison",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "bite": {
+    "name": "Bite",
+    "type": "dark",
+    "category": "physical",
+    "power": 60,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 25,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      }
+    ],
+    "description": "basic damage only (no flinch v1)",
+    "vfxPreset": "dark",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "crunch": {
+    "name": "Crunch",
+    "type": "dark",
+    "category": "physical",
+    "power": 80,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 15,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      },
+      {
+        "kind": "STAT_STAGE",
+        "stat": "defense",
+        "stages": -1,
+        "chance": 0.2,
+        "target": "opponent"
+      }
+    ],
+    "description": "20% foe DEF \u22121",
+    "vfxPreset": "dark",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "gust": {
+    "name": "Gust",
+    "type": "flying",
+    "category": "special",
+    "power": 40,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 35,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      }
+    ],
+    "description": "\u2014",
+    "vfxPreset": "flying",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "wing-attack": {
+    "name": "Wing Attack",
+    "type": "flying",
+    "category": "physical",
+    "power": 60,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 35,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      }
+    ],
+    "description": "\u2014",
+    "vfxPreset": "flying",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  },
+  "ice-beam": {
+    "name": "Ice Beam",
+    "type": "ice",
+    "category": "special",
+    "power": 90,
+    "accuracy": 100,
+    "alwaysHit": false,
+    "maxPP": 10,
+    "priority": 0,
+    "target": "opponent",
+    "effects": [
+      {
+        "kind": "DAMAGE"
+      },
+      {
+        "kind": "APPLY_MAJOR_STATUS",
+        "status": "freeze",
+        "chance": 0.1
+      }
+    ],
+    "description": "10% freeze",
+    "vfxPreset": "ice",
+    "overrideReason": "Reviewed v1 table 03_CONTENT_ASSETS; simplified simulator effects, no undeclared cartridge mechanics."
+  }
+}

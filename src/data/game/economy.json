@@ -1,0 +1,24 @@
+{
+  "startCoins": 200,
+  "startLevel": 5,
+  "maxLevel": 50,
+  "tiers": {
+    "rookie": {
+      "delta": -1,
+      "multiplier": 0.8
+    },
+    "rival": {
+      "delta": 0,
+      "multiplier": 1
+    },
+    "champion": {
+      "delta": 2,
+      "multiplier": 1.4
+    }
+  },
+  "difficulty": {
+    "easy": 0.9,
+    "normal": 1,
+    "hard": 1.15
+  }
+}

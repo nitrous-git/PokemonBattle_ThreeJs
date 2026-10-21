@@ -1,0 +1,677 @@
+{
+  "provider": "PokeAPI v2 official api-data mirror",
+  "apiDataRevision": "447bd5c378bf87da964bfe4dd7487a7bf1d97cbd",
+  "spriteRepoRevision": "97a7832d307311c0e1c6ea9035308bf80cc94f81",
+  "rulesetId": "classic-modern-v1",
+  "baseURL": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/",
+  "fetchedAtUTC": "2026-10-20T21:38:42.563Z",
+  "sourceSchemaVersion": 1,
+  "resources": [
+    {
+      "kind": "move",
+      "id": 51,
+      "name": "acid",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/51/index.json",
+      "sha256": "5c0cd33e277fd122aab00ee347b4178df97a415e1ab038515111181bad9530a3"
+    },
+    {
+      "kind": "move",
+      "id": 401,
+      "name": "aqua-tail",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/401/index.json",
+      "sha256": "425396679d940d47b8aa3c270c5063b9c9ae9df137048ee544242cd3fc412a09"
+    },
+    {
+      "kind": "move",
+      "id": 44,
+      "name": "bite",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/44/index.json",
+      "sha256": "e654ee1e0d7a95a694d188b1b3216a6e9bcd668c05a8fc747e2b8e798904ba7c"
+    },
+    {
+      "kind": "move",
+      "id": 34,
+      "name": "body-slam",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/34/index.json",
+      "sha256": "507a5d944210f2b9164766b196cf4599b9ff47e45ea423dc215573e4d68ce9d7"
+    },
+    {
+      "kind": "move",
+      "id": 280,
+      "name": "brick-break",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/280/index.json",
+      "sha256": "8d0c1c56f5adedb58bdad78e02617122d05f3659db853bac42ba2e82e7fa68af"
+    },
+    {
+      "kind": "move",
+      "id": 61,
+      "name": "bubble-beam",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/61/index.json",
+      "sha256": "6882dc11b9e0eb2861182e0959f1f8cc3ae410581a26b219a89c25fc733602a6"
+    },
+    {
+      "kind": "move",
+      "id": 339,
+      "name": "bulk-up",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/339/index.json",
+      "sha256": "4bc7b49dc3c3571829d0dfbbe64d59125d655b23e362a7a5e5990a04a2a1156f"
+    },
+    {
+      "kind": "move",
+      "id": 523,
+      "name": "bulldoze",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/523/index.json",
+      "sha256": "ea48c89088c50d7c59c1b5d521ca2672452a425705fa6f76e8494559f5db0998"
+    },
+    {
+      "kind": "move",
+      "id": 347,
+      "name": "calm-mind",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/347/index.json",
+      "sha256": "9c29246247c199b577f8e155d62996dbb61a7d7b199911ef328ca4e3c9edee96"
+    },
+    {
+      "kind": "move",
+      "id": 268,
+      "name": "charge",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/268/index.json",
+      "sha256": "048399c38887eba05dcb018f5b6307a5b1a9deb6229c24c5fb7b239d883e6a66"
+    },
+    {
+      "kind": "move",
+      "id": 109,
+      "name": "confuse-ray",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/109/index.json",
+      "sha256": "1c15d6db7c55f3b076272b77a5fbb846258cb651230c16fa61b9d8ab9d79b7a2"
+    },
+    {
+      "kind": "move",
+      "id": 93,
+      "name": "confusion",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/93/index.json",
+      "sha256": "bd78a958cf03cb0b4e37739116f6fc354c10e915d25d14d2f351bf73187831db"
+    },
+    {
+      "kind": "move",
+      "id": 242,
+      "name": "crunch",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/242/index.json",
+      "sha256": "8e1657746115d9ac16952a792257bf4aa87784633b80de9f79cd40e9bd6de061"
+    },
+    {
+      "kind": "move",
+      "id": 225,
+      "name": "dragon-breath",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/225/index.json",
+      "sha256": "b5894758b564bfff3e9e8e84c9d445b00bd59f938c447013ef8e837df04079a4"
+    },
+    {
+      "kind": "move",
+      "id": 337,
+      "name": "dragon-claw",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/337/index.json",
+      "sha256": "ffaf1165e570c96fc83cfa3baf22f7db00dbb29e9d617f34ba55305916e86d71"
+    },
+    {
+      "kind": "move",
+      "id": 414,
+      "name": "earth-power",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/414/index.json",
+      "sha256": "27f1330bde09ca53d97363b12ed51613f2adc88a4c699358a6653ecb38fc54ef"
+    },
+    {
+      "kind": "move",
+      "id": 52,
+      "name": "ember",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/52/index.json",
+      "sha256": "39daf2b69c33f88897fcd23ed34fff75cb4a61507b067c2d2c25ed0b5faf7e16"
+    },
+    {
+      "kind": "move",
+      "id": 424,
+      "name": "fire-fang",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/424/index.json",
+      "sha256": "4e46fab39dc55088e9b18d00508d91cb3d0025804c0403a98f32fe71e5df35c2"
+    },
+    {
+      "kind": "move",
+      "id": 172,
+      "name": "flame-wheel",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/172/index.json",
+      "sha256": "c2244862a8d01a600a9ed9e9390736f822f6b2b538f533cece5dbac1ebdedd5b"
+    },
+    {
+      "kind": "move",
+      "id": 53,
+      "name": "flamethrower",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/53/index.json",
+      "sha256": "f08ecba9ede10912c52e079a14f39571047d621df5ed5e7a7a71d9c2c1dd8a76"
+    },
+    {
+      "kind": "move",
+      "id": 430,
+      "name": "flash-cannon",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/430/index.json",
+      "sha256": "9adcfe45d0bd180b8cfc14d62f29b42893c7fcf6fe9a79dbbef6b853539f84a9"
+    },
+    {
+      "kind": "move",
+      "id": 45,
+      "name": "growl",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/45/index.json",
+      "sha256": "df5a89ee8f3d763a14b5792114d7cb8a880f81ab05857474bc1963e5f19c8177"
+    },
+    {
+      "kind": "move",
+      "id": 74,
+      "name": "growth",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/74/index.json",
+      "sha256": "e8d1f8224ff24309fbb3dd7a268210cfc798a815c84b9007736eab5198a784c6"
+    },
+    {
+      "kind": "move",
+      "id": 16,
+      "name": "gust",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/16/index.json",
+      "sha256": "9bf2f3212cac0f48df103554f01fa2391d10c79e915e428a08c482b90341b89a"
+    },
+    {
+      "kind": "move",
+      "id": 106,
+      "name": "harden",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/106/index.json",
+      "sha256": "7814e1024a04d822f3f8d9608d3cbcd9c9e8a2c115d35bfd49f56b952b2db91e"
+    },
+    {
+      "kind": "move",
+      "id": 56,
+      "name": "hydro-pump",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/56/index.json",
+      "sha256": "bdf1468212cf6b35d9853c0fbd66753b325c1a30bcbad207e09f91df86f1a4ab"
+    },
+    {
+      "kind": "move",
+      "id": 95,
+      "name": "hypnosis",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/95/index.json",
+      "sha256": "71572267b0df34c47e130e005ee76238bbd6f9e7d3486c01e4279b74d8a5579d"
+    },
+    {
+      "kind": "move",
+      "id": 58,
+      "name": "ice-beam",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/58/index.json",
+      "sha256": "123e85269bfaa8ac79d4e40a2601bec47fdd571e863f1a4fb2904ec6f1f9169d"
+    },
+    {
+      "kind": "move",
+      "id": 2,
+      "name": "karate-chop",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/2/index.json",
+      "sha256": "6f25af53699fd6145d545505f6552edd023a46fb882d11299326c2f40a9530f7"
+    },
+    {
+      "kind": "move",
+      "id": 122,
+      "name": "lick",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/122/index.json",
+      "sha256": "84e8ad22531c44381c80f66641f7821b4f0526f9163dd0d563b8342f420f920a"
+    },
+    {
+      "kind": "move",
+      "id": 232,
+      "name": "metal-claw",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/232/index.json",
+      "sha256": "f7d5e94935d109874d0fd340b634898729e1e34f3fbf9800b7f507c78a67a16a"
+    },
+    {
+      "kind": "move",
+      "id": 189,
+      "name": "mud-slap",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/189/index.json",
+      "sha256": "d1ded7f2e1b33f6bcea2940359028d321389fd2f5d77c7b19ca3e42231d19815"
+    },
+    {
+      "kind": "move",
+      "id": 139,
+      "name": "poison-gas",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/139/index.json",
+      "sha256": "a5d0e9fb41701e33c96e1d0d76b07679341e0f91e83d1fdf199644b225317716"
+    },
+    {
+      "kind": "move",
+      "id": 40,
+      "name": "poison-sting",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/40/index.json",
+      "sha256": "5bc83e77cb73a50dd96388dafd6aab3a3d85d72666327dc95599752aff0ce145"
+    },
+    {
+      "kind": "move",
+      "id": 60,
+      "name": "psybeam",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/60/index.json",
+      "sha256": "69ac4a0b304799a66c50f80f318c95cdab209b8630e1aa885f36a24dade309b4"
+    },
+    {
+      "kind": "move",
+      "id": 94,
+      "name": "psychic",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/94/index.json",
+      "sha256": "bf6a9659d80828ca639c7f69bbefb708eb0e3a8a0b0a2ac4803424991fa514ef"
+    },
+    {
+      "kind": "move",
+      "id": 98,
+      "name": "quick-attack",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/98/index.json",
+      "sha256": "ff1ccafb52597e975e0fa495b3f939d027ff5a75c792d0f4508bd2c2e4619fa6"
+    },
+    {
+      "kind": "move",
+      "id": 229,
+      "name": "rapid-spin",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/229/index.json",
+      "sha256": "ea1ab6920b3129e9368bc3aa78c6e2a3bb048d0f09e2b4a273c865f4f2a23381"
+    },
+    {
+      "kind": "move",
+      "id": 75,
+      "name": "razor-leaf",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/75/index.json",
+      "sha256": "435d71e072404f9cb3059baef751e54d12e5ae105c70a39aa154995a060c08ee"
+    },
+    {
+      "kind": "move",
+      "id": 397,
+      "name": "rock-polish",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/397/index.json",
+      "sha256": "6dee80c33db06d792bf79c4b79a73b21d6b3871fd02f1454bfc474a59f23001c"
+    },
+    {
+      "kind": "move",
+      "id": 157,
+      "name": "rock-slide",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/157/index.json",
+      "sha256": "3a920d78d9ec83ee6b8a1b232fbcbeff8849230bc79c20d5086f28ca9b7880fe"
+    },
+    {
+      "kind": "move",
+      "id": 88,
+      "name": "rock-throw",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/88/index.json",
+      "sha256": "86a87b5a49f894b6c9fb0688b581a58a295030083f0dbdaab299096cec265213"
+    },
+    {
+      "kind": "move",
+      "id": 28,
+      "name": "sand-attack",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/28/index.json",
+      "sha256": "66f34a1112b2bbe9dcc8af3ae44764f1d15f7d4cd795b6be43aae8efedf72bb8"
+    },
+    {
+      "kind": "move",
+      "id": 10,
+      "name": "scratch",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/10/index.json",
+      "sha256": "182460b03200ef31285f72e9eeefce33c518f295e62fd0ae866f7b5a3562e367"
+    },
+    {
+      "kind": "move",
+      "id": 402,
+      "name": "seed-bomb",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/402/index.json",
+      "sha256": "8a4e4e93ca5ecae125e895519b99d98ff7225098022da97078472ec3c6533cf7"
+    },
+    {
+      "kind": "move",
+      "id": 247,
+      "name": "shadow-ball",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/247/index.json",
+      "sha256": "7662546b63ca5a93ae479ac6d0b133ecab1849c5a84bd7ba4cc8ce39af613acf"
+    },
+    {
+      "kind": "move",
+      "id": 79,
+      "name": "sleep-powder",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/79/index.json",
+      "sha256": "c893d02c00604c08b4ee0e5d2d5871dd9e69d346524cf2d6f9cf88f6d327e37f"
+    },
+    {
+      "kind": "move",
+      "id": 123,
+      "name": "smog",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/123/index.json",
+      "sha256": "317e737db3424c64454337c96e475c149206712e07f5d7c489f22466800b28f6"
+    },
+    {
+      "kind": "move",
+      "id": 209,
+      "name": "spark",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/209/index.json",
+      "sha256": "e57420289c634d64361203d13cf4b069f2cd3e6bfb2353e9641eceb6f96299b8"
+    },
+    {
+      "kind": "move",
+      "id": 129,
+      "name": "swift",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/129/index.json",
+      "sha256": "e61cfb102a95b00eccdc19db0c8e9ad2563831e9aa26c6fa8f758f30216fcdcd"
+    },
+    {
+      "kind": "move",
+      "id": 33,
+      "name": "tackle",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/33/index.json",
+      "sha256": "bd984e535e1e7bd324977f12165f5aa26e6a2463e27b36f6d6dbe3b7494b1e15"
+    },
+    {
+      "kind": "move",
+      "id": 39,
+      "name": "tail-whip",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/39/index.json",
+      "sha256": "5f9d081b7e0294d47168c18c4e17b77eb31533f7ca32c05b46ac54568e47ad00"
+    },
+    {
+      "kind": "move",
+      "id": 84,
+      "name": "thunder-shock",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/84/index.json",
+      "sha256": "1b0ad8e4ddb8520266d96205feb2d8d2ffd4954aee54d8231ddb7dbdb7d0f47e"
+    },
+    {
+      "kind": "move",
+      "id": 86,
+      "name": "thunder-wave",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/86/index.json",
+      "sha256": "c54ee06c4716d7ed185d611f884b6ff5087c29f9eceff34a48973c68e962c459"
+    },
+    {
+      "kind": "move",
+      "id": 85,
+      "name": "thunderbolt",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/85/index.json",
+      "sha256": "2860b27cf782cdf150e7b147ef93379e729517bbd938870331c10ec866c40b4b"
+    },
+    {
+      "kind": "move",
+      "id": 239,
+      "name": "twister",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/239/index.json",
+      "sha256": "5eb8353ca3926f31ef672c905de182dca5738564eb2a485976a3ac6e2ad85761"
+    },
+    {
+      "kind": "move",
+      "id": 22,
+      "name": "vine-whip",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/22/index.json",
+      "sha256": "2b7c8e9f9a4848b5964f62e71ceb88199f0217c893b5f30d6447aa15522b3f87"
+    },
+    {
+      "kind": "move",
+      "id": 55,
+      "name": "water-gun",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/55/index.json",
+      "sha256": "5b57883af9efeeba05f9b5ed8d6741fc0f945e2b04461a94df76aba1c9412012"
+    },
+    {
+      "kind": "move",
+      "id": 261,
+      "name": "will-o-wisp",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/261/index.json",
+      "sha256": "2ad43d57e101bcb1ef9deacf550d6b54737939783414ccd5bd0306d1f44f4e73"
+    },
+    {
+      "kind": "move",
+      "id": 17,
+      "name": "wing-attack",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/17/index.json",
+      "sha256": "39c6f182a28ae849254020de624dd0108f1793391b7ae1828f86601ca211acdf"
+    },
+    {
+      "kind": "move",
+      "id": 110,
+      "name": "withdraw",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/110/index.json",
+      "sha256": "b87f68f6bdbd34b92e15823feb28dfbc94a5c1d91ed739a3b75c2b5060e8d16f"
+    },
+    {
+      "kind": "pokemon",
+      "id": 63,
+      "name": "abra",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/pokemon/63/index.json",
+      "sha256": "a0f1317899296b89b36939d6678a71843c4abd1283f8ea767b1a50be69820ebd"
+    },
+    {
+      "kind": "pokemon",
+      "id": 9,
+      "name": "blastoise",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/pokemon/9/index.json",
+      "sha256": "d6adcec055bfa962d2cc373428074d568ca5472eb7a80481b69aa5cd32cd3266"
+    },
+    {
+      "kind": "pokemon",
+      "id": 1,
+      "name": "bulbasaur",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/pokemon/1/index.json",
+      "sha256": "2157dda3aa7677e43434986cdd70caecd2c59090b8347b867336c45ad7cfe4a0"
+    },
+    {
+      "kind": "pokemon",
+      "id": 6,
+      "name": "charizard",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/pokemon/6/index.json",
+      "sha256": "568abd305de1357444806f8f4de4efd3dd843f8a5692ef145f8978989a5b6cf3"
+    },
+    {
+      "kind": "pokemon",
+      "id": 4,
+      "name": "charmander",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/pokemon/4/index.json",
+      "sha256": "098c49fc6d4cdb31f55114488ebb05724bc41d9cc59fe7cfdf9a953a74c5a619"
+    },
+    {
+      "kind": "pokemon",
+      "id": 147,
+      "name": "dratini",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/pokemon/147/index.json",
+      "sha256": "911a6ae661e8769c66d77d7222f22861a6e98ab14e1ade6dbe698caf19a60683"
+    },
+    {
+      "kind": "pokemon",
+      "id": 133,
+      "name": "eevee",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/pokemon/133/index.json",
+      "sha256": "e4c8e952ec4022b2367e7853be362c7554c15d9345d2f0c37e1466ef260821c2"
+    },
+    {
+      "kind": "pokemon",
+      "id": 92,
+      "name": "gastly",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/pokemon/92/index.json",
+      "sha256": "c0879b851c7285b1c1a581232d28e501e4c16a8d1cee7da50b64b8614c5d5e80"
+    },
+    {
+      "kind": "pokemon",
+      "id": 74,
+      "name": "geodude",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/pokemon/74/index.json",
+      "sha256": "1746c21e5fc28d1aa6f0cbc0e1db6d42ff2e056dcd409d0a12217be09c3c4e67"
+    },
+    {
+      "kind": "pokemon",
+      "id": 58,
+      "name": "growlithe",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/pokemon/58/index.json",
+      "sha256": "0f48513cc79a3ccf32e306c8472f539c01a3f7dd870c4710c74b76991af63159"
+    },
+    {
+      "kind": "pokemon",
+      "id": 66,
+      "name": "machop",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/pokemon/66/index.json",
+      "sha256": "6c9cad936484cb87869c8833f6982411786b33eead85f958ec3bec169d25ca88"
+    },
+    {
+      "kind": "pokemon",
+      "id": 81,
+      "name": "magnemite",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/pokemon/81/index.json",
+      "sha256": "127c57dcc3af2c1fa6cd1a8b81c1534fbc688c6929b7c2a3f671ea37da799b9a"
+    },
+    {
+      "kind": "pokemon",
+      "id": 25,
+      "name": "pikachu",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/pokemon/25/index.json",
+      "sha256": "5d4ecdd121b7bde33aca11e28d061de11339441101e7686461eab303ef9fe976"
+    },
+    {
+      "kind": "pokemon",
+      "id": 54,
+      "name": "psyduck",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/pokemon/54/index.json",
+      "sha256": "00bac341fd1e3300490cc337c93fa5724b05d13b18c5a020ddf396800ace5670"
+    },
+    {
+      "kind": "pokemon",
+      "id": 27,
+      "name": "sandshrew",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/pokemon/27/index.json",
+      "sha256": "ad62796b59679ae9e1c429a342221ffb9b2944de82633741b1d18e65d3a338aa"
+    },
+    {
+      "kind": "pokemon",
+      "id": 7,
+      "name": "squirtle",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/pokemon/7/index.json",
+      "sha256": "70a4d62099ba770605c520ac06c8b42de07fd52ee1bca3482601f38f5db5cf3e"
+    },
+    {
+      "kind": "type",
+      "id": 7,
+      "name": "bug",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/type/7/index.json",
+      "sha256": "f3383d71fe827cab0281fa596edf6fe36397d4c47856326fdc7f5423d33af5cc"
+    },
+    {
+      "kind": "type",
+      "id": 17,
+      "name": "dark",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/type/17/index.json",
+      "sha256": "046857455ecf2bb01f4d105666e6bdd3e246eec336848de3751e11c44bf96c5d"
+    },
+    {
+      "kind": "type",
+      "id": 16,
+      "name": "dragon",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/type/16/index.json",
+      "sha256": "cab9f686a46e839ee24a4e03547c6d209f6e81c5bee499cf4c74d942bb09b05d"
+    },
+    {
+      "kind": "type",
+      "id": 13,
+      "name": "electric",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/type/13/index.json",
+      "sha256": "e55b5d5965d0475a3d9037d498bb1dc1c8f8b30bb8c0326508d546596d287389"
+    },
+    {
+      "kind": "type",
+      "id": 18,
+      "name": "fairy",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/type/18/index.json",
+      "sha256": "7bad37291c799341bd5183c8ed30fa10ba1e72bcb5aa095653e7d5a594a79e5a"
+    },
+    {
+      "kind": "type",
+      "id": 2,
+      "name": "fighting",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/type/2/index.json",
+      "sha256": "d24d2d753a911f03877413c90f2428ffab56ad6b35df4b0b922124f06eb687da"
+    },
+    {
+      "kind": "type",
+      "id": 10,
+      "name": "fire",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/type/10/index.json",
+      "sha256": "de182aad08c052df9f096b34043e36eb623480aaa22449a3d5eae522e22ef6d0"
+    },
+    {
+      "kind": "type",
+      "id": 3,
+      "name": "flying",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/type/3/index.json",
+      "sha256": "c36e017d3f4c02e5ea878bf2278667dce413ad6318ec7e3acaf9795414b5624d"
+    },
+    {
+      "kind": "type",
+      "id": 8,
+      "name": "ghost",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/type/8/index.json",
+      "sha256": "255bb72a318f06b47f09a44ac9626a4d8633d69a62b4e6fcd1f594a9efbb7f97"
+    },
+    {
+      "kind": "type",
+      "id": 12,
+      "name": "grass",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/type/12/index.json",
+      "sha256": "7421fae1fc9b93ab201c348ace2a61dfdd8a071631372c0373675ccda3b1adfb"
+    },
+    {
+      "kind": "type",
+      "id": 5,
+      "name": "ground",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/type/5/index.json",
+      "sha256": "9633ce04b3e4ff120b300caf63ed3d3ec55bd158f4eb94f4ada9132767fe0e55"
+    },
+    {
+      "kind": "type",
+      "id": 15,
+      "name": "ice",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/type/15/index.json",
+      "sha256": "38655eda5d4eb9d6d0bd3088709a9a43e8a96959d6d25897815670bce9a3e27b"
+    },
+    {
+      "kind": "type",
+      "id": 1,
+      "name": "normal",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/type/1/index.json",
+      "sha256": "91410ac38a830ec34280f2333888f6757c632b4092abf4b6ade8429875f108db"
+    },
+    {
+      "kind": "type",
+      "id": 4,
+      "name": "poison",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/type/4/index.json",
+      "sha256": "1045e31af9e66298ec0cf2c25fe6105dbcd68c6d9ce479d93b149acb06aa5881"
+    },
+    {
+      "kind": "type",
+      "id": 14,
+      "name": "psychic",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/type/14/index.json",
+      "sha256": "8873d211d440dc72a2bb35a6f453ee00cb32f3cfd1f23feba80650b58b3d62d7"
+    },
+    {
+      "kind": "type",
+      "id": 6,
+      "name": "rock",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/type/6/index.json",
+      "sha256": "980e9c04a596f2af7dd39fa713ada555b32ce75b776cbdb9430a9fccdd3ff619"
+    },
+    {
+      "kind": "type",
+      "id": 9,
+      "name": "steel",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/type/9/index.json",
+      "sha256": "20007359fd2b3dfc2c72f3818362c8707d8dafd9564a1fb037fd4613425eef61"
+    },
+    {
+      "kind": "type",
+      "id": 11,
+      "name": "water",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/type/11/index.json",
+      "sha256": "44714322f0768619a1641fcc3a89db271b4b2b7ef338065011817aae021dcd54"
+    }
+  ],
+  "sourceHash": "0ac6c1aed676cb9c420a06715b9c0b76eaeb62588c021f49a0b8488fc516a53c"
+}

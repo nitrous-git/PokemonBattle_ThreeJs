@@ -1,0 +1,146 @@
+{
+  "pikachu": {
+    "dexNumber": 25,
+    "priceCoins": 300,
+    "rarity": "starter/common",
+    "visualScale": 1,
+    "customMoves": {
+      "tackle": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality."
+    }
+  },
+  "bulbasaur": {
+    "dexNumber": 1,
+    "priceCoins": 300,
+    "rarity": "starter/common",
+    "visualScale": 1,
+    "customMoves": {
+      "poison-sting": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality.",
+      "poison-gas": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality."
+    }
+  },
+  "charmander": {
+    "dexNumber": 4,
+    "priceCoins": 300,
+    "rarity": "starter/common",
+    "visualScale": 1,
+    "customMoves": {
+      "flame-wheel": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality.",
+      "tail-whip": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality."
+    }
+  },
+  "squirtle": {
+    "dexNumber": 7,
+    "priceCoins": 300,
+    "rarity": "starter/common",
+    "visualScale": 1,
+    "customMoves": {}
+  },
+  "eevee": {
+    "dexNumber": 133,
+    "priceCoins": 320,
+    "rarity": "common",
+    "visualScale": 1,
+    "customMoves": {}
+  },
+  "sandshrew": {
+    "dexNumber": 27,
+    "priceCoins": 350,
+    "rarity": "common",
+    "visualScale": 1,
+    "customMoves": {
+      "rock-throw": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality.",
+      "harden": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality."
+    }
+  },
+  "growlithe": {
+    "dexNumber": 58,
+    "priceCoins": 450,
+    "rarity": "rare",
+    "visualScale": 1,
+    "customMoves": {
+      "quick-attack": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality.",
+      "growl": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality."
+    }
+  },
+  "magnemite": {
+    "dexNumber": 81,
+    "priceCoins": 550,
+    "rarity": "rare",
+    "visualScale": 1,
+    "customMoves": {
+      "metal-claw": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality."
+    }
+  },
+  "gastly": {
+    "dexNumber": 92,
+    "priceCoins": 620,
+    "rarity": "rare",
+    "visualScale": 1,
+    "customMoves": {
+      "acid": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality.",
+      "swift": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality."
+    }
+  },
+  "abra": {
+    "dexNumber": 63,
+    "priceCoins": 650,
+    "rarity": "rare",
+    "visualScale": 1,
+    "customMoves": {
+      "psybeam": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality.",
+      "hypnosis": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality.",
+      "charge": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality."
+    }
+  },
+  "geodude": {
+    "dexNumber": 74,
+    "priceCoins": 350,
+    "rarity": "common",
+    "visualScale": 1,
+    "customMoves": {}
+  },
+  "psyduck": {
+    "dexNumber": 54,
+    "priceCoins": 380,
+    "rarity": "common",
+    "visualScale": 1,
+    "customMoves": {}
+  },
+  "machop": {
+    "dexNumber": 66,
+    "priceCoins": 500,
+    "rarity": "rare",
+    "visualScale": 1,
+    "customMoves": {
+      "rock-throw": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality.",
+      "growl": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality."
+    }
+  },
+  "dratini": {
+    "dexNumber": 147,
+    "priceCoins": 1100,
+    "rarity": "premium",
+    "visualScale": 1,
+    "customMoves": {
+      "dragon-claw": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality.",
+      "growl": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality."
+    }
+  },
+  "charizard": {
+    "dexNumber": 6,
+    "priceCoins": 1500,
+    "rarity": "premium",
+    "visualScale": 1.3,
+    "customMoves": {
+      "flame-wheel": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality.",
+      "gust": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality."
+    }
+  },
+  "blastoise": {
+    "dexNumber": 9,
+    "priceCoins": 1450,
+    "rarity": "premium",
+    "visualScale": 1.3,
+    "customMoves": {}
+  }
+}
