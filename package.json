@@ -3,23 +3,22 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Static Three.js Pokémon battle simulator. No build step or npm packages required to play or host.",
+  "description": "Static Three.js Pokémon battle simulator using browser-native ES modules and a pinned Three.js CDN import map.",
   "engines": {
     "node": ">=22.12.0"
   },
   "scripts": {
     "serve": "node scripts/static-server.mjs",
     "test": "vitest run",
+    "test:browser": "node scripts/browser-qa.mjs",
     "lint": "eslint src scripts tests",
+    "format": "prettier --write \"src/**/*.js\" \"src/**/*.html\" \"src/**/*.css\" \"scripts/**/*.mjs\" \"tests/**/*.js\"",
     "data:import": "node scripts/import-pokeapi.mjs",
     "data:compile": "node scripts/compile-content.mjs",
     "data:validate": "node scripts/validate-content.mjs",
     "assets:prepare": "node scripts/prepare-sprites.mjs",
     "assets:check": "node scripts/check-assets.mjs",
-    "assets:standins": "node scripts/prepare-sprites.mjs --standins",
-    "test:browser": "node scripts/browser-qa.mjs",
-    "package:public": "node scripts/package-public.mjs",
-    "format": "prettier --write \"src/**/*.js\" \"src/**/*.css\" \"scripts/**/*.mjs\" \"tests/**/*.js\""
+    "assets:standins": "node scripts/prepare-sprites.mjs --standins"
   },
   "devDependencies": {
     "@eslint/js": "9.38.0",

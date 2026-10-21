@@ -1,0 +1,312 @@
+<!--
+  Battle Atelier UI templates. This file is static HTML served alongside the app.
+  IDs, class names, and data-action values preserve the original GitHub Pages UI contract.
+  Dynamic contents are bound by src/ui/screens.js without introducing a UI framework.
+-->
+<template id="app-header">
+    <header class="topbar">
+        <button class="brand" data-action="nav" data-route="menu" aria-label="Battle Atelier home">
+            <span class="brand-mark">◇</span>
+            <span>BATTLE <b>ATELIER</b><small>NITROUS · VOL. 01</small></span>
+        </button>
+        <nav aria-label="Main navigation">
+            <button data-action="nav" data-route="setup">Battle</button>
+            <button data-action="nav" data-route="collection">Collection</button>
+            <button data-action="nav" data-route="shop">Shop</button>
+        </nav>
+        <div class="topbar-right">
+            <span class="wallet"><i>◈</i> <b data-wallet></b><small>COINS</small></span>
+            <button class="icon-button" data-action="nav" data-route="settings" aria-label="Settings">⚙</button>
+        </div>
+    </header>
+</template>
+
+<template id="app-footer">
+    <footer class="footer">
+        <span>UNOFFICIAL FAN EXPERIMENT · SINGLE PLAYER</span>
+        <button data-action="nav" data-route="credits">About &amp; credits ↗</button>
+        <span class="save-state" data-bind="save-state"></span>
+    </footer>
+</template>
+
+<template id="screen-menu">
+    <main class="menu-screen">
+        <div class="hero-copy">
+            <span class="eyebrow"><i></i> POKÉMON · BATTLE SIMULATOR</span>
+            <h1>Every battle.<br>A new <em>story.</em></h1>
+            <p>Choose your partner. Find your edge.<br>A small arena for big possibilities.</p>
+            <button class="button primary hero-cta" data-action="nav" data-route="setup">
+                <span data-bind="cta">Begin your journey</span> <span>↗</span>
+            </button>
+            <div class="hero-links">
+                <button data-action="nav" data-route="collection">Your collection <span>→</span></button>
+                <button data-action="nav" data-route="shop">Visit the shop <span>→</span></button>
+            </div>
+            <div class="hero-facts">
+                <span><b>16</b> Pokémon</span>
+                <span><b>61</b> Moves</span>
+                <span><b>03</b> Arenas</span>
+            </div>
+        </div>
+        <div class="featured-label">
+            <span class="eyebrow">IN THE SPOTLIGHT / <span data-bind="featured-dex"></span></span>
+            <h2>Charizard <span>↗</span></h2>
+            <div data-slot="featured-types"></div>
+            <p>A familiar flame. A whole new dimension.</p>
+        </div>
+        <div class="arena-label">
+            <span class="live-dot"></span> <span data-bind="arena-name"></span>
+            <small>LIVE 3D ARENA</small>
+        </div>
+    </main>
+</template>
+
+<template id="screen-starter">
+    <main class="page starter-page">
+        <div class="page-heading">
+            <span class="eyebrow">01 / A FRESH START</span>
+            <h1>Every trainer starts somewhere.</h1>
+            <p>Choose one partner. Your first four moves are drafted once and stay with you.</p>
+        </div>
+        <div class="starter-grid" data-slot="starters"></div>
+        <div class="info-strip">
+            <span>◇ Level 5 partner</span>
+            <span>◈ 200 starting coins</span>
+            <span>∞ Unlimited challenges</span>
+        </div>
+    </main>
+</template>
+
+<template id="screen-setup">
+    <main class="page setup-page">
+        <div class="page-heading inline">
+            <div>
+                <span class="eyebrow">THE ARENA / CHALLENGE SETUP</span>
+                <h1>Pick your next challenge.</h1>
+            </div>
+            <span class="page-note">Every matchup is a new possibility.</span>
+        </div>
+        <div class="setup-layout">
+            <section class="partner-panel panel">
+                <div class="panel-kicker">01 <span>YOUR PARTNER</span></div>
+                <div class="partner-feature">
+                    <span data-slot="partner-art"></span>
+                    <span class="dex-label" data-bind="partner-dex"></span>
+                    <h2>
+                        <span data-bind="partner-name"></span>
+                        <small data-bind="partner-level"></small>
+                    </h2>
+                    <div data-slot="partner-types"></div>
+                </div>
+                <label class="field">Switch partner<select id="owned-select" data-slot="owned-options"></select></label>
+                <div class="compact-moves" data-slot="partner-moves"></div>
+                <div class="partner-hint">Your partner starts every battle with full HP and PP.</div>
+            </section>
+            <section class="opponent-panel panel">
+                <div class="panel-kicker">02 <span>CHOOSE AN OPPONENT</span><button data-action="random" class="text-button">Random ↻</button></div>
+                <div class="search-row">
+                    <label class="search">
+                        <span>⌕</span>
+                        <input id="filter" placeholder="Find a Pokémon or type…" aria-label="Filter opponents">
+                    </label>
+                    <span>16 available</span>
+                </div>
+                <div class="opponent-grid" data-slot="opponents"></div>
+            </section>
+        </div>
+        <section class="setup-bottom panel">
+            <div class="match-summary">
+                <span class="eyebrow">YOUR MATCHUP</span>
+                <strong>
+                    <span data-bind="match-player"></span> <i>vs.</i> <span data-bind="match-opponent"></span>
+                </strong>
+                <small>
+                    Opponent Lv. <span data-bind="match-level"></span> · Win:
+                    <b>◈ <span data-bind="match-coins"></span></b> + <span data-bind="match-xp"></span> XP
+                </small>
+            </div>
+            <label class="field">Challenge tier<select id="tier" data-slot="tier-options"></select></label>
+            <label class="field">Opponent AI<select id="difficulty" data-slot="difficulty-options"></select></label>
+            <label class="field">Battlefield<select id="arena-select" data-slot="arena-options"></select></label>
+            <button class="button primary" data-action="start">Let's battle <span>↗</span></button>
+        </section>
+    </main>
+</template>
+
+<template id="screen-catalogue">
+    <main class="page catalogue-page">
+        <div class="page-heading inline">
+            <div>
+                <span class="eyebrow" data-bind="catalogue-kicker"></span>
+                <h1 data-bind="catalogue-title"></h1>
+            </div>
+            <div class="collection-count">
+                <b data-bind="collection-count"></b>
+                <span>/ 16<br>COLLECTED</span>
+            </div>
+        </div>
+        <div class="catalogue-layout">
+            <section class="panel catalogue-list">
+                <div class="search-row">
+                    <label class="search">
+                        <span>⌕</span>
+                        <input id="filter" placeholder="Search names or types…" aria-label="Filter catalogue">
+                    </label>
+                    <span data-bind="catalogue-subtitle"></span>
+                </div>
+                <div class="catalogue-grid" data-slot="catalogue-grid"></div>
+            </section>
+            <aside class="panel detail-panel">
+                <div class="detail-top">
+                    <span class="eyebrow" data-bind="detail-kicker"></span>
+                    <span class="rarity" data-bind="rarity"></span>
+                </div>
+                <div class="detail-art" data-slot="detail-art"></div>
+                <h2>
+                    <span data-bind="detail-name"></span>
+                    <small data-bind="detail-level"></small>
+                </h2>
+                <div data-slot="detail-types"></div>
+                <div data-slot="detail-experience"></div>
+                <div class="stats-grid" data-slot="detail-stats"></div>
+                <div data-slot="detail-actions"></div>
+            </aside>
+        </div>
+    </main>
+</template>
+
+<template id="screen-battle">
+    <main class="battle-screen">
+        <div class="battle-topline">
+            <span><i class="live-dot"></i><span data-bind="battle-arena"></span></span>
+            <b>TURN <span data-turn></span></b>
+            <div>
+                <button data-action="speed" class="small-button" data-bind="battle-speed"></button>
+                <button data-action="abandon" class="small-button" data-bind="abandon-button">Leave battle ↗</button>
+            </div>
+        </div>
+        <div id="opponent-hud" data-slot="opponent-hud"></div>
+        <div id="player-hud" data-slot="player-hud"></div>
+        <div id="battle-floats" aria-hidden="true"></div>
+        <section class="command-deck">
+            <div class="narration">
+                <span class="eyebrow">BATTLE JOURNAL <i class="live-dot"></i></span>
+                <div class="battle-log" role="log" aria-live="polite" data-slot="battle-log"></div>
+                <div class="command-status" data-slot="command-status"></div>
+            </div>
+            <div class="move-grid" data-slot="move-buttons"></div>
+        </section>
+    </main>
+</template>
+
+<template id="screen-results">
+    <main class="results-page">
+        <section class="result-card panel">
+            <span class="eyebrow" data-bind="results-turns"></span>
+            <div class="result-emblem" data-bind="results-emblem"></div>
+            <h1 data-bind="results-heading"></h1>
+            <p data-bind="results-description"></p>
+            <div data-slot="results-sprite"></div>
+            <div class="reward-grid">
+                <div>
+                    <span>COINS EARNED</span>
+                    <b>+ <span data-bind="results-coins"></span> <i>◈</i></b>
+                </div>
+                <div>
+                    <span>EXPERIENCE</span>
+                    <b>+ <span data-bind="results-xp"></span> <i>XP</i></b>
+                </div>
+                <div>
+                    <span data-bind="results-level-label"></span>
+                    <b data-bind="results-level"></b>
+                </div>
+            </div>
+            <div data-slot="results-actions"></div>
+            <span class="save-note" data-bind="results-save-state"></span>
+        </section>
+    </main>
+</template>
+
+<template id="screen-settings">
+    <main class="page narrow-page">
+        <div class="page-heading">
+            <span class="eyebrow">MAKE IT YOURS</span>
+            <h1>A little fine-tuning.</h1>
+        </div>
+        <section class="panel settings-panel">
+            <h2>Sound &amp; atmosphere</h2>
+            <label class="setting-row">
+                <span><b>Master volume</b><small>Original synthesized sound effects</small></span>
+                <input id="volume" type="range" min="0" max="1" step=".05" aria-label="Master volume">
+            </label>
+            <div data-slot="settings-switches"></div>
+            <label class="setting-row">
+                <span><b>Interface scale</b><small>Adjust text and control size</small></span>
+                <select id="uiScale" data-slot="ui-scale-options"></select>
+            </label>
+            <label class="setting-row">
+                <span><b>Battle playback speed</b><small>Combat rules are identical at every speed</small></span>
+                <select id="speed" data-slot="speed-options"></select>
+            </label>
+            <div class="save-tools">
+        <span>
+          <b>Your progress stays in this browser.</b>
+          <small>Export a backup before changing browsers or clearing storage.</small>
+        </span>
+                <button class="button secondary" data-action="export">Export save ↗</button>
+                <button class="danger-button" data-action="reset">Reset progress</button>
+            </div>
+        </section>
+    </main>
+</template>
+
+<template id="screen-credits">
+    <main class="page narrow-page">
+        <div class="page-heading">
+            <span class="eyebrow">NITROUS / AN EDUCATIONAL EXPERIMENT</span>
+            <h1>A small tribute to big adventures.</h1>
+        </div>
+        <section class="panel credits-panel">
+            <h2>Battle Atelier</h2>
+            <p>A standalone battle simulator built with vanilla JavaScript and Three.js, delivered through a static CDN import map. Inspired by the battle framing of <b>kkatsi/pokemon-battle</b> and the collection loop of Olivier Trudel's original Java prototype.</p>
+            <h3>Data &amp; artwork</h3>
+            <p>Species facts and move metadata: PokéAPI. Gen-V front/back sprite sources: PokeAPI/sprites. Pokémon names and character artwork belong to their respective owners, including The Pokémon Company, Nintendo, Creatures and GAME FREAK. This educational fan build is unofficial and unaffiliated.</p>
+            <h3>Original production</h3>
+            <p>Interface, three procedural arenas, effects, synthesized audio, battle rules and progression are implemented for this project. No official music, logos or proprietary fonts are included.</p>
+            <h3>Simulator rules</h3>
+            <p>Modern 18-type chart. Fixed IV 15 / no EVs. Cross-generation curated move pools include 21 documented custom allowances. No abilities, items, evolutions or switching. Hard AI uses bounded, sampled two-turn minimax; this is not a cartridge-perfect simulator.</p>
+            <div class="credit-links">
+                <a href="https://pokeapi.co" target="_blank" rel="noreferrer">PokéAPI ↗</a>
+                <a href="https://github.com/PokeAPI/sprites" target="_blank" rel="noreferrer">Sprite source ↗</a>
+                <a href="https://github.com/kkatsi/pokemon-battle" target="_blank" rel="noreferrer">Visual reference ↗</a>
+            </div>
+        </section>
+    </main>
+</template>
+
+<template id="screen-recovery">
+    <main class="page narrow-page">
+        <section class="panel credits-panel">
+            <span class="eyebrow">SAVE RECOVERY</span>
+            <h1>Your save needs attention.</h1>
+            <p data-bind="recovery-error"></p>
+            <p>The original data has been preserved. Download it before choosing to reset.</p>
+            <button class="button primary" data-action="export">Download original save</button>
+            <button class="button secondary" data-action="reset">Reset with confirmation</button>
+        </section>
+    </main>
+</template>
+
+<template id="modal-confirm">
+    <dialog class="modal">
+        <form method="dialog">
+            <span class="eyebrow">A QUICK CHECK</span>
+            <h2 data-bind="modal-heading"></h2>
+            <p data-bind="modal-message"></p>
+            <div>
+                <button value="cancel" class="button secondary">Cancel</button>
+                <button value="confirm" class="button primary" data-bind="modal-accept">Confirm</button>
+            </div>
+        </form>
+    </dialog>
+</template>
