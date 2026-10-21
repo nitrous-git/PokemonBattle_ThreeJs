@@ -16,7 +16,7 @@ describe('static HTML UI integration', () => {
     for (const selector of ['data-action="nav"', 'data-action="start"',
       'data-action="abandon"', 'data-action="speed"', 'id="opponent-hud"',
       'id="player-hud"', 'class="battle-log"', 'id="owned-select"',
-      'id="difficulty"', 'id="arena-select"', 'id="volume"', 'id="uiScale"']) {
+      'id="difficulty"', 'id="arena-select"', 'id="volume"', 'id="uiScale"', 'id="theme"']) {
       expect(html).toContain(selector);
     }
   });

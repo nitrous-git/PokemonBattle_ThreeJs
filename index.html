@@ -6,6 +6,20 @@
   <meta name="theme-color" content="#193b38">
   <meta name="description" content="A single-player Pokémon battle atelier. Build your collection, master the matchup, and explore three atmospheric arenas.">
   <title>Battle Atelier · Nitrous</title>
+  <script>
+    // Apply appearance before CSS/ES-module loading. The validated game save remains authoritative.
+    (() => {
+      let theme = 'dark';
+      try {
+        const raw = localStorage.getItem('nitrous.battle-atelier.v1');
+        const preferred = raw ? JSON.parse(raw)?.settings?.theme
+          : localStorage.getItem('nitrous.battle-atelier.theme');
+        if (preferred === 'dark') theme = 'dark';
+      } catch { /* Storage/recovery must never prevent boot. */ }
+      document.documentElement.dataset.theme = theme;
+      document.documentElement.style.colorScheme = theme;
+    })();
+  </script>
   <link rel="icon" type="image/svg+xml" href="./public/favicon.svg">
   <link rel="stylesheet" href="./src/styles/style.css">
   <script type="importmap">

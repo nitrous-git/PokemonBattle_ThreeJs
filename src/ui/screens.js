@@ -457,6 +457,7 @@ function results(app) {
 function settings(app) {
     const view = clone('screen-settings');
     const s = app.settings;
+    view.querySelector('#theme').value = s.theme;
 
     view.querySelector('#volume').value = s.volume;
 

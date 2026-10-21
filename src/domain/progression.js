@@ -2,9 +2,10 @@ import { pokemon, economy, moves } from '../data/catalogue.js';
 import { draftMoves } from './rules.js';
 import { RNG } from './random.js';
 export const DEFAULT_SETTINGS = {
+  theme: 'dark',
   volume: 0.3,
   mute: false,
-  music: false,
+  music: true,
   reducedMotion: false,
   lowVFX: false,
   uiScale: 1,
@@ -104,6 +105,7 @@ export function validateSave(input) {
   )
     fail('reward journal');
   s.settings = { ...DEFAULT_SETTINGS, ...s.settings };
+  if (!['light', 'dark'].includes(s.settings.theme)) fail('theme');
   for (const key of ['mute', 'music', 'reducedMotion', 'lowVFX'])
     if (typeof s.settings[key] !== 'boolean') fail('settings');
   if (!Number.isFinite(s.settings.volume) || s.settings.volume < 0 || s.settings.volume > 1)

@@ -15,6 +15,7 @@
 - VFX playback waits for renderer completion, scales with live battle speed, and cancels on Skip, context loss, actor replacement or disposal. Elapsed effect time stays independent of the ambient frame cap. Low VFX reduces geometry/particles; no postprocessing or new runtime dependency.
 - VS introduction: new battles and Results replay show a local-portrait warm/cool diagonal matchup overlay for 1.65 seconds, independent of turn speed. Portrait phones use a stacked layout. Button/Space Skip, a 180ms static Reduced Motion reveal, bounded asset preparation, missing-art/WebGL fallback, isolated intro input locking, cancellation cleanup and restored move focus are supported. Two restrained synthesized cues respect audio settings.
 - Results/replay, XP/levels (cap 50), coins, permanent unlock shop, owned collection and saved settings. Save export, localStorage validation/recovery, transaction/double-reward defenses.
+- Appearance: Settings offers immediate Light (default) and Midnight Dark themes across screens, controls, dialogs and notifications. The preference persists before starter selection and in version 1 saves; older saves default to Light and invalid values use existing recovery. Early root theme application limits startup flashing. Arena rendering, type hues and the VS cinematic retain their presentation.
 - Native HTML templates for screens and confirmation dialog, separate UI state bindings and shared components. Responsive CSS and keyboard shortcuts (`1`–`4`, Space skip, Escape from battle).
 
 ## Scope limits / explicit non-features
@@ -30,3 +31,5 @@ Feature options include roster/move expansion, improved encounter variety, colle
 `npm run test` — domain, status edges, assets, UI template tests. `npm run lint` — ESLint. `npm run data:validate` and `npm run assets:check` — authoring integrity. `npm run test:browser` — Playwright end-to-end workflow (additional Chromium installation may be needed). `node scripts/vfx-qa.mjs` adds focused VFX captures, repository-subpath checks, speed/Skip/context-loss checks and repeated-effect resource checks. `node scripts/intro-qa.mjs` checks intro timing, input locking, cancellation, replay, missing-art/WebGL fallback, touch and responsive repository-subpath layouts. Run relevant commands and report results, not assumed passes.
 
 When a feature is delivered and verified, update only the factual bullets that changed. Never rewrite this file from aspirational design notes.
+
+`node scripts/theme-qa.mjs` checks theme persistence, save compatibility, both-theme screen coverage, representative contrast, responsive layouts and Phase A/B behavior under the repository subpath, and captures screenshots.

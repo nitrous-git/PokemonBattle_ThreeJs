@@ -138,6 +138,7 @@ export class GameApp {
             this.save?.settings ||
             this.tempSettings || {
                 ...DEFAULT_SETTINGS,
+                theme: document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light',
                 reducedMotion: matchMedia('(prefers-reduced-motion: reduce)').matches,
             }
         );
@@ -152,6 +153,8 @@ export class GameApp {
 
     applySettings() {
         const settings = this.settings;
+        document.documentElement.dataset.theme = settings.theme;
+        document.documentElement.style.colorScheme = settings.theme;
         document.documentElement.dataset.motion = settings.reducedMotion ? 'reduced' : 'full';
         document.documentElement.style.setProperty('--ui-scale', settings.uiScale);
         this.scene?.settingsChanged(settings);
@@ -261,7 +264,9 @@ export class GameApp {
                 }
                 this.go(element.dataset.route);
             } else if (action === 'starter') {
-                this.commit(() => newSave(element.dataset.id, identity()));
+                const settings = { ...this.settings };
+                this.commit(() => ({ ...newSave(element.dataset.id, identity()), settings }));
+                this.tempSettings = null;
                 this.selectedId = this.save.collection[0].instanceId;
                 this.audio.cue('start');
                 this.go(this.afterStarter || 'setup');
@@ -352,7 +357,8 @@ export class GameApp {
             } else if (Object.hasOwn(DEFAULT_SETTINGS, element.id)) {
                 this.setSetting(
                     element.id,
-                    element.type === 'checkbox' ? element.checked : Number(element.value),
+                    element.id === 'theme' ? element.value
+                        : element.type === 'checkbox' ? element.checked : Number(element.value),
                 );
             }
         } catch (error) {
@@ -365,6 +371,11 @@ export class GameApp {
         if (this.save) this.commit((save) => ({ ...save, settings: { ...save.settings, [key]: value } }));
         else this.tempSettings = { ...this.settings, [key]: value };
         this.applySettings();
+        // Before starter selection there is no game save; retain only the appearance preference.
+        if (key === 'theme') {
+            try { localStorage.setItem('nitrous.battle-atelier.theme', value); }
+            catch { this.toast('Appearance changed for this session; browser storage is unavailable.'); }
+        }
     }
 
     modal(heading, message, accept, label = 'Confirm') {

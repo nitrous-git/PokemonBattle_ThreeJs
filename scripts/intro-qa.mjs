@@ -67,17 +67,20 @@ async function reset(page) {
 }
 async function capture(page, name, size) {
   await page.setViewportSize(size);
-  await page.evaluate(() => {
+  // Freeze within the browser task that observes readiness, avoiding a protocol-roundtrip race.
+  await page.evaluate(() => new Promise((resolve) => {
+    const observer = new MutationObserver(() => {
+      const intro = window.__introQA.intro;
+      if (intro?.view.dataset.state !== 'playing') return;
+      observer.disconnect();
+      for (const timer of intro.timers) clearTimeout(timer);
+      intro.timers.clear();
+      intro.view.dataset.reduced = 'true';
+      resolve();
+    });
+    observer.observe(document.body, { subtree: true, attributes: true, childList: true });
     void window.__introQA.start();
-  });
-  await page.waitForSelector('.vs-intro[data-state=playing]');
-  // Show the settled composition for reproducible layout inspection; timing is checked separately.
-  await page.evaluate(() => {
-    const intro = window.__introQA.intro;
-    for (const timer of intro.timers) clearTimeout(timer);
-    intro.timers.clear();
-    intro.view.dataset.reduced = 'true';
-  });
+  }));
   await page.screenshot({ path: `qa/intro/${name}.png` });
   const bounds = await page.evaluate(() =>
     [...document.querySelectorAll('.vs-info, .vs-portrait, .vs-skip')].map((el) => {
