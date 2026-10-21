@@ -2,7 +2,7 @@
  * Application controller: state, input, navigation and turn presentation.
  * HTML layout and component markup live under src/ui/.
  */
-import { pokemon } from '../data/catalogue.js';
+import { pokemon, moves } from '../data/catalogue.js';
 import { createBattle, resolveTurn } from '../domain/battle.js';
 import { chooseAI } from '../domain/ai.js';
 import { legalMoves } from '../domain/rules.js';
@@ -10,6 +10,7 @@ import { newSave, purchase, applyReward, DEFAULT_SETTINGS } from '../domain/prog
 import { SaveService } from '../services/SaveService.js';
 import { AudioService } from '../services/AudioService.js';
 import { ArenaScene } from '../render/ArenaScene.js';
+import { resolveMoveVFX } from '../render/MoveVFX.js';
 import { title, healthPanel } from '../ui/components.js';
 import { createHeader, createFooter, createScreen, createModal, recentBattleLog } from '../ui/screens.js';
 
@@ -479,9 +480,13 @@ export class GameApp {
                 }
 
                 if (event.type === 'VFX') {
-                    if (!this.skipping) this.scene?.play(event);
                     this.audio.cue('hit', event.moveType);
-                    await this.wait(this.settings.reducedMotion ? 180 : 700);
+                    if (!this.skipping) {
+                        const playback = this.scene?.play(event);
+                        // Renderer completion shares its speed clock and resolves on Skip/context loss.
+                        if (playback) await playback;
+                        else await this.wait(resolveMoveVFX(event, moves[event.moveId], this.settings).duration * 1000);
+                    }
                 }
 
                 if (event.type === 'DAMAGE') {
@@ -569,6 +574,7 @@ export class GameApp {
             }
             this.render();
         } catch (error) {
+            this.scene?.clearEffects();
             this.busy = false;
             this.toast(error.message);
             this.render();

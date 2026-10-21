@@ -1,4 +1,6 @@
 import * as THREE from 'three';
+import { MoveVFX, resolveMoveVFX } from './MoveVFX.js';
+import { moves } from '../data/catalogue.js';
 import { assetUrl } from '../assetUrl.js';
 import sprites from '../data/generated/spriteManifest.json' with { type: 'json' };
 
@@ -41,28 +43,7 @@ export const PALETTES = {
     },
 };
 
-const TYPE_COLOR = {
-    normal: '#f5e9ca',
-    fire: '#ff824c',
-    water: '#69d4ff',
-    electric: '#ffe576',
-    grass: '#9cf29a',
-    ice: '#b7faff',
-    fighting: '#ff997b',
-    poison: '#dba1ff',
-    ground: '#d7aa77',
-    flying: '#c1e7f3',
-    psychic: '#ff9bd5',
-    bug: '#c7de6b',
-    rock: '#d5bc8b',
-    ghost: '#ae95f3',
-    dragon: '#a8a1ff',
-    dark: '#927cb0',
-    steel: '#cee3e8',
-    fairy: '#ffb7db',
-    typeless: '#ffffff',
-};
-
+const HIT_COLOR = new THREE.Color('#ffc4ad');
 const vec = (x, y, z) => new THREE.Vector3(x, y, z);
 
 function disposeGroup(group) {
@@ -109,6 +90,7 @@ export class ArenaScene {
         this.scene.add(this.world);
         this.fx = new THREE.Group();
         this.scene.add(this.fx);
+        this.moveVFX = new MoveVFX();
 
         this.scene.add(new THREE.HemisphereLight('#f3f0d6', '#3e5c53', 2.6));
         const sun = new THREE.DirectionalLight('#fff0cb', 3);
@@ -121,21 +103,25 @@ export class ArenaScene {
         this.observer.observe(canvas.parentElement);
         this.resize();
 
-        canvas.addEventListener('webglcontextlost', (e) => {
+        this.onContextLost = (e) => {
             e.preventDefault();
             this.lost = true;
+            this.clearEffects();
             onContext?.(true);
-        });
-        canvas.addEventListener('webglcontextrestored', () => {
+        };
+        this.onContextRestored = () => {
             this.lost = false;
             onContext?.(false);
-        });
+        };
+        canvas.addEventListener('webglcontextlost', this.onContextLost);
+        canvas.addEventListener('webglcontextrestored', this.onContextRestored);
 
         let last = performance.now();
         const frame = (now) => {
-            const dt = Math.min(0.05, (now - last) / 1000);
+            const elapsed = Math.max(0, (now - last) / 1000);
+            const dt = Math.min(0.05, elapsed);
             last = now;
-            this.update(dt);
+            this.update(dt, elapsed);
             if (!this.lost) this.renderer.render(this.scene, this.camera);
             this.raf = requestAnimationFrame(frame);
         };
@@ -342,6 +328,7 @@ export class ArenaScene {
     }
 
     async setActors(playerId, opponentId, mode = 'battle') {
+        this.clearEffects();
         this.mode = mode;
         const ticket = ++this.ticket;
         const wanted = [
@@ -439,102 +426,35 @@ export class ArenaScene {
     }
 
     play(event) {
-        const actor = this.actors[event.actor],
-            target = this.actors[event.target];
-        if (!actor || !target) return;
-
-        const start = actor.base.clone().add(vec(0, actor.height * 0.6, 0)),
-            end = target.base.clone().add(vec(0, target.height * 0.6, 0));
-
-        if (event.category === 'physical' && !this.settings.reducedMotion) actor.lunge = 0.6;
-
-        this.effects.push({
-            time: 0,
-            duration: this.settings.reducedMotion ? 0.35 : 0.85,
-            group: new THREE.Group(),
-            start,
-            end,
-            type: event.moveType,
-            category: event.category,
-            spawned: false,
-        });
-        this.fx.add(this.effects.at(-1).group);
-    }
-
-    spawnEffect(effect) {
-        const color = TYPE_COLOR[effect.type] || '#ffffff',
-            count = this.settings.lowVFX ? 10 : 28,
-            group = effect.group;
-
-        effect.particles = [];
-        const ringTypes = ['water', 'psychic', 'ghost', 'dragon'];
-
-        for (let i = 0; i < count; i++) {
-            let geometry;
-            if (['rock', 'ice', 'ground', 'steel'].includes(effect.type))
-                geometry = new THREE.OctahedronGeometry(0.11 + (i % 3) * 0.035);
-            else if (effect.type === 'grass') geometry = new THREE.PlaneGeometry(0.13, 0.3);
-            else if (ringTypes.includes(effect.type) && i < 5)
-                geometry = new THREE.TorusGeometry(0.2 + i * 0.08, 0.025, 4, 22);
-            else geometry = new THREE.SphereGeometry(0.035 + (i % 4) * 0.025, 5, 4);
-
-            const material = new THREE.MeshBasicMaterial({
-                color,
-                transparent: true,
-                opacity: 1,
-                side: THREE.DoubleSide,
-                depthWrite: false,
-            });
-
-            const m = new THREE.Mesh(geometry, material);
-            group.add(m);
-
-            effect.particles.push({
-                mesh: m,
-                angle: i * 2.39996,
-                radius: 0.15 + (i % 8) * 0.12,
-                offset: i / count,
-            });
-        }
-
-        if (effect.type === 'electric') {
-            const points = [];
-            for (let i = 0; i < 14; i++) {
-                const f = i / 13;
-                points.push(
-                    effect.start
-                        .clone()
-                        .lerp(effect.end, f)
-                        .add(vec(Math.sin(i * 17) * 0.18, Math.sin(i * 11) * 0.22, 0)),
-                );
-            }
-            const line = new THREE.Line(
-                new THREE.BufferGeometry().setFromPoints(points),
-                new THREE.LineBasicMaterial({ color: '#fff4ac', transparent: true }),
-            );
-            group.add(line);
-            effect.line = line;
-        }
-
-        effect.spawned = true;
+        const actor = this.actors[event.actor], target = this.actors[event.target];
+        if (!actor || !target || this.lost) return null;
+        const config = resolveMoveVFX(event, moves[event.moveId], this.settings);
+        const start = actor.base.clone().add(vec(0, actor.height * 0.6, 0));
+        const end = target.base.clone().add(vec(0, target.height * 0.6, 0));
+        if (config.category === 'physical' && !config.reduced) actor.lunge = 0.6;
+        const effect = this.moveVFX.create(config, start, end, this.camera);
+        this.effects.push(effect);
+        this.fx.add(effect.group);
+        return effect.finished;
     }
 
     clearEffects() {
-        for (const e of this.effects) {
-            disposeGroup(e.group);
-            this.fx.remove(e.group);
-        }
+        for (const effect of this.effects) effect.dispose();
         this.effects = [];
-
         for (const a of Object.values(this.actors)) {
             a.hit = 0;
             a.lunge = 0;
+            a.sprite.position.copy(a.base);
+            a.sprite.material.color.set('#ffffff');
         }
+        this.camera.position.copy(this.baseCamera);
+        this.camera.lookAt(this.target);
     }
 
-    update(dt) {
+    update(dt, effectDt = dt) {
         this.elapsed += dt;
         const reduced = this.settings.reducedMotion;
+        const playbackDt = effectDt * (this.settings.speed || 1);
 
         for (const [key, a] of Object.entries(this.actors)) {
             if (a.data && !reduced) {
@@ -564,13 +484,13 @@ export class ArenaScene {
             a.sprite.position.copy(a.base);
 
             if (a.hit > 0) {
-                a.hit -= dt;
-                a.sprite.material.color.set(Math.floor(a.hit * 18) % 2 ? '#ffc4ad' : '#ffffff');
+                a.hit = Math.max(0, a.hit - playbackDt);
+                a.sprite.material.color.set('#ffffff').lerp(HIT_COLOR, a.hit / 0.45);
                 if (!reduced) a.sprite.position.x += Math.sin(a.hit * 70) * 0.08;
             } else a.sprite.material.color.set('#ffffff');
 
-            if (a.lunge > 0) {
-                a.lunge -= dt;
+            if (a.lunge > 0 && !reduced) {
+                a.lunge = Math.max(0, a.lunge - playbackDt);
                 const f = Math.sin((1 - a.lunge / 0.6) * Math.PI);
                 a.sprite.position.x += (key === 'player' ? 1 : -1) * f * 0.6;
             }
@@ -578,41 +498,8 @@ export class ArenaScene {
             if (a.fade) a.sprite.material.opacity = Math.max(0.15, a.sprite.material.opacity - dt * 1.8);
         }
 
-        for (const e of this.effects) {
-            e.time += dt;
-            if (!e.spawned) this.spawnEffect(e);
-
-            const progress = Math.min(1, e.time / e.duration);
-            const travel = e.category === 'status' ? 1 : Math.min(1, progress * 1.9);
-            const center = e.start.clone().lerp(e.end, travel);
-            const burst = Math.max(0, (progress - 0.5) * 2);
-
-            for (const p of e.particles) {
-                const angle = p.angle + progress * (e.type === 'psychic' ? 8 : 2);
-                p.mesh.position
-                    .copy(center)
-                    .add(
-                        vec(
-                            Math.cos(angle) * p.radius * (0.3 + burst),
-                            Math.sin(angle) * p.radius * (0.3 + burst) +
-                            (e.type === 'fire' ? progress * p.offset : 0.1),
-                            Math.sin(p.angle * 2) * 0.3 * burst,
-                        ),
-                    );
-                p.mesh.rotation.set(progress * 4, p.angle, angle);
-                p.mesh.material.opacity = Math.min(1, (1 - progress) * 3);
-                p.mesh.scale.setScalar(e.category === 'status' ? 1 + progress : 1 + burst);
-            }
-
-            if (e.line) e.line.material.opacity = 1 - progress;
-        }
-
-        this.effects = this.effects.filter((e) => {
-            if (e.time < e.duration) return true;
-            disposeGroup(e.group);
-            this.fx.remove(e.group);
-            return false;
-        });
+        for (const effect of this.effects) effect.update(effectDt, this.settings.speed);
+        this.effects = this.effects.filter((effect) => !effect.done);
 
         if (!reduced)
             for (let i = 0; i < (this.ambient?.length || 0); i++) {
@@ -622,11 +509,9 @@ export class ArenaScene {
             }
 
         this.camera.position.copy(this.baseCamera);
-        if (this.effects.length && !reduced) {
-            const pulse = Math.sin(
-                Math.min(1, this.effects[0].time / this.effects[0].duration) * Math.PI,
-            );
-            this.camera.position.z -= pulse * 0.16;
+        if (!reduced) {
+            const pulse = this.effects.reduce((max, effect) => Math.max(max, effect.feedback), 0);
+            this.camera.position.z -= pulse;
         }
         if (this.mode === 'menu' && !reduced)
             this.camera.position.x = Math.sin(this.elapsed * 0.15) * 0.12;
@@ -636,8 +521,12 @@ export class ArenaScene {
 
     dispose() {
         cancelAnimationFrame(this.raf);
+        this.ticket++; // Invalidate outstanding sprite loads.
+        this.canvas.removeEventListener('webglcontextlost', this.onContextLost);
+        this.canvas.removeEventListener('webglcontextrestored', this.onContextRestored);
         this.observer.disconnect();
         this.clearEffects();
+        this.moveVFX.dispose();
         disposeGroup(this.world);
 
         for (const a of Object.values(this.actors)) {
