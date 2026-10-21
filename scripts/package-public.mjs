@@ -9,9 +9,7 @@ for (const name of ['src', 'scripts', 'tests', 'docs', 'public'])
   await fs.cp(path.join(root, name), path.join(out, name), { recursive: true, force: true });
 for (const name of [
   'package.json',
-  'package-lock.json',
   'index.html',
-  'vite.config.js',
   'eslint.config.js',
   'README.md',
   'ASSET_CREDITS.md',
@@ -19,6 +17,7 @@ for (const name of [
   'QA_REPORT.md',
   '.gitignore',
   '.prettierrc.json',
+  '.nojekyll',
 ])
   await fs.copyFile(path.join(root, name), path.join(out, name));
 const prepared = spawnSync(
@@ -34,8 +33,8 @@ const checked = spawnSync(process.execPath, [path.join(root, 'scripts/check-asse
 if (checked.status) throw Error('Stand-in validation failed');
 await fs.writeFile(
   path.join(out, 'ART_PROFILE.md'),
-  '# Original stand-in profile\n\nAll shipped PNG art in this copy is original geometric stand-in artwork. Pokémon names and data are retained. No franchise artwork, private QA screenshots or prebuilt private dist/ are included. Run npm install then npm run dev. The source archive does not make claims about trademark clearance.\n',
+  '# Original stand-in profile\n\nAll shipped PNG art in this copy is original geometric stand-in artwork. Pokémon names and data are retained. No franchise artwork, private QA screenshots or prebuilt private dist/ are included. Open the source with a local HTTP server or host with GitHub Pages; no build is required. The source archive does not make claims about trademark clearance.\n',
 );
 console.log(
-  `Public source prepared at ${out}. Install dependencies there before building. Do not copy the private dist/ or qa/ folders into it.`,
+  `Public source prepared at ${out}. Serve source over HTTP. Do not copy the private dist/ or qa/ folders into it.`,
 );

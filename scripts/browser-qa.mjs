@@ -1,7 +1,7 @@
 import { chromium, expect } from '@playwright/test';
-import { preview } from 'vite';
+import { serveStatic } from './static-server.mjs';
 import fs from 'node:fs/promises';
-const server = await preview({ preview: { host: '127.0.0.1', port: 4185, strictPort: true } });
+const server = await serveStatic({ host: '127.0.0.1', port: 4185 });
 const browser = await chromium.launch({
   headless: true,
   args: ['--no-sandbox', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'],
@@ -14,6 +14,27 @@ const errors = [],
   external = [],
   checks = [];
 let page;
+// Keep the original offline QA contract while allowing the pinned Three.js CDN import map.
+async function interceptPinnedThree(ctx) {
+  await ctx.route('**/*', (route) => {
+    const u = new URL(route.request().url());
+    if (u.origin === 'https://cdn.jsdelivr.net' && u.pathname.startsWith('/npm/three@0.180.0/build/')) {
+      const filename = u.pathname.split('/').pop();
+      if (filename === 'three.module.js' || filename === 'three.core.js') {
+        return route.fulfill({
+          path: `node_modules/three/build/${filename}`,
+          contentType: 'text/javascript',
+          headers: { 'access-control-allow-origin': '*' },
+        });
+      }
+    }
+    if (!['127.0.0.1', 'localhost'].includes(u.hostname)) {
+      external.push(u.href);
+      return route.abort();
+    }
+    return route.continue();
+  });
+}
 async function shot(name) {
   await page.screenshot({ path: `qa/${name}.png` });
 }
@@ -58,14 +79,7 @@ async function fight() {
 }
 try {
   await fs.mkdir('qa', { recursive: true });
-  await context.route('**/*', (route) => {
-    const u = new URL(route.request().url());
-    if (!['127.0.0.1', 'localhost'].includes(u.hostname)) {
-      external.push(u.href);
-      return route.abort();
-    }
-    return route.continue();
-  });
+  await interceptPinnedThree(context);
   await context.addInitScript(() => {
     const original = crypto.getRandomValues.bind(crypto);
     crypto.getRandomValues = (array) => {
@@ -198,9 +212,10 @@ try {
   checks.push('390px responsive controls without horizontal overflow');
   expect(external).toEqual([]);
   expect(errors).toEqual([]);
-  checks.push('No external network requests and no browser errors in normal runtime');
+  checks.push('No unexpected external requests and no browser errors in normal runtime');
   // Deliberately fail one local atlas in an isolated context; the game must still boot and fight.
   const missing = await browser.newContext({ viewport: { width: 1280, height: 720 } });
+  await interceptPinnedThree(missing);
   await missing.route('**/25_back_atlas.png', (r) => r.abort());
   const p2 = await missing.newPage();
   const missingErrors = [];
@@ -235,5 +250,5 @@ try {
   process.exitCode = 1;
 } finally {
   await browser.close();
-  await new Promise((r) => server.httpServer.close(r));
+  await new Promise((r) => server.close(r));
 }

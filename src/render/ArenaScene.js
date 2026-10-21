@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { assetUrl } from '../assetUrl.js';
 import sprites from '../data/generated/spriteManifest.json' with { type: 'json' };
 export const PALETTES = {
   meadow: {
@@ -265,7 +266,7 @@ export class ArenaScene {
     if (!this.textureCache.has(url))
       this.textureCache.set(
         url,
-        this.loader.loadAsync(import.meta.env.BASE_URL + url).then((t) => {
+        this.loader.loadAsync(assetUrl(url)).then((t) => {
           t.colorSpace = THREE.SRGBColorSpace;
           t.magFilter = THREE.NearestFilter;
           t.minFilter = THREE.NearestFilter;

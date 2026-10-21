@@ -1,20 +1,27 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#193b38">
-    <meta name="description" content="A single-player Pokémon battle atelier. Build your collection, master the matchup, and explore three atmospheric arenas.">
-    <title>Battle Atelier · Nitrous</title>
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#193b38">
+  <meta name="description" content="A single-player Pokémon battle atelier. Build your collection, master the matchup, and explore three atmospheric arenas.">
+  <title>Battle Atelier · Nitrous</title>
+  <link rel="icon" type="image/svg+xml" href="./public/favicon.svg">
+  <link rel="stylesheet" href="./src/styles/style.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+      }
+    }
+  </script>
 </head>
 <body>
-<div id="scene">
-    <canvas id="arena" aria-label="Three-dimensional battle arena"></canvas>
-</div>
-<div id="app"></div>
-<div id="toast" role="status"></div>
-<div id="context-message" hidden>Graphics paused. Restoring the arena…</div>
-<script type="module" src="/src/main.js"></script>
+  <div id="scene"><canvas id="arena" aria-label="Three-dimensional battle arena"></canvas></div>
+  <div id="app"></div>
+  <div id="toast" role="status"></div>
+  <div id="context-message" hidden>Graphics paused. Restoring the arena…</div>
+  <script type="module" src="./src/main.js"></script>
 </body>
 </html>

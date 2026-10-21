@@ -3,13 +3,12 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "description": "Static Three.js Pokémon battle simulator. No build step or npm packages required to play or host.",
   "engines": {
     "node": ">=22.12.0"
   },
   "scripts": {
-    "dev": "vite --host 127.0.0.1",
-    "build": "npm run data:validate && npm run assets:check && vite build",
-    "preview": "vite preview --host 127.0.0.1",
+    "serve": "node scripts/static-server.mjs",
     "test": "vitest run",
     "lint": "eslint src scripts tests",
     "data:import": "node scripts/import-pokeapi.mjs",
@@ -22,9 +21,6 @@
     "package:public": "node scripts/package-public.mjs",
     "format": "prettier --write \"src/**/*.js\" \"src/**/*.css\" \"scripts/**/*.mjs\" \"tests/**/*.js\""
   },
-  "dependencies": {
-    "three": "0.180.0"
-  },
   "devDependencies": {
     "@eslint/js": "9.38.0",
     "@playwright/test": "1.56.1",
@@ -32,7 +28,7 @@
     "globals": "16.4.0",
     "prettier": "3.6.2",
     "sharp": "0.34.4",
-    "vite": "7.1.12",
+    "three": "0.180.0",
     "vitest": "3.2.4"
   }
 }
