@@ -1,35 +1,26 @@
-# Asset credits and distribution status
+# Asset credits and rights status
 
-## Pokémon character images — restricted/private educational profile
+## Pokémon sprites — third-party / not cleared for redistribution
 
-- Source repository: https://github.com/PokeAPI/sprites
-- Pinned revision: `97a7832d307311c0e1c6ea9035308bf80cc94f81`.
-- Source paths: `sprites/pokemon/versions/generation-v/black-white/animated/{dexId}.gif` and `animated/back/{dexId}.gif`.
-- Owners: Pokémon character artwork remains copyrighted by its respective owners, including The Pokémon Company, Nintendo, Creatures and GAME FREAK.
-- Repository notice: https://github.com/PokeAPI/sprites/blob/97a7832d307311c0e1c6ea9035308bf80cc94f81/LICENCE.txt . The repository's CC0 statement does not override its explicit underlying image copyright notice.
-- Intended use in this handoff: private educational fan-game build requested by the user. **Not publicly cleared.**
-- Transform: decoded GIF compositing/disposal using Sharp/libvips; one consistent alpha trim across all frames; 2px transparent cell padding; up to 8 columns; original per-frame delays; nearest-neighbor runtime sampling. Static menu art is the first composited frame.
-- Full per-orientation URLs, SHA-256 hashes, exact trim, dimensions, frame rectangles, timings and status are in `src/data/generated/spriteManifest.json`.
-- All 16 species have verified front/back Gen-V GIF sources; no Showdown or Java-prototype assets were required.
+- Source: https://github.com/PokeAPI/sprites
+- Pinned sprite revision: `97a7832d307311c0e1c6ea9035308bf80cc94f81` (also in `src/data/game/source-lock.json`).
+- Original sprite paths: `sprites/pokemon/versions/generation-v/black-white/animated/{dexId}.gif` and `animated/back/{dexId}.gif`.
+- Character art belongs to its respective rights holders, including The Pokémon Company, Nintendo, Creatures and GAME FREAK. PokeAPI/sprites' repository license **does not clear underlying character/image rights**. See `docs/POKEAPI_SPRITES_LICENCE.txt` and https://github.com/PokeAPI/sprites/blob/97a7832d307311c0e1c6ea9035308bf80cc94f81/LICENCE.txt.
+- Current use is as an unofficial fan/educational experiment. Source availability, transformation, noncommercial intent and GitHub Pages publication do **not** themselves grant permission for public redistribution.
+- Processing: Sharp decodes source animation into trimmed and padded PNG atlases, with frame timings recorded. Static menu assets use prepared frames. Exact URLs, hashes, frame geometry and rights fields are in `src/data/generated/spriteManifest.json`.
+- The curated roster consists of Pikachu, Bulbasaur, Charmander, Squirtle, Eevee, Sandshrew, Growlithe, Magnemite, Gastly, Abra, Geodude, Psyduck, Machop, Dratini, Charizard and Blastoise.
 
-Species: Pikachu, Bulbasaur, Charmander, Squirtle, Eevee, Sandshrew, Growlithe, Magnemite, Gastly, Abra, Geodude, Psyduck, Machop, Dratini, Charizard, Blastoise.
+## Original project assets
 
-## Original project material
+- Procedural arenas, environment meshes/materials, VFX and camera behaviors: authored for this project (`src/render/ArenaScene.js`).
+- Audio: original synthesized Web Audio cues/music (`src/services/AudioService.js`); no ripped audio recordings.
+- UI and title treatment: authored HTML/CSS; `src/ui/templates.html`, `src/ui/screens.js`, `src/styles/`.
+- Favicon and generic geometric missing-art stand-ins: project-authored.
+- Typography: installed system fonts; no external font files bundled.
 
-| Asset | Creation | Status |
-|---|---|---|
-| Three arena environments | Authored Three.js geometry/materials, deterministic placement | Original project source |
-| Attack effects and camera responses | Authored geometric particles, rings, bolts, movement and color presets | Original project source |
-| Sound cues and ambient music | Web Audio oscillators, envelopes and original note sequence | Original; no audio recordings |
-| Interface and title lockup | Authored HTML/CSS, “Battle Atelier / Nitrous” text | Original; no franchise logo |
-| Favicon | Authored geometric SVG | Original |
-| Missing-art stand-ins | Authored geometric front/back designs | Original, not Pokémon likenesses |
-| Typography | Local Arial/Helvetica/Georgia/system fonts | No font files redistributed |
+## Data and influences
 
-The standalone `package:public` workflow replaces every character PNG with an original geometric stand-in, updates the manifest, and excludes private QA screenshots and the private prebuilt bundle. It does not claim rights clearance for retained names or trademarks.
+- PokéAPI / official API-data: https://github.com/PokeAPI/api-data ; pinned revision `447bd5c378bf87da964bfe4dd7487a7bf1d97cbd`. Source-backed facts and source provenance are separate from curated local gameplay definitions; see `docs/CONTENT_WORKFLOW.md`.
+- Main design inspiration: https://github.com/kkatsi/pokemon-battle ; visual/interaction reference only, not reused code/assets.
 
-## Data and references
-
-PokéAPI v2 / official api-data: https://github.com/PokeAPI/api-data (pinned revision in source lock). Source-backed facts are kept separate from authored prices, move pools, effects and battle rules. API provenance is in `importManifest.json`.
-
-Primary visual/interaction reference: https://github.com/kkatsi/pokemon-battle . Used as composition and flow reference; no React source or reference-project assets copied. The supplied Java archive was inspected for its trainer/shop/selection concepts; its source and images were not ported or shipped.
+The earlier `package:public` source-packaging script was removed during static/CDN cleanup. Placeholder sprite generation remains available through the authoring utility `npm run assets:standins`, but no separate public-rights-cleared distribution package is currently produced. A genuine public distribution requires independent rights review and/or suitable replacement art and branding.
