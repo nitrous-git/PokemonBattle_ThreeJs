@@ -1,4 +1,5 @@
 import { pokemon, moves } from '../data/catalogue.js';
+import { assetUrl } from '../assetUrl.js';
 import sprites from '../data/generated/spriteManifest.json' with { type: 'json' };
 export const escapeHTML = (value) =>
   String(value).replace(
@@ -10,7 +11,7 @@ export const title = (value) =>
 export const typeChip = (type) => `<span class="type-chip type-${type}">${title(type)}</span>`;
 export const types = (id) => pokemon[id].types.map(typeChip).join('');
 export const sprite = (id, cls = '', locked = false) =>
-  `<img class="creature-art ${cls} ${locked ? 'silhouette' : ''}" src="${import.meta.env.BASE_URL + sprites[id].portrait}" alt="${pokemon[id].displayName}" draggable="false">`;
+  `<img class="creature-art ${cls} ${locked ? 'silhouette' : ''}" src="${assetUrl(sprites[id].portrait)}" alt="${pokemon[id].displayName}" draggable="false">`;
 export const dex = (id) => `#${String(pokemon[id].dexNumber).padStart(3, '0')}`;
 export const card = (
   id,
