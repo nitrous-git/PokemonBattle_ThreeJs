@@ -310,3 +310,27 @@
         </form>
     </dialog>
 </template>
+<template id="vs-intro">
+    <section class="vs-intro" role="dialog" aria-modal="true" aria-labelledby="vs-matchup" data-state="loading">
+        <h2 id="vs-matchup" class="vs-sr-only" data-bind="intro-matchup"></h2>
+        <div class="vs-panel vs-panel-player" aria-hidden="true"></div>
+        <div class="vs-panel vs-panel-opponent" aria-hidden="true"></div>
+        <div class="vs-grain" aria-hidden="true"></div>
+        <div class="vs-seam" aria-hidden="true"></div>
+        <header class="vs-topline"><span>BATTLE ATELIER <i> / </i> MATCHUP</span><span data-bind="intro-arena"></span></header>
+        <div class="vs-fighter vs-player">
+            <div class="vs-orbit" aria-hidden="true"></div>
+            <span class="vs-index" aria-hidden="true" data-bind="intro-player-dex"></span>
+            <div class="vs-portrait" data-slot="intro-player-art"></div>
+            <div class="vs-info"><span class="vs-label">YOUR PARTNER <i>01</i></span><h3 data-bind="intro-player-name"></h3><div class="vs-meta"><span data-bind="intro-player-level"></span><span data-slot="intro-player-types"></span></div></div>
+        </div>
+        <div class="vs-fighter vs-opponent">
+            <div class="vs-orbit" aria-hidden="true"></div>
+            <span class="vs-index" aria-hidden="true" data-bind="intro-opponent-dex"></span>
+            <div class="vs-portrait" data-slot="intro-opponent-art"></div>
+            <div class="vs-info"><span class="vs-label">CHALLENGER <i>02</i></span><h3 data-bind="intro-opponent-name"></h3><div class="vs-meta"><span data-bind="intro-opponent-level"></span><span data-slot="intro-opponent-types"></span></div></div>
+        </div>
+        <div class="vs-mark" aria-hidden="true"><span>VS</span><small>LET’S BATTLE</small></div>
+        <footer class="vs-bottomline"><span class="vs-loading" role="status">Preparing the arena</span><span class="vs-tagline">ONE ARENA. TWO RIVALS.</span><button type="button" class="vs-skip" data-intro-skip aria-label="Skip battle introduction">Skip intro <kbd>Space</kbd><span aria-hidden="true">↗</span></button></footer>
+    </section>
+</template>

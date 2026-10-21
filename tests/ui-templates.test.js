@@ -8,7 +8,7 @@ describe('static HTML UI integration', () => {
   it('provides every route and dialog as an HTML template', () => {
     for (const id of ['app-header', 'app-footer', 'screen-menu', 'screen-starter',
       'screen-setup', 'screen-catalogue', 'screen-battle', 'screen-results',
-      'screen-settings', 'screen-credits', 'screen-recovery', 'modal-confirm']) {
+      'screen-settings', 'screen-credits', 'screen-recovery', 'modal-confirm', 'vs-intro']) {
       expect(html).toContain(`<template id="${id}">`);
     }
   });

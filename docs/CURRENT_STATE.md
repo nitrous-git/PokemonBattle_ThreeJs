@@ -1,6 +1,6 @@
 # Current state — Battle Atelier
 
-**Baseline:** inspected `master`, 2026-10-21, after static-CDN migration, UI extraction (Phase B–C), and the Phase A attack VFX upgrade. This file records **what is implemented** rather than promising future features.
+**Baseline:** `New-features`, 2026-10-21, with the Phase A attack VFX upgrade and Phase B VS introduction. This file records **what is implemented** rather than promising future features.
 
 ## Playable today
 
@@ -13,6 +13,7 @@
 - Presentation: Three.js procedural backgrounds and animated front/back sprite atlases, camera feedback, audio, battle journal, speed/skip, reduced-motion/low-VFX options, WebGL failure fallback.
 - Attack VFX 2.0: `src/render/MoveVFX.js` resolves authored presets and move power into light/strong/signature effects (0.58/0.78/1.02 seconds at 1×). Fire streams, water jets/bubbles, branching lightning, thrown/falling rocks and dust, ice beams/shards, slashes/claws, energy orbs and leaves share procedural geometry, typed colors, impact rings and soft local glow. Status moves use target-centered auras; reduced motion uses a short stationary pulse.
 - VFX playback waits for renderer completion, scales with live battle speed, and cancels on Skip, context loss, actor replacement or disposal. Elapsed effect time stays independent of the ambient frame cap. Low VFX reduces geometry/particles; no postprocessing or new runtime dependency.
+- VS introduction: new battles and Results replay show a local-portrait warm/cool diagonal matchup overlay for 1.65 seconds, independent of turn speed. Portrait phones use a stacked layout. Button/Space Skip, a 180ms static Reduced Motion reveal, bounded asset preparation, missing-art/WebGL fallback, isolated intro input locking, cancellation cleanup and restored move focus are supported. Two restrained synthesized cues respect audio settings.
 - Results/replay, XP/levels (cap 50), coins, permanent unlock shop, owned collection and saved settings. Save export, localStorage validation/recovery, transaction/double-reward defenses.
 - Native HTML templates for screens and confirmation dialog, separate UI state bindings and shared components. Responsive CSS and keyboard shortcuts (`1`–`4`, Space skip, Escape from battle).
 
@@ -26,6 +27,6 @@ Feature options include roster/move expansion, improved encounter variety, colle
 
 ## Baseline checks
 
-`npm run test` — domain, status edges, assets, UI template tests. `npm run lint` — ESLint. `npm run data:validate` and `npm run assets:check` — authoring integrity. `npm run test:browser` — Playwright end-to-end workflow (additional Chromium installation may be needed). `node scripts/vfx-qa.mjs` adds focused VFX captures, repository-subpath checks, speed/Skip/context-loss checks and repeated-effect resource checks. Run relevant commands and report results, not assumed passes.
+`npm run test` — domain, status edges, assets, UI template tests. `npm run lint` — ESLint. `npm run data:validate` and `npm run assets:check` — authoring integrity. `npm run test:browser` — Playwright end-to-end workflow (additional Chromium installation may be needed). `node scripts/vfx-qa.mjs` adds focused VFX captures, repository-subpath checks, speed/Skip/context-loss checks and repeated-effect resource checks. `node scripts/intro-qa.mjs` checks intro timing, input locking, cancellation, replay, missing-art/WebGL fallback, touch and responsive repository-subpath layouts. Run relevant commands and report results, not assumed passes.
 
 When a feature is delivered and verified, update only the factual bullets that changed. Never rewrite this file from aspirational design notes.

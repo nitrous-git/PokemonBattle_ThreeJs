@@ -52,6 +52,7 @@ export async function loadTemplates() {
         'screen-credits',
         'screen-recovery',
         'modal-confirm',
+        'vs-intro',
     ]) {
         if (!templates.has(name)) throw new Error(`UI template missing: ${name}`);
     }
@@ -372,13 +373,32 @@ function battle(app) {
     html(
         view,
         'command-status',
-        app.busy
+        app.introActive
+            ? '<span>Preparing your matchup…</span>'
+            : app.busy
             ? '<span class="thinking"><i></i> Turn in motion</span><button data-action="skip">Skip animation <kbd>Space</kbd></button>'
             : '<span>Choose your next move.</span><small>Keyboard <kbd>1</kbd> — <kbd>4</kbd></small>',
     );
 
     html(view, 'move-buttons', moveButtons(app));
     return view;
+}
+
+export function createBattleIntro(app) {
+    const view = clone('vs-intro');
+    text(view, 'intro-matchup', `${app.battle.player.name} versus ${app.battle.opponent.name}`);
+    text(view, 'intro-arena', PALETTES[app.arenaId].name);
+    for (const side of ['player', 'opponent']) {
+        const actor = app.battle[side];
+        const id = actor.speciesId;
+        text(view, `intro-${side}-name`, actor.name);
+        text(view, `intro-${side}-level`, `Lv. ${actor.level}`);
+        text(view, `intro-${side}-dex`, dex(id));
+        html(view, `intro-${side}-types`, types(id));
+        html(view, `intro-${side}-art`,
+            `<span class="vs-standin" aria-hidden="true">◇</span>${sprite(id, 'vs-art')}`);
+    }
+    return view.querySelector('.vs-intro');
 }
 
 function results(app) {

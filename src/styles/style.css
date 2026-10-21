@@ -1,4 +1,511 @@
 @import url('./types.css');
+
+/* Battle entry — isolated from arena rendering and turn playback. */
+.vs-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  overflow: hidden;
+  isolation: isolate;
+  background: #132f43;
+  color: #fff4de;
+  font-size: 14px;
+  --vs-ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+.vs-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+.vs-panel {
+  position: absolute;
+  inset: 0;
+}
+.vs-panel-player {
+  background: radial-gradient(ellipse at 23% 43%, #ffbc65 0%, #d86936 44%, #943c30 80%);
+  clip-path: polygon(0 0, 59% 0, 42% 100%, 0 100%);
+}
+.vs-panel-opponent {
+  background: radial-gradient(ellipse at 78% 45%, #5898b5 0%, #255b79 44%, #122d46 85%);
+  clip-path: polygon(59% 0, 100% 0, 100% 100%, 42% 100%);
+}
+.vs-grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.16;
+  background: repeating-linear-gradient(
+    118deg,
+    transparent 0 54px,
+    #fff3db44 55px,
+    transparent 56px 108px
+  );
+}
+.vs-seam {
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  width: 3px;
+  height: 140%;
+  transform: rotate(13deg);
+  background: #ffe4a6;
+  box-shadow: 0 0 28px #ffe3a670;
+}
+.vs-topline,
+.vs-bottomline {
+  position: absolute;
+  z-index: 5;
+  left: 4%;
+  right: 4%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.vs-topline {
+  top: max(26px, env(safe-area-inset-top));
+  padding-bottom: 18px;
+  border-bottom: 1px solid #ffefd538;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.vs-topline i {
+  margin: 0 14px;
+  opacity: 0.55;
+  font-style: normal;
+}
+.vs-bottomline {
+  bottom: max(22px, env(safe-area-inset-bottom));
+  font-size: 10px;
+  letter-spacing: 0.17em;
+}
+.vs-tagline {
+  opacity: 0.75;
+}
+.vs-loading {
+  display: none;
+}
+.vs-intro[data-state='loading'] .vs-loading {
+  display: block;
+}
+.vs-intro[data-state='loading'] .vs-tagline {
+  display: none;
+}
+.vs-skip {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-left: auto;
+  color: #fff5df;
+  padding: 12px 16px;
+  border: 1px solid #fff3db60;
+  border-radius: 999px;
+  background: #132b3d33;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+.vs-skip:hover {
+  background: #132b3d70;
+}
+.vs-skip kbd {
+  color: inherit;
+  background: transparent;
+  border: 1px solid #fff3db50;
+  padding: 3px 6px;
+  border-radius: 4px;
+  font: inherit;
+  font-size: 10px;
+}
+.vs-skip:focus-visible {
+  outline: 2px solid #fff5df;
+  outline-offset: 5px;
+}
+.vs-fighter {
+  position: absolute;
+  top: 14%;
+  bottom: 17%;
+  width: 42%;
+  text-align: center;
+}
+.vs-player {
+  left: 3%;
+}
+.vs-opponent {
+  right: 3%;
+}
+.vs-orbit {
+  position: absolute;
+  width: 78%;
+  aspect-ratio: 1;
+  max-height: 100%;
+  left: 11%;
+  top: 3%;
+  border: 1px solid #fff2d745;
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 20px #fff2d708,
+    0 0 0 21px #fff2d719;
+}
+.vs-orbit::before {
+  content: '';
+  position: absolute;
+  inset: 15%;
+  border: 1px dashed #fff2d73a;
+  border-radius: 50%;
+}
+.vs-index {
+  position: absolute;
+  top: 5%;
+  left: 6%;
+  font-weight: 800;
+  font-size: clamp(42px, 7vw, 110px);
+  letter-spacing: -0.07em;
+  color: #fff3dc12;
+}
+.vs-portrait {
+  position: absolute;
+  inset: 0 2% 22%;
+  display: grid;
+  place-items: center;
+}
+.vs-portrait .vs-art {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  min-width: 0;
+  min-height: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 480px;
+  max-height: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 22px 12px #142b3b55);
+}
+.vs-player .vs-art {
+  transform: scaleX(-1);
+}
+.vs-standin {
+  display: none;
+  font-size: clamp(80px, 15vw, 180px);
+  color: #fff3db;
+  text-shadow: 0 0 45px #fff3db66;
+}
+.vs-portrait[data-missing='true'] .vs-art {
+  display: none;
+}
+.vs-portrait[data-missing='true'] .vs-standin {
+  display: block;
+}
+.vs-info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.vs-label {
+  display: inline-flex;
+  gap: 35px;
+  align-items: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+}
+.vs-label i {
+  font-style: normal;
+  opacity: 0.6;
+}
+.vs-info h3 {
+  margin: 10px 0 14px;
+  font-size: clamp(26px, 4.8vw, 72px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  text-shadow: 0 3px 20px #18304022;
+}
+.vs-meta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.vs-meta > span:last-child {
+  display: flex;
+  gap: 6px;
+}
+.vs-meta .type-chip {
+  background: #142d4338;
+  color: #fff5e7;
+  border: 1px solid #fff5df55;
+  padding: 4px 9px;
+  font-size: 10px;
+}
+.vs-mark {
+  position: absolute;
+  left: 50%;
+  top: 47%;
+  transform: translate(-50%, -50%) rotate(-8deg);
+  text-align: center;
+}
+.vs-mark::before {
+  content: '';
+  position: absolute;
+  inset: -15px;
+  border: 1px solid #fff1ca70;
+  transform: rotate(45deg);
+  background: #15354a28;
+}
+.vs-mark span {
+  position: relative;
+  display: block;
+  font-size: clamp(80px, 12vw, 175px);
+  font-style: italic;
+  line-height: 0.9;
+  font-weight: 900;
+  letter-spacing: -0.11em;
+  padding-right: 0.13em;
+  text-shadow:
+    4px 5px 0 #17354c,
+    0 0 32px #fff0c533;
+}
+.vs-mark small {
+  position: relative;
+  display: block;
+  margin-top: 18px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+}
+.vs-intro[data-state='loading'] .vs-fighter,
+.vs-intro[data-state='loading'] .vs-mark {
+  opacity: 0;
+}
+.vs-intro[data-state='playing'][data-reduced='false'] {
+  animation: vs-exit 300ms ease-in 1350ms both;
+}
+.vs-intro[data-state='playing'][data-reduced='false'] .vs-panel-player {
+  animation: vs-panel-left 350ms var(--vs-ease) both;
+}
+.vs-intro[data-state='playing'][data-reduced='false'] .vs-panel-opponent {
+  animation: vs-panel-right 350ms var(--vs-ease) both;
+}
+.vs-intro[data-state='playing'][data-reduced='false'] .vs-player {
+  animation: vs-reveal-left 430ms var(--vs-ease) 220ms both;
+}
+.vs-intro[data-state='playing'][data-reduced='false'] .vs-opponent {
+  animation: vs-reveal-right 430ms var(--vs-ease) 260ms both;
+}
+.vs-intro[data-state='playing'][data-reduced='false'] .vs-mark {
+  animation: vs-impact 320ms var(--vs-ease) 600ms both;
+}
+.vs-intro[data-state='playing'][data-reduced='false'] .vs-seam {
+  animation: vs-line 600ms ease-out 600ms both;
+}
+@keyframes vs-panel-left {
+  from {
+    transform: translateX(-65%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes vs-panel-right {
+  from {
+    transform: translateX(65%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes vs-reveal-left {
+  from {
+    opacity: 0;
+    transform: translateX(-80px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes vs-reveal-right {
+  from {
+    opacity: 0;
+    transform: translateX(80px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes vs-impact {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(-8deg) scale(1.7);
+  }
+  65% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(-8deg) scale(0.96);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(-8deg) scale(1);
+  }
+}
+@keyframes vs-line {
+  from {
+    opacity: 0.1;
+  }
+  25% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.6;
+  }
+}
+@keyframes vs-exit {
+  0%,
+  10% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@media (max-width: 600px) and (min-height: 550px) {
+  .vs-panel-player {
+    clip-path: polygon(0 0, 100% 0, 100% 43%, 0 57%);
+  }
+  .vs-panel-opponent {
+    clip-path: polygon(0 57%, 100% 43%, 100% 100%, 0 100%);
+  }
+  .vs-seam {
+    top: 50%;
+    left: -20%;
+    width: 140%;
+    height: 2px;
+    transform: rotate(-15deg);
+  }
+  .vs-topline {
+    font-size: 8px;
+    letter-spacing: 0.12em;
+    padding-bottom: 12px;
+    top: max(20px, env(safe-area-inset-top));
+  }
+  .vs-topline i {
+    margin: 0 6px;
+  }
+  .vs-topline > span:last-child {
+    max-width: 35%;
+    text-align: right;
+  }
+  .vs-fighter {
+    width: 90%;
+    height: 35%;
+    bottom: auto;
+  }
+  .vs-player {
+    left: 2%;
+    top: 9%;
+  }
+  .vs-opponent {
+    right: 2%;
+    top: 55%;
+  }
+  .vs-portrait {
+    inset: 0 22% 100px;
+  }
+  .vs-portrait .vs-art {
+    max-width: 230px;
+  }
+  .vs-orbit {
+    width: 52%;
+    left: 24%;
+    top: 0;
+  }
+  .vs-info h3 {
+    font-size: clamp(27px, 8vw, 40px);
+    margin: 6px 0;
+  }
+  .vs-label {
+    font-size: 8px;
+  }
+  .vs-meta {
+    font-size: 10px;
+    gap: 10px;
+  }
+  .vs-meta .type-chip {
+    font-size: 9px;
+    padding: 2px 7px;
+  }
+  .vs-index {
+    left: 8%;
+    top: 12%;
+  }
+  .vs-mark {
+    top: 49.5%;
+  }
+  .vs-mark span {
+    font-size: 80px;
+  }
+  .vs-mark small {
+    margin-top: 8px;
+    font-size: 7px;
+  }
+  .vs-mark::before {
+    inset: -6px 3px;
+  }
+  .vs-bottomline {
+    bottom: max(15px, env(safe-area-inset-bottom));
+  }
+  .vs-tagline {
+    font-size: 7px;
+    letter-spacing: 0.09em;
+  }
+  .vs-skip {
+    font-size: 11px;
+    padding: 10px 12px;
+    gap: 10px;
+  }
+  .vs-skip kbd {
+    display: none;
+  }
+}
+@media (max-height: 500px) {
+  .vs-topline {
+    top: 12px;
+    padding-bottom: 10px;
+    font-size: 8px;
+  }
+  .vs-bottomline {
+    bottom: 10px;
+  }
+  .vs-fighter {
+    top: 14%;
+    bottom: 19%;
+  }
+  .vs-portrait {
+    inset: 0 12% 90px;
+  }
+  .vs-info h3 {
+    font-size: 28px;
+    margin: 4px 0 7px;
+  }
+  .vs-label {
+    font-size: 8px;
+  }
+  .vs-meta,
+  .vs-meta .type-chip {
+    font-size: 9px;
+  }
+  .vs-mark span {
+    font-size: 80px;
+  }
+}
 :root {
   font-family: Arial, Helvetica, sans-serif;
   color: #213c36;
