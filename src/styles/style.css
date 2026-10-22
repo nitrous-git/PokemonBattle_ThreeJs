@@ -518,12 +518,17 @@
   --paper: #fbf8ee;
   --line: #dce0d1;
   --forest: #234f44;
+  --surface-header: #f7f8ed;
+  --surface-footer: #eef3e8;
+  --navigation-text-secondary: #5b7163;
+  --border-subtle: #244d3822;
+  --surface-hover-subtle: #234f4409;
   --ui-scale: 1;
   --type: #a6b7a4;
   font-size: calc(14px * var(--ui-scale));
 }
-/* Light keeps the original declaration fallbacks. Midnight shares semantic tokens
-   across screens; type hues, HP/damage colors, arena and VS styling stay independent. */
+/* Shared navigation tokens follow the application theme on every route.
+   Type hues, HP/damage colors, arena and VS styling stay independent. */
 :root[data-theme='dark'] {
   color-scheme: dark;
   --ink: #e8ebe7;
@@ -534,6 +539,7 @@
   --forest: #70afa3;
   --text-body: #e8ebe7;
   --text-secondary: #afbec4;
+  --navigation-text-secondary: #afbec4;
   --text-emphasis: #b0d4c9;
   --text-accent: #dec38d;
   --text-on-primary: #11231f;
@@ -613,7 +619,7 @@
 }
 body {
   margin: 0;
-  min-width: 360px;
+  min-width: 320px;
 }
 button,
 input,
@@ -719,6 +725,10 @@ input[type='range'] {
   display: flex;
   flex-direction: column;
 }
+.topbar,
+.footer {
+  --text-secondary: var(--navigation-text-secondary);
+}
 .topbar {
   height: 94px;
   padding: 0 4%;
@@ -763,7 +773,7 @@ input[type='range'] {
   top: 44%;
   width: 5px;
   height: 5px;
-  background: #547158;
+  background: var(--text-secondary, #547158);
   border-radius: 100%;
 }
 .topbar nav {
@@ -833,9 +843,9 @@ input[type='range'] {
   background: var(--surface-hover, white);
 }
 .footer {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
-  justify-content: space-between;
   gap: 12px;
   padding: 0 4%;
   height: 43px;
@@ -847,7 +857,10 @@ input[type='range'] {
   z-index: 5;
   flex-shrink: 0;
 }
+.footer > span:first-child { min-width: 0; }
+.footer .save-state { justify-self: end; text-align: right; }
 .footer button {
+  grid-column: 2;
   font-size: 0.66rem;
   letter-spacing: 0;
   padding: 8px;
@@ -1898,15 +1911,19 @@ input[type='range'] {
   padding: 22px 0;
 }
 .reward-grid > div {
+  min-width: 0;
+  padding: 0 8px;
   border-right: 1px solid var(--line);
 }
 .reward-grid > div:last-child {
   border: 0;
 }
-.reward-grid span {
-  font-size: 0.5rem;
-  letter-spacing: 0.1em;
-  color: var(--text-secondary, #95a086);
+.reward-grid > div > span {
+  display: block;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary, #5b7163);
 }
 .reward-grid b {
   display: block;
@@ -2459,10 +2476,11 @@ input[type='range'] {
 }
 @media (max-width: 620px) {
   .topbar {
-    padding: 0 18px;
+    padding: 12px 18px 0;
     gap: 10px;
     flex-wrap: wrap;
-    height: 110px;
+    height: auto;
+    min-height: 110px;
     align-content: center;
     justify-content: space-between;
   }
@@ -2480,7 +2498,7 @@ input[type='range'] {
     width: 100%;
     height: 35px;
     justify-content: center;
-    margin-top: 8px;
+    margin: 8px 0 0;
   }
   .topbar nav button {
     padding: 0 25px;
@@ -2502,8 +2520,45 @@ input[type='range'] {
     grid-template-columns: 1fr;
   }
   .partner-panel {
-    display: none;
+    min-width: 0;
+    padding: 16px;
   }
+  .partner-feature {
+    display: grid;
+    grid-template-columns: 85px minmax(0, 1fr);
+    gap: 6px 12px;
+    align-items: center;
+    text-align: left;
+    padding: 14px 0;
+  }
+  .partner-feature > .creature-art {
+    grid-column: 1;
+    grid-row: 1 / 4;
+    width: 85px;
+    height: 85px;
+    margin: 0;
+  }
+  .partner-feature .dex-label {
+    position: static;
+    grid-column: 2;
+  }
+  .partner-feature h2 {
+    grid-column: 2;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    font-size: 1.3rem;
+    gap: 4px 8px;
+    margin: 0;
+  }
+  .partner-feature > [data-slot='partner-types'] { grid-column: 2; }
+  .partner-panel .field { font-size: 0.78rem; }
+  .partner-panel .field select { min-width: 0; font-size: 1rem; }
+  .partner-panel .compact-moves {
+    margin-top: 12px;
+    padding-top: 12px;
+  }
+  .partner-panel .compact-moves span { font-size: 0.78rem; overflow-wrap: anywhere; }
+  .partner-hint { font-size: 0.75rem; margin-top: 12px; }
   .opponent-grid {
     max-height: 340px;
   }
@@ -2703,9 +2758,19 @@ input[type='range'] {
   .reward-grid b {
     font-size: 1.3rem;
   }
-  .reward-grid span {
-    font-size: 0.43rem;
+  .reward-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 16px 0;
   }
+  .reward-grid > div {
+    border-right: 0;
+    padding: 0 8px 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  .reward-grid > div:last-child { padding-bottom: 0; }
+  .reward-grid > div > span { font-size: 0.78rem; }
+  .reward-grid b { margin-top: 4px; }
   .settings-panel,
   .credits-panel {
     padding: 22px;
@@ -2726,15 +2791,20 @@ input[type='range'] {
     width: 100px;
   }
   .footer {
-    height: 35px;
-    padding: 0 18px;
-    font-size: 0.4rem;
+    height: auto;
+    min-height: 55px;
+    padding: 6px 18px;
+    gap: 4px 8px;
+    font-size: 0.65rem;
+    line-height: 1.4;
   }
+  .footer > span:first-child { grid-column: 1 / -1; }
+  .footer button { grid-row: 2; }
   .save-state {
     display: none;
   }
   .footer button {
-    font-size: 0.55rem;
+    font-size: 0.78rem;
   }
   .modal {
     max-width: 90vw;
@@ -2982,21 +3052,6 @@ input[type='range'] {
 /* Cosmic title screen. All treatment is scoped; other routes retain their themes. */
 body[data-screen='menu'] #arena { visibility: hidden; }
 body[data-screen='menu'] #app { background: #030e23; }
-body[data-screen='menu'] .topbar,
-body[data-screen='menu'] .footer {
-  --ink: #eff7ff;
-  --text-secondary: #bfcedd;
-  --text-accent: #ffe095;
-  --forest: #40d6ff;
-  --border-subtle: #98c9ff30;
-  --border-control: #a3bedb80;
-  --surface-header: #0d1c2ef5;
-  --surface-footer: #0c1b2bf5;
-  --surface-hover: #20364d;
-  --surface-hover-subtle: #6dcaff12;
-  --focus-ring: #6ce7ff;
-  color: var(--ink);
-}
 .menu-screen.title-screen {
   position: relative;
   isolation: isolate;
