@@ -43,6 +43,15 @@ export class AudioService {
     };
   }
   cue(kind, type) {
+    if (kind === 'intro-entry') {
+      this.tone(180, 0.22, 'sine', 0, 0.16, 640);
+      return;
+    }
+    if (kind === 'intro-impact') {
+      this.tone(110, 0.18, 'triangle', 0, 0.32, 55);
+      this.tone(587, 0.22, 'sine', 0, 0.16);
+      return;
+    }
     if (kind === 'select') {
       this.tone(660, 0.07, 'sine');
       return;

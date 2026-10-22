@@ -2,7 +2,7 @@
  * Application controller: state, input, navigation and turn presentation.
  * HTML layout and component markup live under src/ui/.
  */
-import { pokemon } from '../data/catalogue.js';
+import { pokemon, moves } from '../data/catalogue.js';
 import { createBattle, resolveTurn } from '../domain/battle.js';
 import { chooseAI } from '../domain/ai.js';
 import { legalMoves } from '../domain/rules.js';
@@ -10,8 +10,10 @@ import { newSave, purchase, applyReward, DEFAULT_SETTINGS } from '../domain/prog
 import { SaveService } from '../services/SaveService.js';
 import { AudioService } from '../services/AudioService.js';
 import { ArenaScene } from '../render/ArenaScene.js';
+import { resolveMoveVFX } from '../render/MoveVFX.js';
 import { title, healthPanel } from '../ui/components.js';
-import { createHeader, createFooter, createScreen, createModal, recentBattleLog } from '../ui/screens.js';
+import { createHeader, createFooter, createScreen, createModal, createBattleIntro, recentBattleLog } from '../ui/screens.js';
+import { BattleIntro } from '../ui/BattleIntro.js';
 
 const speciesIds = Object.keys(pokemon);
 
@@ -34,6 +36,8 @@ export class GameApp {
         this.difficulty = 'normal';
         this.arenaId = 'canyon';
         this.busy = false;
+        this.introActive = false;
+        this.intro = null;
         this.log = [];
         this.filter = '';
         this.save = null;
@@ -71,6 +75,15 @@ export class GameApp {
         });
 
         document.addEventListener('keydown', (event) => {
+            if (this.introActive || this.introSpaceHeld) {
+                if (event.code === 'Space') {
+                    event.preventDefault();
+                    this.introSpaceHeld = true;
+                    this.intro?.skip();
+                }
+                if (event.key === 'Escape') event.preventDefault();
+                return;
+            }
             if (event.target.matches('input,select,textarea')) return;
 
             if (event.code === 'Space' && this.route === 'battle' && this.busy) {
@@ -84,6 +97,21 @@ export class GameApp {
             }
 
             if (event.key === 'Escape' && this.route === 'battle' && !this.busy) this.confirmAbandon();
+        });
+
+        // A Space keyup must not activate the move button that receives focus after Skip.
+        document.addEventListener('keyup', (event) => {
+            if (event.code === 'Space' && this.introSpaceHeld) {
+                event.preventDefault();
+                this.introSpaceHeld = false;
+            }
+        });
+        window.addEventListener('blur', () => { this.introSpaceHeld = false; });
+        window.addEventListener('pagehide', () => {
+            if (!this.introActive) return;
+            this.cancelIntro();
+            // A back/forward-cache return must not restore disabled intro-era controls.
+            this.render();
         });
 
         this.root.addEventListener(
@@ -110,6 +138,7 @@ export class GameApp {
             this.save?.settings ||
             this.tempSettings || {
                 ...DEFAULT_SETTINGS,
+                theme: document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light',
                 reducedMotion: matchMedia('(prefers-reduced-motion: reduce)').matches,
             }
         );
@@ -124,6 +153,8 @@ export class GameApp {
 
     applySettings() {
         const settings = this.settings;
+        document.documentElement.dataset.theme = settings.theme;
+        document.documentElement.style.colorScheme = settings.theme;
         document.documentElement.dataset.motion = settings.reducedMotion ? 'reduced' : 'full';
         document.documentElement.style.setProperty('--ui-scale', settings.uiScale);
         this.scene?.settingsChanged(settings);
@@ -165,6 +196,7 @@ export class GameApp {
     }
 
     go(route) {
+        this.cancelIntro();
         if (this.recovery) {
             this.render();
             return;
@@ -191,6 +223,7 @@ export class GameApp {
     render() {
         document.body.dataset.screen = this.route;
         this.root.replaceChildren(createHeader(this), createScreen(this), createFooter(this));
+        this.root.inert = Boolean(this.introActive);
 
         if (this.graphicsError)
             this.toast('WebGL unavailable. Battle rules remain playable; try hardware acceleration.');
@@ -205,6 +238,7 @@ export class GameApp {
     }
 
     async click(event) {
+        if (this.introActive) return;
         const element = event.target.closest('[data-action]');
         if (!element || element.disabled) return;
 
@@ -230,7 +264,9 @@ export class GameApp {
                 }
                 this.go(element.dataset.route);
             } else if (action === 'starter') {
-                this.commit(() => newSave(element.dataset.id, identity()));
+                const settings = { ...this.settings };
+                this.commit(() => ({ ...newSave(element.dataset.id, identity()), settings }));
+                this.tempSettings = null;
                 this.selectedId = this.save.collection[0].instanceId;
                 this.audio.cue('start');
                 this.go(this.afterStarter || 'setup');
@@ -306,6 +342,7 @@ export class GameApp {
     }
 
     change(event) {
+        if (this.introActive) return;
         const element = event.target;
 
         try {
@@ -320,7 +357,8 @@ export class GameApp {
             } else if (Object.hasOwn(DEFAULT_SETTINGS, element.id)) {
                 this.setSetting(
                     element.id,
-                    element.type === 'checkbox' ? element.checked : Number(element.value),
+                    element.id === 'theme' ? element.value
+                        : element.type === 'checkbox' ? element.checked : Number(element.value),
                 );
             }
         } catch (error) {
@@ -333,6 +371,11 @@ export class GameApp {
         if (this.save) this.commit((save) => ({ ...save, settings: { ...save.settings, [key]: value } }));
         else this.tempSettings = { ...this.settings, [key]: value };
         this.applySettings();
+        // Before starter selection there is no game save; retain only the appearance preference.
+        if (key === 'theme') {
+            try { localStorage.setItem('nitrous.battle-atelier.theme', value); }
+            catch { this.toast('Appearance changed for this session; browser storage is unavailable.'); }
+        }
     }
 
     modal(heading, message, accept, label = 'Confirm') {
@@ -371,14 +414,12 @@ export class GameApp {
     }
 
     async start() {
-        if (this.busy || this.pendingReward) return;
-        this.busy = true;
-
+        if (this.busy || this.introActive || this.pendingReward || this.route === 'battle') return;
         const selected = this.selected;
-        this.oldLevel = selected.level;
+        if (!selected || !pokemon[this.opponentId]) return;
         const id = identity();
-
-        this.battle = createBattle({
+        // Validate/create before locking input; a domain failure cannot leave a busy screen.
+        const battle = createBattle({
             instance: selected,
             opponentId: this.opponentId,
             tier: this.tier,
@@ -386,21 +427,53 @@ export class GameApp {
             seed: id.seed,
             battleId: crypto.randomUUID(),
         });
-
-        this.displayBattle = structuredClone(this.battle);
+        const token = {};
+        this.introToken = token;
+        this.introActive = true;
+        this.busy = true;
+        this.oldLevel = selected.level;
+        this.battle = battle;
+        this.displayBattle = structuredClone(battle);
         this.route = 'battle';
         this.log = [
             `${pokemon[this.opponentId].displayName} enters the arena.`,
             `Your move, ${pokemon[selected.speciesId].displayName}.`,
         ];
 
-        this.render();
-        this.audio.cue('start');
-        this.scene?.setArena(this.arenaId);
-        await this.scene?.setActors(selected.speciesId, this.opponentId, 'battle');
+        try {
+            this.render();
+            const view = createBattleIntro(this);
+            this.intro = new BattleIntro(view, {
+                reducedMotion: this.settings.reducedMotion,
+                cue: (kind) => this.audio.cue(kind),
+            });
+            document.body.append(view);
+            const prepare = Promise.resolve().then(() => {
+                if (this.introToken !== token) return;
+                this.scene?.setArena(this.arenaId);
+                return this.scene?.setActors(selected.speciesId, battle.opponent.speciesId, 'battle');
+            });
+            await this.intro.run(prepare);
+        } catch (error) {
+            this.toast(`Introduction unavailable: ${error.message}`);
+        } finally {
+            // A cancelled startup cannot re-render or unlock a subsequent battle.
+            if (this.introToken === token) {
+                this.cancelIntro();
+                this.render();
+                this.root.querySelector('.move-button:not([disabled])')?.focus({ preventScroll: true });
+            }
+        }
+    }
 
+    cancelIntro() {
+        if (!this.introActive) return;
+        this.introToken = null;
+        this.intro?.cancel();
+        this.intro = null;
+        this.introActive = false;
         this.busy = false;
-        this.render();
+        this.root.inert = false;
     }
 
     appendLog(message) {
@@ -435,6 +508,7 @@ export class GameApp {
     }
 
     skip() {
+        if (this.introActive) return;
         this.skipping = true;
         this.finishWait?.();
         this.finishWait = null;
@@ -479,9 +553,13 @@ export class GameApp {
                 }
 
                 if (event.type === 'VFX') {
-                    if (!this.skipping) this.scene?.play(event);
                     this.audio.cue('hit', event.moveType);
-                    await this.wait(this.settings.reducedMotion ? 180 : 700);
+                    if (!this.skipping) {
+                        const playback = this.scene?.play(event);
+                        // Renderer completion shares its speed clock and resolves on Skip/context loss.
+                        if (playback) await playback;
+                        else await this.wait(resolveMoveVFX(event, moves[event.moveId], this.settings).duration * 1000);
+                    }
                 }
 
                 if (event.type === 'DAMAGE') {
@@ -569,6 +647,7 @@ export class GameApp {
             }
             this.render();
         } catch (error) {
+            this.scene?.clearEffects();
             this.busy = false;
             this.toast(error.message);
             this.render();

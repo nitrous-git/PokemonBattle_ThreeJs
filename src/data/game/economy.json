@@ -1,5 +1,5 @@
 {
-  "startCoins": 200,
+  "startCoins": 200000,
   "startLevel": 5,
   "maxLevel": 50,
   "tiers": {

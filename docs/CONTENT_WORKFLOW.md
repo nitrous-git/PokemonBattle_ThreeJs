@@ -17,7 +17,7 @@ PokéAPI is an **authoring input**, not an in-game API. The shipped browser uses
 | `src/data/generated/{importManifest,learnsetAudit,overrideAudit}.json` | Provenance and audit artifacts |
 | `public/assets/pokemon/` | Committed front/back atlas/static sprite images |
 | `src/data/catalogue.js` | Imports compiled JSON into runtime |
-| `src/domain/validation.js` | Compiler validation; current exact roster/move counts are 16 and 61 |
+| `src/domain/validation.js` | Compiler validation; current exact roster/move counts are 24 and 66 |
 
 Current source lock: API-data `447bd5c378bf87da964bfe4dd7487a7bf1d97cbd`, sprite revision `97a7832d307311c0e1c6ea9035308bf80cc94f81`, ruleset `classic-modern-v1`. Read the actual lock file before editing revisions.
 
@@ -32,13 +32,17 @@ npm run assets:check    # validate image files and manifest records
 npm run assets:standins # generate geometric placeholder artwork (authoring option)
 ```
 
+`data:import -- --missing` reuses hash-verified records from the same pinned snapshot and imports additions. `assets:prepare -- --only=mewtwo,rayquaza` prepares a selected subset while retaining other manifest entries; normal preparation fails if both official GIF and static PNG are unavailable instead of publishing a stand-in. Explicit `--standins` remains development-only.
+
+Species may author positive `arenaHeight` and `arenaMaxWidth` values in world units. The renderer fits each orientation within these bounds and the current battle viewport without distorting its aspect ratio; omitted height keeps the original 2.75-unit default. Existing Common/Rare/Premium labels remain supported alongside Elite/Legendary/Mythical.
+
 These scripts are optional for running the already-built website, but required for reliable content updates. `scripts/io.mjs` is their shared helper. Asset generation uses Sharp (npm development dependency). No production build step is involved.
 
 ## Adding Pokémon or moves
 
 1. Inspect existing authored override/pool schema and relevant `scripts/` functions. Do not edit generated catalogue files manually as a lasting change.
 2. Add/modify curated species, pools, move metadata/effects with explicit source/provenance exceptions. When new source IDs are needed, import source data and review them before compiling. `data:import` replaces the snapshot only after source validation; review source-lock changes deliberately.
-3. Compile and validate content. **Current `validateContent()` explicitly requires 16 species and 61 moves**: update these constraints, corresponding tests, and any fixed UI counts when expanding the roster. Keep 18 types unless a separately approved ruleset change warrants more.
+3. Compile and validate content. **Current `validateContent()` explicitly requires 24 species and 66 moves**: update these constraints, corresponding tests, and any fixed UI counts when expanding the roster. Keep 18 types unless a separately approved ruleset change warrants more.
 4. Prepare/verify both front/back art, animated atlas frames, static previews and manifest entries. Keep original format/fallback semantics and repository-relative asset URLs.
 5. Check balance, move pool legality, effects, PP, moveset drafting, purchases and existing save compatibility. Do not silently remove IDs used in player saves.
 6. Run `npm run data:validate`, `npm run assets:check`, `npm run test`, and relevant manual/browser QA.

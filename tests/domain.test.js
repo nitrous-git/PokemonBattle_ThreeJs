@@ -62,8 +62,8 @@ describe('content and source', () => {
       ),
     ).toThrow());
   it('contains the exact roster and catalogue', () => {
-    expect(Object.keys(pokemon)).toHaveLength(16);
-    expect(Object.keys(moves)).toHaveLength(61);
+    expect(Object.keys(pokemon)).toHaveLength(24);
+    expect(Object.keys(moves)).toHaveLength(66);
     expect(Object.values(typeChart).flatMap(Object.values)).toHaveLength(324);
   });
   it('preserves zero and compound type relationships', () => {
@@ -236,7 +236,7 @@ describe('AI and lifecycle', () => {
   });
   it('finishes 60 seeded matches with legal actions and finite state', () => {
     for (let seed = 0; seed < 60; seed++) {
-      let b = battle(Object.keys(pokemon)[seed % 16], Object.keys(pokemon)[(seed + 3) % 16], seed);
+      let b = battle(Object.keys(pokemon)[seed % Object.keys(pokemon).length], Object.keys(pokemon)[(seed + 3) % Object.keys(pokemon).length], seed);
       let count = 0;
       while (b.phase !== 'ended' && count++ < 180) {
         const enemy = chooseAI(b, count % 4 === 0 ? 'hard' : 'normal');

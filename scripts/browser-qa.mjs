@@ -106,9 +106,9 @@ try {
   await page.locator('.hero-cta').click();
   await shot('03-starter');
   await page.locator('[data-action=starter][data-id=pikachu]').click();
-  await expect(page.locator('.opponent-grid .creature-card')).toHaveCount(16);
+  await expect(page.locator('.opponent-grid .creature-card')).toHaveCount(24);
   await shot('04-setup');
-  checks.push('Clean save → starter → 16-species setup');
+  checks.push('Clean save → starter → 24-species setup');
   await page.selectOption('#difficulty', 'easy');
   await click('start');
   await expect(page.locator('.move-button').first()).toBeEnabled();
@@ -236,7 +236,7 @@ try {
         checks,
         errors,
         external,
-        environment: 'Chromium 141 headless / SwiftShader, Linux',
+        environment: `Chromium ${browser.version()} headless / SwiftShader, Linux`,
         passed: true,
       },
       null,

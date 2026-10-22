@@ -163,5 +163,78 @@
     "rapid-spin",
     "ice-beam",
     "body-slam"
+  ],
+  "mewtwo": [
+    "psychic",
+    "psybeam",
+    "calm-mind",
+    "aura-sphere",
+    "shadow-ball",
+    "ice-beam",
+    "swift",
+    "thunder-wave"
+  ],
+  "rayquaza": [
+    "dragon-pulse",
+    "draco-meteor",
+    "dragon-claw",
+    "twister",
+    "crunch",
+    "earthquake",
+    "bulk-up"
+  ],
+  "lugia": [
+    "psychic",
+    "calm-mind",
+    "hydro-pump",
+    "ice-beam",
+    "gust",
+    "dragon-pulse",
+    "thunder-wave"
+  ],
+  "darkrai": [
+    "dark-pulse",
+    "shadow-ball",
+    "hypnosis",
+    "calm-mind",
+    "psychic",
+    "ice-beam",
+    "thunderbolt"
+  ],
+  "lucario": [
+    "aura-sphere",
+    "brick-break",
+    "metal-claw",
+    "flash-cannon",
+    "quick-attack",
+    "bulk-up",
+    "calm-mind"
+  ],
+  "garchomp": [
+    "earthquake",
+    "dragon-claw",
+    "dragon-pulse",
+    "rock-slide",
+    "crunch",
+    "sand-attack",
+    "fire-fang"
+  ],
+  "gengar": [
+    "shadow-ball",
+    "hypnosis",
+    "confuse-ray",
+    "dark-pulse",
+    "psychic",
+    "thunderbolt",
+    "will-o-wisp"
+  ],
+  "tyranitar": [
+    "rock-slide",
+    "earthquake",
+    "crunch",
+    "dark-pulse",
+    "rock-polish",
+    "ice-beam",
+    "thunder-wave"
   ]
 }

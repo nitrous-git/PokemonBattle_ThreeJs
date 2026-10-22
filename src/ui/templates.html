@@ -43,8 +43,8 @@
                 <button data-action="nav" data-route="shop">Visit the shop <span>→</span></button>
             </div>
             <div class="hero-facts">
-                <span><b>16</b> Pokémon</span>
-                <span><b>61</b> Moves</span>
+                <span><b data-bind="roster-total"></b> Pokémon</span>
+                <span><b data-bind="move-total"></b> Moves</span>
                 <span><b>03</b> Arenas</span>
             </div>
         </div>
@@ -109,7 +109,7 @@
                         <span>⌕</span>
                         <input id="filter" placeholder="Find a Pokémon or type…" aria-label="Filter opponents">
                     </label>
-                    <span>16 available</span>
+                    <span><span data-bind="roster-total"></span> available</span>
                 </div>
                 <div class="opponent-grid" data-slot="opponents"></div>
             </section>
@@ -118,7 +118,7 @@
             <div class="match-summary">
                 <span class="eyebrow">YOUR MATCHUP</span>
                 <strong>
-                    <span data-bind="match-player"></span> <i>vs.</i> <span data-bind="match-opponent"></span>
+                    <span data-bind="match-player"></span> <i>vs.</i> <span data-bind="match-opponent"></span> <span data-slot="match-rarity"></span>
                 </strong>
                 <small>
                     Opponent Lv. <span data-bind="match-level"></span> · Win:
@@ -142,7 +142,7 @@
             </div>
             <div class="collection-count">
                 <b data-bind="collection-count"></b>
-                <span>/ 16<br>COLLECTED</span>
+                <span>/ <span data-bind="roster-total"></span><br>COLLECTED</span>
             </div>
         </div>
         <div class="catalogue-layout">
@@ -234,6 +234,11 @@
             <h1>A little fine-tuning.</h1>
         </div>
         <section class="panel settings-panel">
+            <h2 class="settings-section-title">Appearance</h2>
+            <label class="setting-row" for="theme">
+                <span><b>Interface theme</b><small id="theme-description">Choose the original Light palette or Midnight Dark.</small></span>
+                <select id="theme" aria-describedby="theme-description"><option value="light">Light</option><option value="dark">Dark</option></select>
+            </label>
             <h2>Sound &amp; atmosphere</h2>
             <label class="setting-row">
                 <span><b>Master volume</b><small>Original synthesized sound effects</small></span>
@@ -309,4 +314,28 @@
             </div>
         </form>
     </dialog>
+</template>
+<template id="vs-intro">
+    <section class="vs-intro" role="dialog" aria-modal="true" aria-labelledby="vs-matchup" data-state="loading">
+        <h2 id="vs-matchup" class="vs-sr-only" data-bind="intro-matchup"></h2>
+        <div class="vs-panel vs-panel-player" aria-hidden="true"></div>
+        <div class="vs-panel vs-panel-opponent" aria-hidden="true"></div>
+        <div class="vs-grain" aria-hidden="true"></div>
+        <div class="vs-seam" aria-hidden="true"></div>
+        <header class="vs-topline"><span>BATTLE ATELIER <i> / </i> MATCHUP</span><span data-bind="intro-arena"></span></header>
+        <div class="vs-fighter vs-player">
+            <div class="vs-orbit" aria-hidden="true"></div>
+            <span class="vs-index" aria-hidden="true" data-bind="intro-player-dex"></span>
+            <div class="vs-portrait" data-slot="intro-player-art"></div>
+            <div class="vs-info"><span class="vs-label">YOUR PARTNER <i>01</i></span><h3 data-bind="intro-player-name"></h3><div class="vs-meta"><span data-bind="intro-player-level"></span><span data-slot="intro-player-types"></span></div></div>
+        </div>
+        <div class="vs-fighter vs-opponent">
+            <div class="vs-orbit" aria-hidden="true"></div>
+            <span class="vs-index" aria-hidden="true" data-bind="intro-opponent-dex"></span>
+            <div class="vs-portrait" data-slot="intro-opponent-art"></div>
+            <div class="vs-info"><span class="vs-label">CHALLENGER <i>02</i></span><h3 data-bind="intro-opponent-name"></h3><div class="vs-meta"><span data-bind="intro-opponent-level"></span><span data-slot="intro-opponent-types"></span></div></div>
+        </div>
+        <div class="vs-mark" aria-hidden="true"><span>VS</span><small>LET’S BATTLE</small></div>
+        <footer class="vs-bottomline"><span class="vs-loading" role="status">Preparing the arena</span><span class="vs-tagline">ONE ARENA. TWO RIVALS.</span><button type="button" class="vs-skip" data-intro-skip aria-label="Skip battle introduction">Skip intro <kbd>Space</kbd><span aria-hidden="true">↗</span></button></footer>
+    </section>
 </template>
