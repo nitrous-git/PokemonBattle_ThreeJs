@@ -10,6 +10,7 @@ import { newSave, purchase, applyReward, DEFAULT_SETTINGS } from '../domain/prog
 import { SaveService } from '../services/SaveService.js';
 import { AudioService } from '../services/AudioService.js';
 import { ArenaScene } from '../render/ArenaScene.js';
+import { TitleScene } from '../render/TitleScene.js';
 import { resolveMoveVFX } from '../render/MoveVFX.js';
 import { title, healthPanel } from '../ui/components.js';
 import { createHeader, createFooter, createScreen, createModal, createBattleIntro, recentBattleLog } from '../ui/screens.js';
@@ -158,6 +159,7 @@ export class GameApp {
         document.documentElement.dataset.motion = settings.reducedMotion ? 'reduced' : 'full';
         document.documentElement.style.setProperty('--ui-scale', settings.uiScale);
         this.scene?.settingsChanged(settings);
+        this.titleScene?.settingsChanged(settings);
         this.audio.apply(settings);
     }
 
@@ -182,6 +184,7 @@ export class GameApp {
 
     async preview() {
         const route = this.route;
+        if (route === 'menu' && !this.recovery) return;
         this.scene?.setArena(this.arenaId);
         if (route === 'battle') return;
 
@@ -221,9 +224,21 @@ export class GameApp {
     }
 
     render() {
-        document.body.dataset.screen = this.route;
+        document.body.dataset.screen = this.recovery ? 'recovery' : this.route;
         this.root.replaceChildren(createHeader(this), createScreen(this), createFooter(this));
         this.root.inert = Boolean(this.introActive);
+        const titleHost = this.root.querySelector('.title-environment');
+        this.scene?.setActive(!titleHost);
+        if (titleHost) {
+            if (this.titleScene) this.titleScene.attach(titleHost);
+            else if (!this.graphicsError) {
+                try { this.titleScene = new TitleScene(titleHost, this.settings); }
+                catch { /* The CSS sky and native PLAY remain usable without WebGL. */ }
+            }
+        } else {
+            this.titleScene?.dispose();
+            this.titleScene = null;
+        }
 
         if (this.graphicsError)
             this.toast('WebGL unavailable. Battle rules remain playable; try hardware acceleration.');

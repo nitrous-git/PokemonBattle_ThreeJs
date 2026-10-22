@@ -116,16 +116,29 @@ export class ArenaScene {
         canvas.addEventListener('webglcontextlost', this.onContextLost);
         canvas.addEventListener('webglcontextrestored', this.onContextRestored);
 
-        let last = performance.now();
-        const frame = (now) => {
-            const elapsed = Math.max(0, (now - last) / 1000);
-            const dt = Math.min(0.05, elapsed);
-            last = now;
-            this.update(dt, elapsed);
+        this.active = false;
+        this.raf = null;
+        this.frame = (now) => {
+            if (!this.active || this.disposed) return;
+            const elapsed = Math.max(0, (now - this.lastFrame) / 1000);
+            this.lastFrame = now;
+            this.update(Math.min(0.05, elapsed), elapsed);
             if (!this.lost) this.renderer.render(this.scene, this.camera);
-            this.raf = requestAnimationFrame(frame);
+            this.raf = requestAnimationFrame(this.frame);
         };
-        this.raf = requestAnimationFrame(frame);
+        this.setActive(true);
+    }
+
+    // The title screen owns its own canvas; the stable #arena is retained and paused.
+    setActive(active) {
+        if (this.disposed || this.active === active) return;
+        this.active = active;
+        cancelAnimationFrame(this.raf);
+        this.raf = null;
+        if (active) {
+            this.lastFrame = performance.now();
+            this.raf = requestAnimationFrame(this.frame);
+        }
     }
 
     settingsChanged(settings) {
@@ -546,6 +559,8 @@ export class ArenaScene {
     }
 
     dispose() {
+        this.disposed = true;
+        this.active = false;
         cancelAnimationFrame(this.raf);
         this.ticket++; // Invalidate outstanding sprite loads.
         this.canvas.removeEventListener('webglcontextlost', this.onContextLost);
