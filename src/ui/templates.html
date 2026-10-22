@@ -30,33 +30,55 @@
 </template>
 
 <template id="screen-menu">
-    <main class="menu-screen">
-        <div class="hero-copy">
-            <span class="eyebrow"><i></i> POKÉMON · BATTLE SIMULATOR</span>
-            <h1>Every battle.<br>A new <em>story.</em></h1>
-            <p>Choose your partner. Find your edge.<br>A small arena for big possibilities.</p>
-            <button class="button primary hero-cta" data-action="nav" data-route="setup">
-                <span data-bind="cta">Begin your journey</span> <span>↗</span>
+    <main class="menu-screen title-screen" aria-labelledby="title-heading">
+        <div class="title-environment" aria-hidden="true"></div>
+        <div class="title-content">
+            <h1 id="title-heading" class="title-heading"><span class="title-sr-only">Battle Atelier</span><svg class="title-logo" viewBox="0 0 820 470" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+ <defs>
+  <linearGradient id="title-silver" x1="0" y1="0" x2="0.12" y2="1"><stop stop-color="#ffffff"/><stop offset=".44" stop-color="#e8faff"/><stop offset=".46" stop-color="#94dfff"/><stop offset="1" stop-color="#3e9ae2"/></linearGradient>
+  <linearGradient id="title-gold" x1="0" y1="0" x2="0.16" y2="1"><stop stop-color="#fff8ce"/><stop offset=".43" stop-color="#ffe59a"/><stop offset=".45" stop-color="#f8b749"/><stop offset="1" stop-color="#d67e25"/></linearGradient>
+  <linearGradient id="title-red" x1="0" y1="0" x2="0.7" y2="1"><stop stop-color="#ff6383"/><stop offset=".5" stop-color="#f52c63"/><stop offset="1" stop-color="#b81955"/></linearGradient>
+  <linearGradient id="title-white" x1="0" y1="0" x2="0.4" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#77ceee"/></linearGradient>
+  <linearGradient id="title-frame" x1="0" y1="0" x2="0.2" y2="1"><stop stop-color="#083b68"/><stop offset=".55" stop-color="#06182f"/><stop offset="1" stop-color="#16204c"/></linearGradient>
+  <linearGradient id="title-orbit"><stop stop-color="#2abfff" stop-opacity="0"/><stop offset=".5" stop-color="#28dcff"/><stop offset="1" stop-color="#b6faff"/></linearGradient>
+  <path id="title-letter-B" d="M0 0H48L62 12V32L53 42L64 52V73L49 88H0ZM18 16V34H40L45 29V21L40 16ZM18 51V72H41L46 67V56L41 51Z" fill-rule="evenodd"/>
+  <path id="title-letter-A" d="M20 0H46L66 88H46L42 67H21L17 88H-3ZM24 51H39L32 17Z" fill-rule="evenodd"/>
+  <path id="title-letter-T" d="M-4 0H66V18H42V88H22V18H-4Z" fill-rule="evenodd"/>
+  <path id="title-letter-L" d="M0 0H20V70H61V88H0Z" fill-rule="evenodd"/>
+  <path id="title-letter-E" d="M0 0H62V18H20V34H53V51H20V70H62V88H0Z" fill-rule="evenodd"/>
+  <path id="title-letter-I" d="M0 0H34V16H26V72H34V88H0V72H8V16H0Z" fill-rule="evenodd"/>
+  <path id="title-letter-R" d="M0 0H47L62 14V40L47 54L70 88H46L24 55H20V88H0ZM20 18V37H39L43 33V22L39 18Z" fill-rule="evenodd"/>
+  <g id="title-word-battle"><g transform="translate(176 201) skewX(-12) scale(1.2)"><use href="#title-letter-B" x="0"/><use href="#title-letter-A" x="74"/><use href="#title-letter-T" x="148"/><use href="#title-letter-T" x="222"/><use href="#title-letter-L" x="296"/><use href="#title-letter-E" x="370"/></g></g>
+  <g id="title-word-atelier"><g transform="translate(121 313) skewX(-12) scale(1.24)"><use href="#title-letter-A" x="0"/><use href="#title-letter-T" x="74"/><use href="#title-letter-E" x="148"/><use href="#title-letter-L" x="222"/><use href="#title-letter-I" x="296"/><use href="#title-letter-E" x="340"/><use href="#title-letter-R" x="414"/></g></g>
+ </defs>
+ <g class="title-emblem">
+  <path d="M236 185A177 177 0 0 1 566 103A183 183 0 0 0 257 194Z" fill="#1cc6ff"/>
+  <path d="M280 185A135 135 0 1 1 549 185L531 211H296Z" fill="#06213d" stroke="#156d9e" stroke-width="5"/>
+  <path d="M290 169A123 123 0 0 1 533 169H469A59 59 0 0 0 355 169Z" fill="url(#title-red)" stroke="#ff70a0" stroke-width="3"/>
+  <path d="M291 190H354A59 59 0 0 0 470 190H532A123 123 0 0 1 291 190Z" fill="url(#title-white)"/>
+  <path d="M309 111A112 112 0 0 1 423 61" fill="none" stroke="#ffbbcf" stroke-opacity=".6" stroke-width="3"/>
+  <circle cx="412" cy="180" r="49" fill="#04527c" stroke="#0e1e40" stroke-width="9"/>
+  <circle cx="412" cy="180" r="36" fill="url(#title-white)" stroke="#71ddff" stroke-width="3"/>
+  <circle cx="412" cy="180" r="24" fill="none" stroke="#fff" stroke-opacity=".65" stroke-width="2"/>
+ </g>
+ <path d="M67 379C-35 344 735 176 779 249C818 310 365 421 121 425" fill="none" stroke="url(#title-orbit)" stroke-width="3"/>
+ <path d="M504 198L640 114L594 162L677 142L609 200Z" fill="#16bdf3"/>
+ <path d="M510 198L654 126L570 200Z" fill="#a3f3ff"/>
+ <path d="M134 181L205 181L680 181L664 282L724 320L789 441L656 406L149 416L37 447L127 334L149 231L103 208Z" fill="url(#title-frame)" stroke="#1bb9f4" stroke-width="5"/>
+ <path d="M162 195H665M158 409L664 398L758 425M60 429L130 346" fill="none" stroke="#6866cd" stroke-width="3"/>
+ <g transform="translate(0 7)" fill="#031328" stroke="#020d20" stroke-width="11" stroke-linejoin="bevel"><use href="#title-word-battle"/><use href="#title-word-atelier"/></g>
+ <g fill="url(#title-silver)" stroke="#edfbff" stroke-width="1.5" stroke-linejoin="bevel"><use href="#title-word-battle"/></g>
+ <g fill="url(#title-gold)" stroke="#fff2bd" stroke-width="1.5" stroke-linejoin="bevel"><use href="#title-word-atelier"/></g>
+ <path d="M107 390L64 422L145 401M675 205L720 169L672 229" fill="#ffe6a0"/>
+ <path d="M147 299H238M535 302H645" stroke="#6fe4ff" stroke-width="2"/>
+ <g fill="#d7faff"><path d="M234 113L238 127L251 131L238 135L234 149L230 135L217 131L230 127Z"/><path d="M754 264L757 274L768 277L757 280L754 291L751 280L741 277L751 274Z"/></g>
+ <path d="M653 121L656 132L668 136L656 139L653 151L650 139L639 136L650 132Z" fill="#ffe3a3"/>
+</svg></h1>
+            <p class="title-subtitle">Pokémon Battle Simulator</p>
+            <div class="title-divider" aria-hidden="true"><span>◇</span></div>
+            <button class="title-play hero-cta" data-action="nav" data-route="setup">
+                <span>PLAY</span><svg viewBox="0 0 16 20" aria-hidden="true"><path d="M2 2L14 10L2 18Z" fill="currentColor"/></svg>
             </button>
-            <div class="hero-links">
-                <button data-action="nav" data-route="collection">Your collection <span>→</span></button>
-                <button data-action="nav" data-route="shop">Visit the shop <span>→</span></button>
-            </div>
-            <div class="hero-facts">
-                <span><b data-bind="roster-total"></b> Pokémon</span>
-                <span><b data-bind="move-total"></b> Moves</span>
-                <span><b>03</b> Arenas</span>
-            </div>
-        </div>
-        <div class="featured-label">
-            <span class="eyebrow">IN THE SPOTLIGHT / <span data-bind="featured-dex"></span></span>
-            <h2>Charizard <span>↗</span></h2>
-            <div data-slot="featured-types"></div>
-            <p>A familiar flame. A whole new dimension.</p>
-        </div>
-        <div class="arena-label">
-            <span class="live-dot"></span> <span data-bind="arena-name"></span>
-            <small>LIVE 3D ARENA</small>
         </div>
     </main>
 </template>

@@ -94,8 +94,8 @@ try {
   const originalLight = await style(page, [
     '.topbar',
     '.footer',
-    '.hero-copy p',
-    '.button.primary',
+    '.title-subtitle',
+    '.title-play',
   ]);
   await theme(page, 'dark');
   await go(page, 'starter');
@@ -123,7 +123,7 @@ try {
       );
       if (route === 'menu' && mode === 'light')
         expect(
-          await style(page, ['.topbar', '.footer', '.hero-copy p', '.button.primary']),
+          await style(page, ['.topbar', '.footer', '.title-subtitle', '.title-play']),
         ).toEqual(originalLight);
       if (mode === 'dark') {
         // Catch missed pale surfaces without classifying intentional type/HP colors as panels.
@@ -210,7 +210,7 @@ try {
     'Both themes cover every route, dialogs and toast; two real battles save rewards normally; VFX/turn Skip remain functional',
   );
   checks.push(
-    'VS cinematic computed colors identical between themes; returning to Light restores original menu colors',
+    'VS cinematic computed colors identical between themes; returning to Light preserves cinematic title colors',
   );
   // Real text contrast on representative dark surfaces, including every authored type hue.
   await theme(page, 'dark');

@@ -120,15 +120,8 @@ export function createModal(heading, message, label) {
     return view;
 }
 
-function menu(app) {
-    const view = clone('screen-menu');
-    text(view, 'roster-total', ids.length);
-    text(view, 'move-total', Object.keys(moves).length);
-    text(view, 'cta', app.save ? 'Enter the arena' : 'Begin your journey');
-    text(view, 'featured-dex', dex('charizard'));
-    html(view, 'featured-types', types('charizard'));
-    text(view, 'arena-name', PALETTES[app.arenaId].name);
-    return view;
+function menu() {
+    return clone('screen-menu');
 }
 
 function starter() {

@@ -26,3 +26,19 @@ describe('static HTML UI integration', () => {
     expect(screens).toContain('export function createScreen(app)');
   });
 });
+
+describe('title screen contract', () => {
+  const menu = html.match(/<template id="screen-menu">([\s\S]*?)<\/template>/)[1];
+  it('has one main action using the existing setup route', () => {
+    expect(menu.match(/<button\b/g)).toHaveLength(1);
+    expect(menu).toContain('data-route="setup"');
+    expect(menu).toContain('PLAY');
+    expect(menu).toContain('aria-labelledby="title-heading"');
+    expect(menu).toContain('Battle Atelier</span>');
+  });
+  it('uses native vector branding and no marketing cards or image backgrounds', () => {
+    expect(menu).toContain('class="title-logo"');
+    expect(menu).toContain('class="title-environment"');
+    expect(menu).not.toMatch(/<img|hero-facts|featured-label|hero-links|hero-copy/);
+  });
+});
