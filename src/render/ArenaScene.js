@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { MoveVFX, resolveMoveVFX } from './MoveVFX.js';
-import { moves } from '../data/catalogue.js';
+import { moves, pokemon } from '../data/catalogue.js';
 import { assetUrl } from '../assetUrl.js';
 import sprites from '../data/generated/spriteManifest.json' with { type: 'json' };
 
@@ -140,6 +140,25 @@ export class ArenaScene {
         this.camera.aspect = width / height;
         this.camera.fov = width / height < 0.8 ? 68 : width / height < 1.3 ? 49 : 36;
         this.camera.updateProjectionMatrix();
+        for (const actor of Object.values(this.actors)) this.fitActor(actor);
+    }
+
+    fitActor(actor) {
+        if (this.mode !== 'battle' || !actor.fitToViewport) return;
+        this.camera.updateMatrixWorld();
+        const anchor = actor.base.clone().project(this.camera);
+        const depth = -actor.base.clone().applyMatrix4(this.camera.matrixWorldInverse).z;
+        const halfHeight = depth * Math.tan(THREE.MathUtils.degToRad(this.camera.fov / 2));
+        // Leave a small margin for idle motion; use the same aspect ratio for both axes.
+        const width =
+            2 * halfHeight * this.camera.aspect * Math.max(0.05, 0.9 - Math.abs(anchor.x));
+        const height = Math.min(
+            actor.nominalHeight,
+            width / actor.aspect,
+            halfHeight * Math.max(0.05, 0.9 - anchor.y),
+        );
+        actor.height = height;
+        actor.sprite.scale.set(height * actor.aspect, height, 1);
     }
 
     mesh(geometry, color, x, y, z, group = this.world) {
@@ -375,9 +394,12 @@ export class ArenaScene {
                 sprite.center.set(0.5, 0);
                 sprite.position.copy(position);
 
-                let height =
-                    id === 'charizard' ? 3.6 : id === 'blastoise' ? 3.3 : id === 'gastly' ? 2.6 : 2.75;
                 const [w, h] = missing ? [96, 100] : a.size;
+                const presentation = pokemon[id];
+                const height = Math.min(
+                    presentation.arenaHeight ?? 2.75,
+                    (presentation.arenaMaxWidth ?? Infinity) * h / w,
+                );
                 sprite.scale.set((height * w) / h, height, 1);
                 this.scene.add(sprite);
 
@@ -385,6 +407,9 @@ export class ArenaScene {
                     sprite,
                     base: position.clone(),
                     height,
+                    nominalHeight: height,
+                    aspect: w / h,
+                    fitToViewport: presentation.arenaMaxWidth !== undefined,
                     data: missing ? null : a,
                     time: 0,
                     hit: 0,
@@ -393,6 +418,7 @@ export class ArenaScene {
                 };
 
                 sprite.visible = mode === 'battle' || key === 'opponent';
+                this.fitActor(this.actors[key]);
 
                 if (mode !== 'battle') {
                     sprite.position.set(3.5, 0.3, -1.3);

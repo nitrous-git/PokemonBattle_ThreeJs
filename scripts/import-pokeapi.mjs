@@ -11,6 +11,15 @@ const url = (kind, id) =>
   `${base}${kind}/${id}/${base.includes('raw.githubusercontent') ? 'index.json' : ''}`;
 const get = async (kind, id) => JSON.parse(await download(url(kind, id)));
 try {
+  // Reuse only hash-verified records from the identical pin; additions still fetch upstream.
+  const prior = process.argv.includes('--missing')
+    ? await read('src/data/source/snapshot.json')
+    : null;
+  if (
+    prior &&
+    (prior.provenance.apiDataRevision !== lock.apiDataRevision || prior.provenance.baseURL !== base)
+  )
+    throw Error('--missing requires the existing snapshot to use the same pinned source');
   const moveIndex = JSON.parse(
     await download(
       `${base}move/${base.includes('raw.githubusercontent') ? 'index.json' : '?limit=2000'}`,
@@ -80,7 +89,18 @@ try {
   ];
   await parallel(jobs, async ([kind, id, name]) => {
     if (!id) throw new Error(`Unknown source ID ${name}`);
-    const data = await get(kind, id);
+    const bucket = kind === 'move' ? 'moves' : kind === 'type' ? 'types' : 'pokemon';
+    const cached = prior?.[bucket]?.[name];
+    const record = prior?.provenance.resources.find((r) => r.kind === kind && r.name === name);
+    if (
+      cached &&
+      (!record ||
+        record.id !== id ||
+        record.url !== url(kind, id) ||
+        record.sha256 !== hash(cached))
+    )
+      throw Error(`Cached source integrity mismatch: ${name}`);
+    const data = cached || (await get(kind, id));
     if (data.id !== id || data.name !== name) throw new Error(`Source identity mismatch: ${name}`);
     snapshot[kind === 'move' ? 'moves' : kind === 'type' ? 'types' : 'pokemon'][name] = data;
     snapshot.provenance.resources.push({ kind, id, name, url: url(kind, id), sha256: hash(data) });

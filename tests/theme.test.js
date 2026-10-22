@@ -8,9 +8,9 @@ function storage() {
   return { getItem: (key) => data.get(key) ?? null, setItem: (key, value) => data.set(key, value) };
 }
 describe('appearance save compatibility', () => {
-  it('defaults new saves to light without changing schema version', () => {
-    expect(DEFAULT_SETTINGS.theme).toBe('light');
-    expect(fresh().settings.theme).toBe('light');
+  it('defaults new saves to dark without changing schema version', () => {
+    expect(DEFAULT_SETTINGS.theme).toBe('dark');
+    expect(fresh().settings.theme).toBe('dark');
     expect(fresh().saveVersion).toBe(1);
   });
   it('fills missing theme on old v1 saves without mutating progress or source', () => {
@@ -19,7 +19,7 @@ describe('appearance save compatibility', () => {
     old.completedBattleIds = ['existing-reward'];
     old.trainer.coins = 987;
     const loaded = validateSave(old);
-    expect(loaded).toEqual({ ...old, settings: { ...old.settings, theme: 'light' } });
+    expect(loaded).toEqual({ ...old, settings: { ...old.settings, theme: 'dark' } });
     expect(old.settings).not.toHaveProperty('theme');
   });
   it.each(['dark', 'light'])('round-trips %s through existing save commits', (theme) => {

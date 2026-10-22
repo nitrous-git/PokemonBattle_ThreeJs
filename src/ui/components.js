@@ -21,11 +21,14 @@ export const sprite = (id, cls = '', locked = false) =>
 
 export const dex = (id) => `#${String(pokemon[id].dexNumber).padStart(3, '0')}`;
 
+export const rarity = (id) => pokemon[id].rarity === 'starter/common' ? 'common' : pokemon[id].rarity;
+export const rarityBadge = (id) => `<span class="rarity" data-rarity="${rarity(id)}">${title(rarity(id))}</span>`;
+
 export const card = (
     id,
     { selected = false, action = 'opponent', owned = false, subtitle = '', locked = false } = {},
 ) =>
-    `<button class="creature-card ${selected ? 'selected' : ''}" data-action="${action}" data-id="${id}" aria-pressed="${selected}"><span class="card-index">${dex(id)}</span>${owned ? '<span class="owned-dot" title="Owned">✓</span>' : ''}${sprite(id, '', locked)}<strong>${pokemon[id].displayName}</strong><span class="card-subtitle">${subtitle || pokemon[id].types.map(title).join(' / ')}</span></button>`;
+    `<button class="creature-card ${selected ? 'selected' : ''}" data-rarity="${rarity(id)}" data-action="${action}" data-id="${id}" aria-pressed="${selected}"><span class="card-index">${dex(id)}</span>${owned ? '<span class="owned-dot" title="Owned">✓</span>' : ''}${sprite(id, '', locked)}<strong>${pokemon[id].displayName}</strong><span class="card-subtitle">${subtitle || pokemon[id].types.map(title).join(' / ')}</span><span class="card-rarity">${rarityBadge(id)}</span></button>`;
 
 export const moveDetail = (m) =>
     `${title(m.category)} · Power ${m.power ?? '—'} · Accuracy ${m.alwaysHit ? 'always' : m.accuracy + '%'} · ${m.description === '—' ? 'Direct damage.' : m.description}`;

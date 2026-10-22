@@ -14,7 +14,7 @@
         const raw = localStorage.getItem('nitrous.battle-atelier.v1');
         const preferred = raw ? JSON.parse(raw)?.settings?.theme
           : localStorage.getItem('nitrous.battle-atelier.theme');
-        if (preferred === 'dark') theme = 'dark';
+        if (preferred === 'dark' || preferred === 'light') theme = preferred;
       } catch { /* Storage/recovery must never prevent boot. */ }
       document.documentElement.dataset.theme = theme;
       document.documentElement.style.colorScheme = theme;

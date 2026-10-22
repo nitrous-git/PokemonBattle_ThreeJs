@@ -283,6 +283,7 @@
       "acid": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality.",
       "swift": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality."
     },
+    "arenaHeight": 2.6,
     "legalMoves": [
       "lick",
       "shadow-ball",
@@ -479,6 +480,7 @@
       "flame-wheel": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality.",
       "gust": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality."
     },
+    "arenaHeight": 3.6,
     "legalMoves": [
       "ember",
       "flamethrower",
@@ -510,6 +512,7 @@
     "rarity": "premium",
     "visualScale": 1.3,
     "customMoves": {},
+    "arenaHeight": 3.3,
     "legalMoves": [
       "water-gun",
       "bubble-beam",
@@ -519,6 +522,261 @@
       "rapid-spin",
       "ice-beam",
       "body-slam"
+    ]
+  },
+  "mewtwo": {
+    "id": "mewtwo",
+    "dexNumber": 150,
+    "displayName": "Mewtwo",
+    "baseStats": {
+      "hp": 106,
+      "attack": 110,
+      "defense": 90,
+      "spAttack": 154,
+      "spDefense": 90,
+      "speed": 130
+    },
+    "types": [
+      "psychic"
+    ],
+    "priceCoins": 4200,
+    "rarity": "legendary",
+    "visualScale": 1.27,
+    "arenaHeight": 3.5,
+    "arenaMaxWidth": 4.8,
+    "customMoves": {},
+    "legalMoves": [
+      "psychic",
+      "psybeam",
+      "calm-mind",
+      "aura-sphere",
+      "shadow-ball",
+      "ice-beam",
+      "swift",
+      "thunder-wave"
+    ]
+  },
+  "rayquaza": {
+    "id": "rayquaza",
+    "dexNumber": 384,
+    "displayName": "Rayquaza",
+    "baseStats": {
+      "hp": 105,
+      "attack": 150,
+      "defense": 90,
+      "spAttack": 150,
+      "spDefense": 90,
+      "speed": 95
+    },
+    "types": [
+      "dragon",
+      "flying"
+    ],
+    "priceCoins": 4500,
+    "rarity": "legendary",
+    "visualScale": 1.38,
+    "arenaHeight": 3.8,
+    "arenaMaxWidth": 4.8,
+    "customMoves": {},
+    "legalMoves": [
+      "dragon-pulse",
+      "draco-meteor",
+      "dragon-claw",
+      "twister",
+      "crunch",
+      "earthquake",
+      "bulk-up"
+    ]
+  },
+  "lugia": {
+    "id": "lugia",
+    "dexNumber": 249,
+    "displayName": "Lugia",
+    "baseStats": {
+      "hp": 106,
+      "attack": 90,
+      "defense": 130,
+      "spAttack": 90,
+      "spDefense": 154,
+      "speed": 110
+    },
+    "types": [
+      "psychic",
+      "flying"
+    ],
+    "priceCoins": 3900,
+    "rarity": "legendary",
+    "visualScale": 1.27,
+    "arenaHeight": 3.5,
+    "arenaMaxWidth": 4.8,
+    "customMoves": {},
+    "legalMoves": [
+      "psychic",
+      "calm-mind",
+      "hydro-pump",
+      "ice-beam",
+      "gust",
+      "dragon-pulse",
+      "thunder-wave"
+    ]
+  },
+  "darkrai": {
+    "id": "darkrai",
+    "dexNumber": 491,
+    "displayName": "Darkrai",
+    "baseStats": {
+      "hp": 70,
+      "attack": 90,
+      "defense": 90,
+      "spAttack": 135,
+      "spDefense": 90,
+      "speed": 125
+    },
+    "types": [
+      "dark"
+    ],
+    "priceCoins": 4300,
+    "rarity": "mythical",
+    "visualScale": 1.2,
+    "arenaHeight": 3.3,
+    "arenaMaxWidth": 4.8,
+    "customMoves": {},
+    "legalMoves": [
+      "dark-pulse",
+      "shadow-ball",
+      "hypnosis",
+      "calm-mind",
+      "psychic",
+      "ice-beam",
+      "thunderbolt"
+    ]
+  },
+  "lucario": {
+    "id": "lucario",
+    "dexNumber": 448,
+    "displayName": "Lucario",
+    "baseStats": {
+      "hp": 70,
+      "attack": 110,
+      "defense": 70,
+      "spAttack": 115,
+      "spDefense": 70,
+      "speed": 90
+    },
+    "types": [
+      "fighting",
+      "steel"
+    ],
+    "priceCoins": 1650,
+    "rarity": "elite",
+    "visualScale": 1.09,
+    "arenaHeight": 3,
+    "arenaMaxWidth": 4.8,
+    "customMoves": {},
+    "legalMoves": [
+      "aura-sphere",
+      "brick-break",
+      "metal-claw",
+      "flash-cannon",
+      "quick-attack",
+      "bulk-up",
+      "calm-mind"
+    ]
+  },
+  "garchomp": {
+    "id": "garchomp",
+    "dexNumber": 445,
+    "displayName": "Garchomp",
+    "baseStats": {
+      "hp": 108,
+      "attack": 130,
+      "defense": 95,
+      "spAttack": 80,
+      "spDefense": 85,
+      "speed": 102
+    },
+    "types": [
+      "dragon",
+      "ground"
+    ],
+    "priceCoins": 2250,
+    "rarity": "elite",
+    "visualScale": 1.2,
+    "arenaHeight": 3.3,
+    "arenaMaxWidth": 4.8,
+    "customMoves": {},
+    "legalMoves": [
+      "earthquake",
+      "dragon-claw",
+      "dragon-pulse",
+      "rock-slide",
+      "crunch",
+      "sand-attack",
+      "fire-fang"
+    ]
+  },
+  "gengar": {
+    "id": "gengar",
+    "dexNumber": 94,
+    "displayName": "Gengar",
+    "baseStats": {
+      "hp": 60,
+      "attack": 65,
+      "defense": 60,
+      "spAttack": 130,
+      "spDefense": 75,
+      "speed": 110
+    },
+    "types": [
+      "ghost",
+      "poison"
+    ],
+    "priceCoins": 1050,
+    "rarity": "rare",
+    "visualScale": 1.02,
+    "arenaHeight": 2.8,
+    "arenaMaxWidth": 4.8,
+    "customMoves": {},
+    "legalMoves": [
+      "shadow-ball",
+      "hypnosis",
+      "confuse-ray",
+      "dark-pulse",
+      "psychic",
+      "thunderbolt",
+      "will-o-wisp"
+    ]
+  },
+  "tyranitar": {
+    "id": "tyranitar",
+    "dexNumber": 248,
+    "displayName": "Tyranitar",
+    "baseStats": {
+      "hp": 100,
+      "attack": 134,
+      "defense": 110,
+      "spAttack": 95,
+      "spDefense": 100,
+      "speed": 61
+    },
+    "types": [
+      "rock",
+      "dark"
+    ],
+    "priceCoins": 2300,
+    "rarity": "elite",
+    "visualScale": 1.27,
+    "arenaHeight": 3.5,
+    "arenaMaxWidth": 4.8,
+    "customMoves": {},
+    "legalMoves": [
+      "rock-slide",
+      "earthquake",
+      "crunch",
+      "dark-pulse",
+      "rock-polish",
+      "ice-beam",
+      "thunder-wave"
     ]
   }
 }

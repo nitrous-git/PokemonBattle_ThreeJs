@@ -8,7 +8,7 @@
 - Character art belongs to its respective rights holders, including The Pokémon Company, Nintendo, Creatures and GAME FREAK. PokeAPI/sprites' repository license **does not clear underlying character/image rights**. See `docs/POKEAPI_SPRITES_LICENCE.txt` and https://github.com/PokeAPI/sprites/blob/97a7832d307311c0e1c6ea9035308bf80cc94f81/LICENCE.txt.
 - Current use is as an unofficial fan/educational experiment. Source availability, transformation, noncommercial intent and GitHub Pages publication do **not** themselves grant permission for public redistribution.
 - Processing: Sharp decodes source animation into trimmed and padded PNG atlases, with frame timings recorded. Static menu assets use prepared frames. Exact URLs, hashes, frame geometry and rights fields are in `src/data/generated/spriteManifest.json`.
-- The curated roster consists of Pikachu, Bulbasaur, Charmander, Squirtle, Eevee, Sandshrew, Growlithe, Magnemite, Gastly, Abra, Geodude, Psyduck, Machop, Dratini, Charizard and Blastoise.
+- The curated roster consists of Pikachu, Bulbasaur, Charmander, Squirtle, Eevee, Sandshrew, Growlithe, Magnemite, Gastly, Abra, Geodude, Psyduck, Machop, Dratini, Charizard, Blastoise, Mewtwo, Rayquaza, Lugia, Darkrai, Lucario, Garchomp, Gengar and Tyranitar.
 
 ## Original project assets
 

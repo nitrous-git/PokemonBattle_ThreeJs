@@ -3166,3 +3166,40 @@ input[type='range'] {
     font-size: 0.45rem;
   }
 }
+
+/* Rarity is presentation metadata; type and selection colors retain their own meaning. */
+.card-rarity {
+  display: block;
+  margin-top: 8px;
+  line-height: 1;
+}
+.rarity {
+  text-transform: uppercase;
+}
+.card-rarity .rarity {
+  display: inline-block;
+  font-size: 0.45rem;
+  letter-spacing: 0.08em;
+  padding: 3px 5px;
+}
+[data-rarity='common'] { --rarity-accent: #58674d; }
+[data-rarity='rare'] { --rarity-accent: #626e3d; }
+[data-rarity='premium'] { --rarity-accent: #77613b; }
+[data-rarity='elite'] { --rarity-accent: #496d79; }
+[data-rarity='legendary'] { --rarity-accent: #795b20; }
+[data-rarity='mythical'] { --rarity-accent: #765380; }
+:root[data-theme='dark'] [data-rarity='common'] { --rarity-accent: #afbec4; }
+:root[data-theme='dark'] [data-rarity='rare'] { --rarity-accent: #c3cda6; }
+:root[data-theme='dark'] [data-rarity='premium'] { --rarity-accent: #d2c7a5; }
+:root[data-theme='dark'] [data-rarity='elite'] { --rarity-accent: #a1ced9; }
+:root[data-theme='dark'] [data-rarity='legendary'] { --rarity-accent: #dec38d; }
+:root[data-theme='dark'] [data-rarity='mythical'] { --rarity-accent: #d8b4e3; }
+.rarity[data-rarity] {
+  color: var(--rarity-accent);
+  background: color-mix(in srgb, var(--rarity-accent) 9%, transparent);
+  border-color: color-mix(in srgb, var(--rarity-accent) 40%, transparent);
+}
+.creature-card:is([data-rarity='legendary'], [data-rarity='mythical']):not(.selected) {
+  border-top-color: color-mix(in srgb, var(--rarity-accent) 65%, transparent);
+}
+.match-summary .rarity { vertical-align: middle; margin-left: 4px; }

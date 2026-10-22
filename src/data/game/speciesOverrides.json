@@ -79,7 +79,8 @@
     "customMoves": {
       "acid": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality.",
       "swift": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality."
-    }
+    },
+    "arenaHeight": 2.6
   },
   "abra": {
     "dexNumber": 63,
@@ -134,13 +135,87 @@
     "customMoves": {
       "flame-wheel": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality.",
       "gust": "Intentional v1 simulator allowance from the supplied 03_CONTENT_ASSETS curated pool; not found in the pinned PokeAPI learnset. No claim of cartridge legality."
-    }
+    },
+    "arenaHeight": 3.6
   },
   "blastoise": {
     "dexNumber": 9,
     "priceCoins": 1450,
     "rarity": "premium",
     "visualScale": 1.3,
+    "customMoves": {},
+    "arenaHeight": 3.3
+  },
+  "mewtwo": {
+    "dexNumber": 150,
+    "priceCoins": 4200,
+    "rarity": "legendary",
+    "visualScale": 1.27,
+    "arenaHeight": 3.5,
+    "arenaMaxWidth": 4.8,
+    "customMoves": {}
+  },
+  "rayquaza": {
+    "dexNumber": 384,
+    "priceCoins": 4500,
+    "rarity": "legendary",
+    "visualScale": 1.38,
+    "arenaHeight": 3.8,
+    "arenaMaxWidth": 4.8,
+    "customMoves": {}
+  },
+  "lugia": {
+    "dexNumber": 249,
+    "priceCoins": 3900,
+    "rarity": "legendary",
+    "visualScale": 1.27,
+    "arenaHeight": 3.5,
+    "arenaMaxWidth": 4.8,
+    "customMoves": {}
+  },
+  "darkrai": {
+    "dexNumber": 491,
+    "priceCoins": 4300,
+    "rarity": "mythical",
+    "visualScale": 1.2,
+    "arenaHeight": 3.3,
+    "arenaMaxWidth": 4.8,
+    "customMoves": {}
+  },
+  "lucario": {
+    "dexNumber": 448,
+    "priceCoins": 1650,
+    "rarity": "elite",
+    "visualScale": 1.09,
+    "arenaHeight": 3.0,
+    "arenaMaxWidth": 4.8,
+    "customMoves": {}
+  },
+  "garchomp": {
+    "dexNumber": 445,
+    "priceCoins": 2250,
+    "rarity": "elite",
+    "visualScale": 1.2,
+    "arenaHeight": 3.3,
+    "arenaMaxWidth": 4.8,
+    "customMoves": {}
+  },
+  "gengar": {
+    "dexNumber": 94,
+    "priceCoins": 1050,
+    "rarity": "rare",
+    "visualScale": 1.02,
+    "arenaHeight": 2.8,
+    "arenaMaxWidth": 4.8,
+    "customMoves": {}
+  },
+  "tyranitar": {
+    "dexNumber": 248,
+    "priceCoins": 2300,
+    "rarity": "elite",
+    "visualScale": 1.27,
+    "arenaHeight": 3.5,
+    "arenaMaxWidth": 4.8,
     "customMoves": {}
   }
 }

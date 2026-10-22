@@ -6,7 +6,7 @@ import { pokemon, moves, economy } from '../data/catalogue.js';
 import { rewardEstimate } from '../domain/battle.js';
 import { stats, legalMoves, getMove, effectiveness } from '../domain/rules.js';
 import { PALETTES } from '../render/ArenaScene.js';
-import { card, dex, healthPanel, moveRow, sprite, title, types, escapeHTML, moveDetail } from './components.js';
+import { card, dex, healthPanel, moveRow, sprite, title, types, escapeHTML, moveDetail, rarity, rarityBadge } from './components.js';
 
 const ids = Object.keys(pokemon);
 const starters = ['pikachu', 'bulbasaur', 'charmander', 'squirtle'];
@@ -122,6 +122,8 @@ export function createModal(heading, message, label) {
 
 function menu(app) {
     const view = clone('screen-menu');
+    text(view, 'roster-total', ids.length);
+    text(view, 'move-total', Object.keys(moves).length);
     text(view, 'cta', app.save ? 'Enter the arena' : 'Begin your journey');
     text(view, 'featured-dex', dex('charizard'));
     html(view, 'featured-types', types('charizard'));
@@ -149,6 +151,7 @@ function starter() {
 
 function setup(app) {
     const view = clone('screen-setup');
+    text(view, 'roster-total', ids.length);
     const selected = app.selected;
     const opponent = pokemon[app.opponentId];
     const level = Math.max(3, Math.min(50, selected.level + economy.tiers[app.tier].delta));
@@ -201,6 +204,7 @@ function setup(app) {
     text(view, 'match-player', pokemon[selected.speciesId].displayName);
     text(view, 'match-opponent', opponent.displayName);
     text(view, 'match-level', level);
+    html(view, 'match-rarity', ['legendary', 'mythical'].includes(rarity(opponent.id)) ? rarityBadge(opponent.id) : '');
     text(view, 'match-coins', rewards.coins);
     text(view, 'match-xp', rewards.xp);
 
@@ -234,6 +238,7 @@ function setup(app) {
 
 function catalogue(app, shop) {
     const view = clone('screen-catalogue');
+    text(view, 'roster-total', ids.length);
     const owned = app.save.collection.find((x) => x.speciesId === app.detailId);
     const species = pokemon[app.detailId];
     const attributes = stats(species.id, owned?.level || 5);
@@ -265,15 +270,8 @@ function catalogue(app, shop) {
     );
 
     text(view, 'detail-kicker', `${dex(species.id)} / ${shop ? 'PARTNER PROFILE' : 'FIELD NOTES'}`);
-    text(
-        view,
-        'rarity',
-        species.rarity.includes('premium')
-            ? 'PREMIUM'
-            : species.rarity.includes('rare')
-                ? 'RARE'
-                : 'COMMON',
-    );
+    text(view, 'rarity', title(rarity(species.id)));
+    target(view, SELECTORS.bind('rarity')).dataset.rarity = rarity(species.id);
     html(view, 'detail-art', sprite(species.id));
     text(view, 'detail-name', species.displayName);
     text(view, 'detail-level', `Lv. ${owned?.level || 5}`);

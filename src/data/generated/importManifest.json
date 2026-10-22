@@ -4,7 +4,7 @@
   "spriteRepoRevision": "97a7832d307311c0e1c6ea9035308bf80cc94f81",
   "rulesetId": "classic-modern-v1",
   "baseURL": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/",
-  "fetchedAtUTC": "2026-10-20T21:38:42.563Z",
+  "fetchedAtUTC": "2026-10-22T04:20:11.229Z",
   "sourceSchemaVersion": 1,
   "resources": [
     {
@@ -20,6 +20,13 @@
       "name": "aqua-tail",
       "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/401/index.json",
       "sha256": "425396679d940d47b8aa3c270c5063b9c9ae9df137048ee544242cd3fc412a09"
+    },
+    {
+      "kind": "move",
+      "id": 396,
+      "name": "aura-sphere",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/396/index.json",
+      "sha256": "8c2c8b455138aec11836bb888ffc02816bd48a377999344eeb623b7dca22dc33"
     },
     {
       "kind": "move",
@@ -100,6 +107,20 @@
     },
     {
       "kind": "move",
+      "id": 399,
+      "name": "dark-pulse",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/399/index.json",
+      "sha256": "51540ecd193963f291beb013f314e18755de4bc50f96a01915b0d220256d0232"
+    },
+    {
+      "kind": "move",
+      "id": 434,
+      "name": "draco-meteor",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/434/index.json",
+      "sha256": "f7d2837f28bb244a432336a860dc8fba8650c70cda42b2a0e618eba075df846e"
+    },
+    {
+      "kind": "move",
       "id": 225,
       "name": "dragon-breath",
       "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/225/index.json",
@@ -114,10 +135,24 @@
     },
     {
       "kind": "move",
+      "id": 406,
+      "name": "dragon-pulse",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/406/index.json",
+      "sha256": "1850927974baeed378ce7e9fff71034ee3b0a64ee862bd4b70b7c502a62844b9"
+    },
+    {
+      "kind": "move",
       "id": 414,
       "name": "earth-power",
       "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/414/index.json",
       "sha256": "27f1330bde09ca53d97363b12ed51613f2adc88a4c699358a6653ecb38fc54ef"
+    },
+    {
+      "kind": "move",
+      "id": 89,
+      "name": "earthquake",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/move/89/index.json",
+      "sha256": "bf714992111846d076eb420020c5ff01bc8b79a1aa93402ff13d0b77b850b3aa"
     },
     {
       "kind": "move",
@@ -471,6 +506,13 @@
     },
     {
       "kind": "pokemon",
+      "id": 491,
+      "name": "darkrai",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/pokemon/491/index.json",
+      "sha256": "73dff2d89472003c7f790c7edc3f631e8a1294e701f2d379e454800103d1a65a"
+    },
+    {
+      "kind": "pokemon",
       "id": 147,
       "name": "dratini",
       "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/pokemon/147/index.json",
@@ -485,10 +527,24 @@
     },
     {
       "kind": "pokemon",
+      "id": 445,
+      "name": "garchomp",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/pokemon/445/index.json",
+      "sha256": "386f4af3bab50bd171e362d1e667604fbd847774dc79682662f4ee62ef4d7814"
+    },
+    {
+      "kind": "pokemon",
       "id": 92,
       "name": "gastly",
       "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/pokemon/92/index.json",
       "sha256": "c0879b851c7285b1c1a581232d28e501e4c16a8d1cee7da50b64b8614c5d5e80"
+    },
+    {
+      "kind": "pokemon",
+      "id": 94,
+      "name": "gengar",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/pokemon/94/index.json",
+      "sha256": "4e56d36a2106d3acb5d920d72dc2a2da7d6b0fe81167a8d73b21bf81b2cd1413"
     },
     {
       "kind": "pokemon",
@@ -506,6 +562,20 @@
     },
     {
       "kind": "pokemon",
+      "id": 448,
+      "name": "lucario",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/pokemon/448/index.json",
+      "sha256": "5cbe3b5c16f0e99c9e161a5c5b992f4a525e1153801791d53fa4a4fff65b7b79"
+    },
+    {
+      "kind": "pokemon",
+      "id": 249,
+      "name": "lugia",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/pokemon/249/index.json",
+      "sha256": "de2f10108ac3390542c09a21fab192dfffe6309cdccc0bd1807384bd1b6b8935"
+    },
+    {
+      "kind": "pokemon",
       "id": 66,
       "name": "machop",
       "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/pokemon/66/index.json",
@@ -517,6 +587,13 @@
       "name": "magnemite",
       "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/pokemon/81/index.json",
       "sha256": "127c57dcc3af2c1fa6cd1a8b81c1534fbc688c6929b7c2a3f671ea37da799b9a"
+    },
+    {
+      "kind": "pokemon",
+      "id": 150,
+      "name": "mewtwo",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/pokemon/150/index.json",
+      "sha256": "6b2ce20a1ad4681dbdf6d5dd4ecb7f648c6c246f3966720a8c4a3f14450643ff"
     },
     {
       "kind": "pokemon",
@@ -534,6 +611,13 @@
     },
     {
       "kind": "pokemon",
+      "id": 384,
+      "name": "rayquaza",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/pokemon/384/index.json",
+      "sha256": "802a2ef572f9b8aa7af0c32fceb03a459cc2e437378866c03aec72ee9ec7234c"
+    },
+    {
+      "kind": "pokemon",
       "id": 27,
       "name": "sandshrew",
       "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/pokemon/27/index.json",
@@ -545,6 +629,13 @@
       "name": "squirtle",
       "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/pokemon/7/index.json",
       "sha256": "70a4d62099ba770605c520ac06c8b42de07fd52ee1bca3482601f38f5db5cf3e"
+    },
+    {
+      "kind": "pokemon",
+      "id": 248,
+      "name": "tyranitar",
+      "url": "https://raw.githubusercontent.com/PokeAPI/api-data/447bd5c378bf87da964bfe4dd7487a7bf1d97cbd/data/api/v2/pokemon/248/index.json",
+      "sha256": "98602ddb85f9ad5fecd9144516408a3dc32a15c513f14ef3b5062659ae625b69"
     },
     {
       "kind": "type",
@@ -673,5 +764,5 @@
       "sha256": "44714322f0768619a1641fcc3a89db271b4b2b7ef338065011817aae021dcd54"
     }
   ],
-  "sourceHash": "0ac6c1aed676cb9c420a06715b9c0b76eaeb62588c021f49a0b8488fc516a53c"
+  "sourceHash": "e4669fb72cc67b07e61a12aaa4910b49cf72257868c95d067518ddbffdb08b60"
 }

@@ -43,8 +43,8 @@
                 <button data-action="nav" data-route="shop">Visit the shop <span>→</span></button>
             </div>
             <div class="hero-facts">
-                <span><b>16</b> Pokémon</span>
-                <span><b>61</b> Moves</span>
+                <span><b data-bind="roster-total"></b> Pokémon</span>
+                <span><b data-bind="move-total"></b> Moves</span>
                 <span><b>03</b> Arenas</span>
             </div>
         </div>
@@ -109,7 +109,7 @@
                         <span>⌕</span>
                         <input id="filter" placeholder="Find a Pokémon or type…" aria-label="Filter opponents">
                     </label>
-                    <span>16 available</span>
+                    <span><span data-bind="roster-total"></span> available</span>
                 </div>
                 <div class="opponent-grid" data-slot="opponents"></div>
             </section>
@@ -118,7 +118,7 @@
             <div class="match-summary">
                 <span class="eyebrow">YOUR MATCHUP</span>
                 <strong>
-                    <span data-bind="match-player"></span> <i>vs.</i> <span data-bind="match-opponent"></span>
+                    <span data-bind="match-player"></span> <i>vs.</i> <span data-bind="match-opponent"></span> <span data-slot="match-rarity"></span>
                 </strong>
                 <small>
                     Opponent Lv. <span data-bind="match-level"></span> · Win:
@@ -142,7 +142,7 @@
             </div>
             <div class="collection-count">
                 <b data-bind="collection-count"></b>
-                <span>/ 16<br>COLLECTED</span>
+                <span>/ <span data-bind="roster-total"></span><br>COLLECTED</span>
             </div>
         </div>
         <div class="catalogue-layout">

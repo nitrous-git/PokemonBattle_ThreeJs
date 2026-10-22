@@ -85,6 +85,10 @@ try {
     page = await ctx.newPage();
   page.on('pageerror', (e) => errors.push(e.message));
   await page.goto(origin + prefix + '/');
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+  await expect(page.locator('.hero-cta')).toBeVisible();
+  await theme(page, 'light');
+  await page.reload();
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
   await expect(page.locator('.hero-cta')).toBeVisible();
   const originalLight = await style(page, [
@@ -105,7 +109,7 @@ try {
   await expect(page.locator('.hero-cta')).toBeVisible();
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
   checks.push(
-    'New users start Light; pre-starter Dark survives reload, starter creation and saved-session reload',
+    'New users start Dark; pre-starter Dark survives reload, starter creation and saved-session reload',
   );
   const before = await page.evaluate(() => structuredClone(window.__themeQA.save));
   let vsReference;
@@ -278,7 +282,7 @@ try {
   checks.push(
     'Keyboard focus, UI Scale 115%, Reduced Motion and numeric settings preserved; 390/600px layouts have no horizontal overflow',
   );
-  // Old saves ignore the pre-starter preference and use the Light default.
+  // Old saves ignore the pre-starter preference and use the Dark default.
   await page.evaluate(() => {
     const key = 'nitrous.battle-atelier.v1',
       save = JSON.parse(localStorage.getItem(key));
@@ -287,7 +291,7 @@ try {
   });
   await page.reload();
   await expect(page.locator('.hero-cta')).toBeVisible();
-  await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
   await page.evaluate(() => {
     const key = 'nitrous.battle-atelier.v1',
       save = JSON.parse(localStorage.getItem(key));
@@ -302,7 +306,7 @@ try {
     ),
   ).toBe('invalid');
   checks.push(
-    'Older v1 saves default Light; invalid theme opens recovery without overwriting the save',
+    'Older v1 saves default Dark; invalid theme opens recovery without overwriting the save',
   );
   expect(errors).toEqual([]);
   checks.push(

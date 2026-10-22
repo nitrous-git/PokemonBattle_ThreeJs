@@ -9,11 +9,11 @@ export function validateContent({ pokemon, moves, typeChart }) {
     for (const b of types)
       assert([0, 0.5, 1, 2].includes(typeChart[a][b]), `Invalid type cell ${a}/${b}`);
   }
-  assert(Object.keys(pokemon).length === 16, 'Expected 16 species');
-  assert(Object.keys(moves).length === 61, 'Expected 61 moves');
-  assert(new Set(Object.values(pokemon).map((s) => s.dexNumber)).size === 16, 'Duplicate dex ID');
+  assert(Object.keys(pokemon).length === 24, 'Expected 24 species');
+  assert(Object.keys(moves).length === 66, 'Expected 66 moves');
+  assert(new Set(Object.values(pokemon).map((s) => s.dexNumber)).size === 24, 'Duplicate dex ID');
   assert(
-    new Set(Object.values(moves).map((m) => m.sourceId)).size === 61,
+    new Set(Object.values(moves).map((m) => m.sourceId)).size === 66,
     'Duplicate source move ID',
   );
   for (const [id, s] of Object.entries(pokemon)) {
@@ -30,6 +30,9 @@ export function validateContent({ pokemon, moves, typeChart }) {
       'Invalid stats',
     );
     assert(Number.isInteger(s.priceCoins) && s.priceCoins >= 0, 'Invalid price');
+    assert(['starter/common', 'common', 'rare', 'premium', 'elite', 'legendary', 'mythical'].includes(s.rarity), 'Invalid rarity');
+    for (const key of ['visualScale', 'arenaHeight', 'arenaMaxWidth'])
+      assert(s[key] === undefined || (Number.isFinite(s[key]) && s[key] > 0), `Invalid presentation size ${id}/${key}`);
     assert(
       s.legalMoves.length >= 4 &&
         new Set(s.legalMoves).size === s.legalMoves.length &&

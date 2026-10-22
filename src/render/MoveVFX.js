@@ -57,6 +57,11 @@ const OVERRIDES = {
   'dragon-breath': { style: 'beam' },
   psybeam: { style: 'beam' },
   'seed-bomb': { style: 'orb' },
+  'aura-sphere': { family: 'energy', style: 'orb', color: '#75d6f4' },
+  'dark-pulse': { family: 'energy', style: 'orb' },
+  earthquake: { style: 'eruption' },
+  'dragon-pulse': { style: 'beam' },
+  'draco-meteor': { family: 'energy', style: 'meteor' },
 };
 const clamp = (v) => Math.max(0, Math.min(1, v));
 const ease = (v) => 1 - (1 - clamp(v)) ** 3;
@@ -77,7 +82,7 @@ export function resolveMoveVFX(event = {}, move = {}, settings = {}) {
     family,
     style: 'projectile',
     ...override,
-    color: TYPE_COLOR[type] || TYPE_COLOR.typeless,
+    color: override.color || TYPE_COLOR[type] || TYPE_COLOR.typeless,
     category: move.category || event.category || 'special',
     reduced: Boolean(settings.reducedMotion),
     low: Boolean(settings.lowVFX),
@@ -154,7 +159,7 @@ class MoveEffect {
     else {
       if (['beam', 'stream'].includes(config.style)) this.beam();
       else if (config.family === 'electric') this.lightning();
-      else if (config.family === 'rock') this.rocks();
+      else if (config.family === 'rock' || config.style === 'meteor') this.rocks();
       else if (config.family === 'physical') this.slashes();
       else this.projectile();
       this.impact();
@@ -229,7 +234,7 @@ class MoveEffect {
     const count = c.low ? 4 : c.family === 'grass' ? 10 : 14;
     const travel = (p) => clamp(p / c.impact);
     // Spectral cores keep a dark center inside a colored halo.
-    const coreColor = c.type === 'ghost' ? '#39245d' : c.family === 'fire' ? '#fff0a5' : c.color;
+    const coreColor = ['ghost', 'dark'].includes(c.type) ? '#39245d' : c.family === 'fire' ? '#fff0a5' : c.color;
     for (let i = 0; i < (c.style === 'volley' ? 3 : 1); i++) {
       const delay = i * 0.07;
       this.node(
@@ -365,16 +370,17 @@ class MoveEffect {
 
   rocks() {
     const c = this.config,
-      rain = c.style === 'rain',
+      meteor = c.style === 'meteor',
+      rain = c.style === 'rain' || meteor,
       eruption = c.style === 'eruption';
     const count = rain || eruption ? (c.low ? 3 : 6) : 1;
     for (let i = 0; i < count; i++)
       this.node(
-        'rock',
-        i % 2 ? '#9c7754' : c.color,
+        meteor ? 'orb' : 'rock',
+        meteor ? (i % 2 ? '#f3c17b' : c.color) : i % 2 ? '#9c7754' : c.color,
         (m, p) => {
-          const t = clamp((p - i * 0.025) / (c.impact - i * 0.025));
-          m.visible = p < c.impact + 0.05;
+          const t = clamp((p - i * 0.025) / (c.impact - (meteor ? 0 : i * 0.025)));
+          m.visible = meteor ? t < 1 : p < c.impact + 0.05;
           if (rain || eruption) {
             m.position.copy(this.end);
             m.position.x += Math.cos(i * 2.4) * c.size * 0.75;
@@ -390,6 +396,27 @@ class MoveEffect {
         },
         { solid: true },
       );
+    if (meteor)
+      for (let i = 0; i < count; i++) {
+        this.node('glow', c.color, (m, p) => {
+          const t = clamp((p - i * 0.025) / c.impact);
+          m.position.copy(this.end);
+          m.position.x += Math.cos(i * 2.4) * c.size * 0.75;
+          m.position.z += Math.sin(i * 2.4) * c.size * 0.6;
+          m.position.y += (1 - t * t) * 3 + 0.3;
+          m.scale.set(c.size * 0.9, c.size * 1.7, 1);
+          m.material.opacity = envelope(t) * 0.7;
+        });
+        this.node('ring', c.color, (m, p) => {
+          const t = clamp((p - c.impact - i * 0.025) / 0.25);
+          m.position.copy(this.end);
+          m.position.x += Math.cos(i * 2.4) * c.size * 0.75;
+          m.position.z += Math.sin(i * 2.4) * c.size * 0.6;
+          m.quaternion.copy(this.camera.quaternion);
+          m.scale.setScalar(c.size * (0.1 + t * 0.65));
+          m.material.opacity = envelope(t) * 0.6;
+        });
+      }
   }
 
   slashes() {

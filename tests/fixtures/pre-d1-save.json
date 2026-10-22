@@ -1,0 +1,245 @@
+{
+  "saveVersion": 1,
+  "revision": 0,
+  "trainer": {
+    "coins": 570,
+    "chosenStarterId": "pikachu"
+  },
+  "collection": [
+    {
+      "instanceId": "legacy-0",
+      "speciesId": "pikachu",
+      "level": 5,
+      "totalXP": 125,
+      "moveIds": [
+        "growl",
+        "spark",
+        "thunderbolt",
+        "tail-whip"
+      ],
+      "variantSeed": 42,
+      "acquiredAt": "2026-10-21"
+    },
+    {
+      "instanceId": "legacy-1",
+      "speciesId": "bulbasaur",
+      "level": 5,
+      "totalXP": 125,
+      "moveIds": [
+        "tackle",
+        "growth",
+        "razor-leaf",
+        "poison-gas"
+      ],
+      "variantSeed": 43,
+      "acquiredAt": "2026-10-21"
+    },
+    {
+      "instanceId": "legacy-2",
+      "speciesId": "charmander",
+      "level": 5,
+      "totalXP": 125,
+      "moveIds": [
+        "flamethrower",
+        "tail-whip",
+        "fire-fang",
+        "swift"
+      ],
+      "variantSeed": 44,
+      "acquiredAt": "2026-10-21"
+    },
+    {
+      "instanceId": "legacy-3",
+      "speciesId": "squirtle",
+      "level": 5,
+      "totalXP": 125,
+      "moveIds": [
+        "aqua-tail",
+        "tackle",
+        "hydro-pump",
+        "tail-whip"
+      ],
+      "variantSeed": 45,
+      "acquiredAt": "2026-10-21"
+    },
+    {
+      "instanceId": "legacy-4",
+      "speciesId": "eevee",
+      "level": 5,
+      "totalXP": 125,
+      "moveIds": [
+        "sand-attack",
+        "bite",
+        "growl",
+        "quick-attack"
+      ],
+      "variantSeed": 46,
+      "acquiredAt": "2026-10-21"
+    },
+    {
+      "instanceId": "legacy-5",
+      "speciesId": "sandshrew",
+      "level": 5,
+      "totalXP": 125,
+      "moveIds": [
+        "scratch",
+        "rock-throw",
+        "bulldoze",
+        "sand-attack"
+      ],
+      "variantSeed": 47,
+      "acquiredAt": "2026-10-21"
+    },
+    {
+      "instanceId": "legacy-6",
+      "speciesId": "growlithe",
+      "level": 5,
+      "totalXP": 125,
+      "moveIds": [
+        "quick-attack",
+        "flamethrower",
+        "will-o-wisp",
+        "crunch"
+      ],
+      "variantSeed": 48,
+      "acquiredAt": "2026-10-21"
+    },
+    {
+      "instanceId": "legacy-7",
+      "speciesId": "magnemite",
+      "level": 5,
+      "totalXP": 125,
+      "moveIds": [
+        "flash-cannon",
+        "thunder-wave",
+        "spark",
+        "swift"
+      ],
+      "variantSeed": 49,
+      "acquiredAt": "2026-10-21"
+    },
+    {
+      "instanceId": "legacy-8",
+      "speciesId": "gastly",
+      "level": 5,
+      "totalXP": 125,
+      "moveIds": [
+        "acid",
+        "swift",
+        "shadow-ball",
+        "hypnosis"
+      ],
+      "variantSeed": 50,
+      "acquiredAt": "2026-10-21"
+    },
+    {
+      "instanceId": "legacy-9",
+      "speciesId": "abra",
+      "level": 5,
+      "totalXP": 125,
+      "moveIds": [
+        "psychic",
+        "hypnosis",
+        "calm-mind",
+        "swift"
+      ],
+      "variantSeed": 51,
+      "acquiredAt": "2026-10-21"
+    },
+    {
+      "instanceId": "legacy-10",
+      "speciesId": "geodude",
+      "level": 5,
+      "totalXP": 125,
+      "moveIds": [
+        "bulldoze",
+        "tackle",
+        "harden",
+        "brick-break"
+      ],
+      "variantSeed": 52,
+      "acquiredAt": "2026-10-21"
+    },
+    {
+      "instanceId": "legacy-11",
+      "speciesId": "psyduck",
+      "level": 5,
+      "totalXP": 125,
+      "moveIds": [
+        "hydro-pump",
+        "bubble-beam",
+        "confusion",
+        "swift"
+      ],
+      "variantSeed": 53,
+      "acquiredAt": "2026-10-21"
+    },
+    {
+      "instanceId": "legacy-12",
+      "speciesId": "machop",
+      "level": 5,
+      "totalXP": 125,
+      "moveIds": [
+        "tackle",
+        "karate-chop",
+        "rock-throw",
+        "bulldoze"
+      ],
+      "variantSeed": 54,
+      "acquiredAt": "2026-10-21"
+    },
+    {
+      "instanceId": "legacy-13",
+      "speciesId": "dratini",
+      "level": 5,
+      "totalXP": 125,
+      "moveIds": [
+        "aqua-tail",
+        "dragon-claw",
+        "twister",
+        "dragon-breath"
+      ],
+      "variantSeed": 55,
+      "acquiredAt": "2026-10-21"
+    },
+    {
+      "instanceId": "legacy-14",
+      "speciesId": "charizard",
+      "level": 5,
+      "totalXP": 125,
+      "moveIds": [
+        "scratch",
+        "ember",
+        "dragon-claw",
+        "gust"
+      ],
+      "variantSeed": 56,
+      "acquiredAt": "2026-10-21"
+    },
+    {
+      "instanceId": "legacy-15",
+      "speciesId": "blastoise",
+      "level": 5,
+      "totalXP": 125,
+      "moveIds": [
+        "ice-beam",
+        "hydro-pump",
+        "body-slam",
+        "withdraw"
+      ],
+      "variantSeed": 57,
+      "acquiredAt": "2026-10-21"
+    }
+  ],
+  "settings": {
+    "theme": "dark",
+    "volume": 0.3,
+    "mute": false,
+    "music": false,
+    "reducedMotion": false,
+    "lowVFX": false,
+    "uiScale": 1,
+    "speed": 1
+  },
+  "completedBattleIds": []
+}

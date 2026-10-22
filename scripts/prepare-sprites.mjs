@@ -24,7 +24,18 @@ const colors = [
   '#eda36f',
   '#7dcae7',
 ];
-const manifest = {};
+const only = process.argv
+  .find((arg) => arg.startsWith('--only='))
+  ?.slice(7)
+  .split(',');
+if (only?.some((id) => !species[id])) throw Error('Unknown species in --only');
+const manifest = only ? await read('src/data/generated/spriteManifest.json') : {};
+if (only)
+  for (const id of Object.keys(species).filter((id) => !only.includes(id)))
+    if (!manifest[id] || manifest[id].sourceCommit !== lock.spriteRepoRevision)
+      throw Error(
+        `Cannot retain missing or differently pinned sprite ${id}; prepare the full roster.`,
+      );
 export async function atlas(buffer, path) {
   const meta = await sharp(buffer, { animated: true }).metadata();
   const { data, info } = await sharp(buffer, { animated: true })
@@ -87,7 +98,8 @@ export async function atlas(buffer, path) {
     sourceFrameCount: n,
   };
 }
-await parallel(Object.entries(species), async ([id, s]) => {
+const selectedSpecies = Object.entries(species).filter(([id]) => !only || only.includes(id));
+await parallel(selectedSpecies, async ([id, s]) => {
   const i = Object.keys(species).indexOf(id);
   const entry = {
     speciesId: id,
@@ -114,13 +126,15 @@ await parallel(Object.entries(species), async ([id, s]) => {
           buf = await download(sourceUrl);
           fallbackReason = 'Gen-V GIF unavailable; static PNG.';
         } catch {
-          fallbackReason = 'Gen-V pair unavailable; original stand-in.';
+          throw Error(
+            `Gen-V art unavailable for ${id}/${side}; no placeholder published. Retry the pinned source or explicitly use --standins for development.`,
+          );
         }
       }
     }
     if (!buf) {
       buf = Buffer.from(
-        `<svg xmlns="http://www.w3.org/2000/svg" width="96" height="100"><path d="M48 4 79 25 86 65 66 94 30 94 10 65 17 25Z" fill="${colors[i]}" stroke="#27354b" stroke-width="5"/><path d="M48 4 34 39 48 94 62 39Z" fill="#ffffff" opacity=".2"/>${side === 'front' ? '<path d="M25 44h13v9H25zm33 0h13v9H58z" fill="#182636"/><path d="M38 65h20v5H38z" fill="#182636"/>' : '<path d="m30 40 18 12 18-12M30 55l18 12 18-12" fill="none" stroke="#27354b" stroke-width="5"/>'}</svg>`,
+        `<svg xmlns="http://www.w3.org/2000/svg" width="96" height="100"><path d="M48 4 79 25 86 65 66 94 30 94 10 65 17 25Z" fill="${colors[i % colors.length]}" stroke="#27354b" stroke-width="5"/><path d="M48 4 34 39 48 94 62 39Z" fill="#ffffff" opacity=".2"/>${side === 'front' ? '<path d="M25 44h13v9H25zm33 0h13v9H58z" fill="#182636"/><path d="M38 65h20v5H38z" fill="#182636"/>' : '<path d="m30 40 18 12 18-12M30 55l18 12 18-12" fill="none" stroke="#27354b" stroke-width="5"/>'}</svg>`,
       );
       entry.rightsStatus = 'placeholder';
       entry.redistributable = true;

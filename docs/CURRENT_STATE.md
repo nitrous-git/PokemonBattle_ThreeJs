@@ -1,11 +1,13 @@
 # Current state — Battle Atelier
 
-**Baseline:** `New-features`, 2026-10-21, with the Phase A attack VFX upgrade and Phase B VS introduction. This file records **what is implemented** rather than promising future features.
+**Baseline:** `New-features`, 2026-10-22, with Phases A–C and the Phase D1 roster expansion. This file records **what is implemented** rather than promising future features.
 
 ## Playable today
 
 - Static GitHub Pages / native browser ES modules; pinned Three.js `0.180.0` CDN import map; no bundler or production Node process.
-- 16 curated Pokémon and 61 moves; 18 types, 18x18 type-effectiveness table, dual-type multipliers and immunities.
+- 24 curated Pokémon and 66 moves; 18 types, 18x18 type-effectiveness table, dual-type multipliers and immunities.
+- D1 additions: Mewtwo, Rayquaza and Lugia (Legendary); Darkrai (Mythical); Lucario, Garchomp and Tyranitar (Elite); Gengar (Rare). All have animated Gen-V front/back atlases, local portraits and source-audited move pools with no new custom learnset exceptions. Metadata bounds large sprites; new rarities have restrained theme-aware labels in Shop/Collection/Setup.
+- D1 moves: Aura Sphere (always hits, respecting immunity), Dark Pulse (no flinch), Earthquake (single target), Dragon Pulse and Draco Meteor (user Sp. Atk −2 after a successful hit). Existing effect families add energy projectiles, ground eruption, dragon beam and a bounded meteor volley. Existing rules, saved drafts, prices for older species and rewards remain unchanged.
 - Initial starter choice: Pikachu, Bulbasaur, Charmander, Squirtle. One owned Pokémon selected per battle; 1v1 player-versus-AI.
 - Setup: opponent selection/filter, randomized opponent, challenge tiers (Rookie/Rival/Champion), AI (Easy/Normal/Hard), three arenas (Verdant Meadow, Crimson Canyon, Astral Chamber).
 - Battles: four acquired moves per Pokémon, PP, accuracy, priority/speed, physical/special/status effects, stat stages, critical hits, burn/paralysis/sleep/freeze/poison, volatile confusion, recoil and Struggle fallback.
@@ -15,7 +17,7 @@
 - VFX playback waits for renderer completion, scales with live battle speed, and cancels on Skip, context loss, actor replacement or disposal. Elapsed effect time stays independent of the ambient frame cap. Low VFX reduces geometry/particles; no postprocessing or new runtime dependency.
 - VS introduction: new battles and Results replay show a local-portrait warm/cool diagonal matchup overlay for 1.65 seconds, independent of turn speed. Portrait phones use a stacked layout. Button/Space Skip, a 180ms static Reduced Motion reveal, bounded asset preparation, missing-art/WebGL fallback, isolated intro input locking, cancellation cleanup and restored move focus are supported. Two restrained synthesized cues respect audio settings.
 - Results/replay, XP/levels (cap 50), coins, permanent unlock shop, owned collection and saved settings. Save export, localStorage validation/recovery, transaction/double-reward defenses.
-- Appearance: Settings offers immediate Light (default) and Midnight Dark themes across screens, controls, dialogs and notifications. The preference persists before starter selection and in version 1 saves; older saves default to Light and invalid values use existing recovery. Early root theme application limits startup flashing. Arena rendering, type hues and the VS cinematic retain their presentation.
+- Appearance: Settings offers immediate Light and Midnight Dark (current default) themes across screens, controls, dialogs and notifications. The preference persists before starter selection and in version 1 saves; older saves without a theme use the current Dark default and invalid values use existing recovery. Early root theme application limits startup flashing. Arena rendering, type hues and the VS cinematic retain their presentation.
 - Native HTML templates for screens and confirmation dialog, separate UI state bindings and shared components. Responsive CSS and keyboard shortcuts (`1`–`4`, Space skip, Escape from battle).
 
 ## Scope limits / explicit non-features
@@ -33,3 +35,5 @@ Feature options include roster/move expansion, improved encounter variety, colle
 When a feature is delivered and verified, update only the factual bullets that changed. Never rewrite this file from aspirational design notes.
 
 `node scripts/theme-qa.mjs` checks theme persistence, save compatibility, both-theme screen coverage, representative contrast, responsive layouts and Phase A/B behavior under the repository subpath, and captures screenshots.
+
+`node scripts/expansion-qa.mjs` verifies all eight purchases/partners, both sprite orientations, large sprites in all arenas, new move VFX, representative complete battles, theme layouts and repository-subpath assets.
